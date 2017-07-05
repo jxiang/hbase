@@ -184,6 +184,7 @@
                           <include>MultiRowMutation.proto</include>
                           <include>Procedure.proto</include>
                           <include>Quota.proto</include>
+                          <include>Snapshot.proto</include>
                           <include>RegionNormalizer.proto</include>
                           <include>RegionServerStatus.proto</include>
                           <include>RowProcessor.proto</include>

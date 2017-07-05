@@ -6,118 +6,115 @@ package org.apache.hadoop.hbase.protobuf.generated;
 public final class ZooKeeperProtos {
   private ZooKeeperProtos() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+      com.google.protobuf.ExtensionRegistryLite registry) {
   }
-  public interface MetaRegionServerOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
 
-    // required .ServerName server = 1;
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  public interface MetaRegionServerOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MetaRegionServer)
+      com.google.protobuf.MessageOrBuilder {
+
     /**
-     * <code>required .ServerName server = 1;</code>
-     *
      * <pre>
      * The ServerName hosting the meta region currently, or destination server,
      * if meta region is in transition.
      * </pre>
+     *
+     * <code>required .ServerName server = 1;</code>
      */
     boolean hasServer();
     /**
-     * <code>required .ServerName server = 1;</code>
-     *
      * <pre>
      * The ServerName hosting the meta region currently, or destination server,
      * if meta region is in transition.
      * </pre>
+     *
+     * <code>required .ServerName server = 1;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getServer();
     /**
-     * <code>required .ServerName server = 1;</code>
-     *
      * <pre>
      * The ServerName hosting the meta region currently, or destination server,
      * if meta region is in transition.
      * </pre>
+     *
+     * <code>required .ServerName server = 1;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getServerOrBuilder();
 
-    // optional uint32 rpc_version = 2;
     /**
-     * <code>optional uint32 rpc_version = 2;</code>
-     *
      * <pre>
      * The major version of the rpc the server speaks.  This is used so that
      * clients connecting to the cluster can have prior knowledge of what version
      * to send to a RegionServer.  AsyncHBase will use this to detect versions.
      * </pre>
+     *
+     * <code>optional uint32 rpc_version = 2;</code>
      */
     boolean hasRpcVersion();
     /**
-     * <code>optional uint32 rpc_version = 2;</code>
-     *
      * <pre>
      * The major version of the rpc the server speaks.  This is used so that
      * clients connecting to the cluster can have prior knowledge of what version
      * to send to a RegionServer.  AsyncHBase will use this to detect versions.
      * </pre>
+     *
+     * <code>optional uint32 rpc_version = 2;</code>
      */
     int getRpcVersion();
 
-    // optional .RegionState.State state = 3;
     /**
-     * <code>optional .RegionState.State state = 3;</code>
-     *
      * <pre>
      * State of the region transition. OPEN means fully operational 'hbase:meta'
      * </pre>
+     *
+     * <code>optional .RegionState.State state = 3;</code>
      */
     boolean hasState();
     /**
-     * <code>optional .RegionState.State state = 3;</code>
-     *
      * <pre>
      * State of the region transition. OPEN means fully operational 'hbase:meta'
      * </pre>
+     *
+     * <code>optional .RegionState.State state = 3;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State getState();
   }
   /**
-   * Protobuf type {@code MetaRegionServer}
-   *
    * <pre>
    **
    * Content of the meta-region-server znode.
    * </pre>
+   *
+   * Protobuf type {@code MetaRegionServer}
    */
-  public static final class MetaRegionServer extends
-      com.google.protobuf.GeneratedMessage
-      implements MetaRegionServerOrBuilder {
+  public  static final class MetaRegionServer extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:MetaRegionServer)
+      MetaRegionServerOrBuilder {
     // Use MetaRegionServer.newBuilder() to construct.
-    private MetaRegionServer(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private MetaRegionServer(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private MetaRegionServer(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final MetaRegionServer defaultInstance;
-    public static MetaRegionServer getDefaultInstance() {
-      return defaultInstance;
+    private MetaRegionServer() {
+      rpcVersion_ = 0;
+      state_ = 0;
     }
 
-    public MetaRegionServer getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private MetaRegionServer(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -161,7 +158,7 @@ public final class ZooKeeperProtos {
                 unknownFields.mergeVarintField(3, rawValue);
               } else {
                 bitField0_ |= 0x00000004;
-                state_ = value;
+                state_ = rawValue;
               }
               break;
             }
@@ -171,7 +168,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -182,127 +179,106 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_MetaRegionServer_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_MetaRegionServer_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<MetaRegionServer> PARSER =
-        new com.google.protobuf.AbstractParser<MetaRegionServer>() {
-      public MetaRegionServer parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MetaRegionServer(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<MetaRegionServer> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required .ServerName server = 1;
     public static final int SERVER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName server_;
     /**
-     * <code>required .ServerName server = 1;</code>
-     *
      * <pre>
      * The ServerName hosting the meta region currently, or destination server,
      * if meta region is in transition.
      * </pre>
+     *
+     * <code>required .ServerName server = 1;</code>
      */
     public boolean hasServer() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .ServerName server = 1;</code>
-     *
      * <pre>
      * The ServerName hosting the meta region currently, or destination server,
      * if meta region is in transition.
      * </pre>
+     *
+     * <code>required .ServerName server = 1;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getServer() {
-      return server_;
+      return server_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : server_;
     }
     /**
-     * <code>required .ServerName server = 1;</code>
-     *
      * <pre>
      * The ServerName hosting the meta region currently, or destination server,
      * if meta region is in transition.
      * </pre>
+     *
+     * <code>required .ServerName server = 1;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getServerOrBuilder() {
-      return server_;
+      return server_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : server_;
     }
 
-    // optional uint32 rpc_version = 2;
     public static final int RPC_VERSION_FIELD_NUMBER = 2;
     private int rpcVersion_;
     /**
-     * <code>optional uint32 rpc_version = 2;</code>
-     *
      * <pre>
      * The major version of the rpc the server speaks.  This is used so that
      * clients connecting to the cluster can have prior knowledge of what version
      * to send to a RegionServer.  AsyncHBase will use this to detect versions.
      * </pre>
+     *
+     * <code>optional uint32 rpc_version = 2;</code>
      */
     public boolean hasRpcVersion() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional uint32 rpc_version = 2;</code>
-     *
      * <pre>
      * The major version of the rpc the server speaks.  This is used so that
      * clients connecting to the cluster can have prior knowledge of what version
      * to send to a RegionServer.  AsyncHBase will use this to detect versions.
      * </pre>
+     *
+     * <code>optional uint32 rpc_version = 2;</code>
      */
     public int getRpcVersion() {
       return rpcVersion_;
     }
 
-    // optional .RegionState.State state = 3;
     public static final int STATE_FIELD_NUMBER = 3;
-    private org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State state_;
+    private int state_;
     /**
-     * <code>optional .RegionState.State state = 3;</code>
-     *
      * <pre>
      * State of the region transition. OPEN means fully operational 'hbase:meta'
      * </pre>
+     *
+     * <code>optional .RegionState.State state = 3;</code>
      */
     public boolean hasState() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional .RegionState.State state = 3;</code>
-     *
      * <pre>
      * State of the region transition. OPEN means fully operational 'hbase:meta'
      * </pre>
+     *
+     * <code>optional .RegionState.State state = 3;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State getState() {
-      return state_;
+      org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State result = org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State.valueOf(state_);
+      return result == null ? org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State.OFFLINE : result;
     }
 
-    private void initFields() {
-      server_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      rpcVersion_ = 0;
-      state_ = org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State.OFFLINE;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasServer()) {
         memoizedIsInitialized = 0;
@@ -318,28 +294,26 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, server_);
+        output.writeMessage(1, getServer());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt32(2, rpcVersion_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeEnum(3, state_.getNumber());
+        output.writeEnum(3, state_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, server_);
+          .computeMessageSize(1, getServer());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -347,20 +321,14 @@ public final class ZooKeeperProtos {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, state_.getNumber());
+          .computeEnumSize(3, state_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -384,15 +352,12 @@ public final class ZooKeeperProtos {
       }
       result = result && (hasState() == other.hasState());
       if (hasState()) {
-        result = result &&
-            (getState() == other.getState());
+        result = result && state_ == other.state_;
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -410,9 +375,9 @@ public final class ZooKeeperProtos {
       }
       if (hasState()) {
         hash = (37 * hash) + STATE_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getState());
+        hash = (53 * hash) + state_;
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -440,66 +405,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code MetaRegionServer}
-     *
      * <pre>
      **
      * Content of the meta-region-server znode.
      * </pre>
+     *
+     * Protobuf type {@code MetaRegionServer}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServerOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MetaRegionServer)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServerOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_MetaRegionServer_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_MetaRegionServer_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -512,36 +489,29 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getServerFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (serverBuilder_ == null) {
-          server_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          server_ = null;
         } else {
           serverBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         rpcVersion_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State.OFFLINE;
+        state_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -586,6 +556,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer)other);
@@ -606,17 +602,16 @@ public final class ZooKeeperProtos {
         if (other.hasState()) {
           setState(other.getState());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasServer()) {
-          
           return false;
         }
         if (!getServer().isInitialized()) {
-          
           return false;
         }
         return true;
@@ -631,7 +626,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -641,43 +636,42 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required .ServerName server = 1;
-      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName server_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName server_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> serverBuilder_;
       /**
-       * <code>required .ServerName server = 1;</code>
-       *
        * <pre>
        * The ServerName hosting the meta region currently, or destination server,
        * if meta region is in transition.
        * </pre>
+       *
+       * <code>required .ServerName server = 1;</code>
        */
       public boolean hasServer() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .ServerName server = 1;</code>
-       *
        * <pre>
        * The ServerName hosting the meta region currently, or destination server,
        * if meta region is in transition.
        * </pre>
+       *
+       * <code>required .ServerName server = 1;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getServer() {
         if (serverBuilder_ == null) {
-          return server_;
+          return server_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : server_;
         } else {
           return serverBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .ServerName server = 1;</code>
-       *
        * <pre>
        * The ServerName hosting the meta region currently, or destination server,
        * if meta region is in transition.
        * </pre>
+       *
+       * <code>required .ServerName server = 1;</code>
        */
       public Builder setServer(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName value) {
         if (serverBuilder_ == null) {
@@ -693,12 +687,12 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName server = 1;</code>
-       *
        * <pre>
        * The ServerName hosting the meta region currently, or destination server,
        * if meta region is in transition.
        * </pre>
+       *
+       * <code>required .ServerName server = 1;</code>
        */
       public Builder setServer(
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder builderForValue) {
@@ -712,16 +706,17 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName server = 1;</code>
-       *
        * <pre>
        * The ServerName hosting the meta region currently, or destination server,
        * if meta region is in transition.
        * </pre>
+       *
+       * <code>required .ServerName server = 1;</code>
        */
       public Builder mergeServer(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName value) {
         if (serverBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              server_ != null &&
               server_ != org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance()) {
             server_ =
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.newBuilder(server_).mergeFrom(value).buildPartial();
@@ -736,16 +731,16 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName server = 1;</code>
-       *
        * <pre>
        * The ServerName hosting the meta region currently, or destination server,
        * if meta region is in transition.
        * </pre>
+       *
+       * <code>required .ServerName server = 1;</code>
        */
       public Builder clearServer() {
         if (serverBuilder_ == null) {
-          server_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          server_ = null;
           onChanged();
         } else {
           serverBuilder_.clear();
@@ -754,12 +749,12 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName server = 1;</code>
-       *
        * <pre>
        * The ServerName hosting the meta region currently, or destination server,
        * if meta region is in transition.
        * </pre>
+       *
+       * <code>required .ServerName server = 1;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder getServerBuilder() {
         bitField0_ |= 0x00000001;
@@ -767,35 +762,36 @@ public final class ZooKeeperProtos {
         return getServerFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .ServerName server = 1;</code>
-       *
        * <pre>
        * The ServerName hosting the meta region currently, or destination server,
        * if meta region is in transition.
        * </pre>
+       *
+       * <code>required .ServerName server = 1;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getServerOrBuilder() {
         if (serverBuilder_ != null) {
           return serverBuilder_.getMessageOrBuilder();
         } else {
-          return server_;
+          return server_ == null ?
+              org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : server_;
         }
       }
       /**
-       * <code>required .ServerName server = 1;</code>
-       *
        * <pre>
        * The ServerName hosting the meta region currently, or destination server,
        * if meta region is in transition.
        * </pre>
+       *
+       * <code>required .ServerName server = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> 
           getServerFieldBuilder() {
         if (serverBuilder_ == null) {
-          serverBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          serverBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder>(
-                  server_,
+                  getServer(),
                   getParentForChildren(),
                   isClean());
           server_ = null;
@@ -803,40 +799,39 @@ public final class ZooKeeperProtos {
         return serverBuilder_;
       }
 
-      // optional uint32 rpc_version = 2;
       private int rpcVersion_ ;
       /**
-       * <code>optional uint32 rpc_version = 2;</code>
-       *
        * <pre>
        * The major version of the rpc the server speaks.  This is used so that
        * clients connecting to the cluster can have prior knowledge of what version
        * to send to a RegionServer.  AsyncHBase will use this to detect versions.
        * </pre>
+       *
+       * <code>optional uint32 rpc_version = 2;</code>
        */
       public boolean hasRpcVersion() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional uint32 rpc_version = 2;</code>
-       *
        * <pre>
        * The major version of the rpc the server speaks.  This is used so that
        * clients connecting to the cluster can have prior knowledge of what version
        * to send to a RegionServer.  AsyncHBase will use this to detect versions.
        * </pre>
+       *
+       * <code>optional uint32 rpc_version = 2;</code>
        */
       public int getRpcVersion() {
         return rpcVersion_;
       }
       /**
-       * <code>optional uint32 rpc_version = 2;</code>
-       *
        * <pre>
        * The major version of the rpc the server speaks.  This is used so that
        * clients connecting to the cluster can have prior knowledge of what version
        * to send to a RegionServer.  AsyncHBase will use this to detect versions.
        * </pre>
+       *
+       * <code>optional uint32 rpc_version = 2;</code>
        */
       public Builder setRpcVersion(int value) {
         bitField0_ |= 0x00000002;
@@ -845,13 +840,13 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>optional uint32 rpc_version = 2;</code>
-       *
        * <pre>
        * The major version of the rpc the server speaks.  This is used so that
        * clients connecting to the cluster can have prior knowledge of what version
        * to send to a RegionServer.  AsyncHBase will use this to detect versions.
        * </pre>
+       *
+       * <code>optional uint32 rpc_version = 2;</code>
        */
       public Builder clearRpcVersion() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -860,117 +855,152 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // optional .RegionState.State state = 3;
-      private org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State state_ = org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State.OFFLINE;
+      private int state_ = 0;
       /**
-       * <code>optional .RegionState.State state = 3;</code>
-       *
        * <pre>
        * State of the region transition. OPEN means fully operational 'hbase:meta'
        * </pre>
+       *
+       * <code>optional .RegionState.State state = 3;</code>
        */
       public boolean hasState() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .RegionState.State state = 3;</code>
-       *
        * <pre>
        * State of the region transition. OPEN means fully operational 'hbase:meta'
        * </pre>
+       *
+       * <code>optional .RegionState.State state = 3;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State getState() {
-        return state_;
+        org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State result = org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State.valueOf(state_);
+        return result == null ? org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State.OFFLINE : result;
       }
       /**
-       * <code>optional .RegionState.State state = 3;</code>
-       *
        * <pre>
        * State of the region transition. OPEN means fully operational 'hbase:meta'
        * </pre>
+       *
+       * <code>optional .RegionState.State state = 3;</code>
        */
       public Builder setState(org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000004;
-        state_ = value;
+        state_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>optional .RegionState.State state = 3;</code>
-       *
        * <pre>
        * State of the region transition. OPEN means fully operational 'hbase:meta'
        * </pre>
+       *
+       * <code>optional .RegionState.State state = 3;</code>
        */
       public Builder clearState() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.RegionState.State.OFFLINE;
+        state_ = 0;
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:MetaRegionServer)
     }
 
+    // @@protoc_insertion_point(class_scope:MetaRegionServer)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer DEFAULT_INSTANCE;
     static {
-      defaultInstance = new MetaRegionServer(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer();
     }
 
-    // @@protoc_insertion_point(class_scope:MetaRegionServer)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<MetaRegionServer>
+        PARSER = new com.google.protobuf.AbstractParser<MetaRegionServer>() {
+      public MetaRegionServer parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new MetaRegionServer(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MetaRegionServer> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MetaRegionServer> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MetaRegionServer getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface MasterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface MasterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Master)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .ServerName master = 1;
     /**
-     * <code>required .ServerName master = 1;</code>
-     *
      * <pre>
      * The ServerName of the current Master
      * </pre>
+     *
+     * <code>required .ServerName master = 1;</code>
      */
     boolean hasMaster();
     /**
-     * <code>required .ServerName master = 1;</code>
-     *
      * <pre>
      * The ServerName of the current Master
      * </pre>
+     *
+     * <code>required .ServerName master = 1;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getMaster();
     /**
-     * <code>required .ServerName master = 1;</code>
-     *
      * <pre>
      * The ServerName of the current Master
      * </pre>
+     *
+     * <code>required .ServerName master = 1;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getMasterOrBuilder();
 
-    // optional uint32 rpc_version = 2;
     /**
-     * <code>optional uint32 rpc_version = 2;</code>
-     *
      * <pre>
      * Major RPC version so that clients can know what version the master can accept.
      * </pre>
+     *
+     * <code>optional uint32 rpc_version = 2;</code>
      */
     boolean hasRpcVersion();
     /**
-     * <code>optional uint32 rpc_version = 2;</code>
-     *
      * <pre>
      * Major RPC version so that clients can know what version the master can accept.
      * </pre>
+     *
+     * <code>optional uint32 rpc_version = 2;</code>
      */
     int getRpcVersion();
 
-    // optional uint32 info_port = 3;
     /**
      * <code>optional uint32 info_port = 3;</code>
      */
@@ -981,43 +1011,36 @@ public final class ZooKeeperProtos {
     int getInfoPort();
   }
   /**
-   * Protobuf type {@code Master}
-   *
    * <pre>
    **
    * Content of the master znode.
    * </pre>
+   *
+   * Protobuf type {@code Master}
    */
-  public static final class Master extends
-      com.google.protobuf.GeneratedMessage
-      implements MasterOrBuilder {
+  public  static final class Master extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Master)
+      MasterOrBuilder {
     // Use Master.newBuilder() to construct.
-    private Master(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Master(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Master(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Master defaultInstance;
-    public static Master getDefaultInstance() {
-      return defaultInstance;
+    private Master() {
+      rpcVersion_ = 0;
+      infoPort_ = 0;
     }
 
-    public Master getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private Master(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1065,7 +1088,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1076,88 +1099,70 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_Master_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_Master_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Master> PARSER =
-        new com.google.protobuf.AbstractParser<Master>() {
-      public Master parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Master(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Master> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required .ServerName master = 1;
     public static final int MASTER_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName master_;
     /**
-     * <code>required .ServerName master = 1;</code>
-     *
      * <pre>
      * The ServerName of the current Master
      * </pre>
+     *
+     * <code>required .ServerName master = 1;</code>
      */
     public boolean hasMaster() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .ServerName master = 1;</code>
-     *
      * <pre>
      * The ServerName of the current Master
      * </pre>
+     *
+     * <code>required .ServerName master = 1;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getMaster() {
-      return master_;
+      return master_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : master_;
     }
     /**
-     * <code>required .ServerName master = 1;</code>
-     *
      * <pre>
      * The ServerName of the current Master
      * </pre>
+     *
+     * <code>required .ServerName master = 1;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getMasterOrBuilder() {
-      return master_;
+      return master_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : master_;
     }
 
-    // optional uint32 rpc_version = 2;
     public static final int RPC_VERSION_FIELD_NUMBER = 2;
     private int rpcVersion_;
     /**
-     * <code>optional uint32 rpc_version = 2;</code>
-     *
      * <pre>
      * Major RPC version so that clients can know what version the master can accept.
      * </pre>
+     *
+     * <code>optional uint32 rpc_version = 2;</code>
      */
     public boolean hasRpcVersion() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional uint32 rpc_version = 2;</code>
-     *
      * <pre>
      * Major RPC version so that clients can know what version the master can accept.
      * </pre>
+     *
+     * <code>optional uint32 rpc_version = 2;</code>
      */
     public int getRpcVersion() {
       return rpcVersion_;
     }
 
-    // optional uint32 info_port = 3;
     public static final int INFO_PORT_FIELD_NUMBER = 3;
     private int infoPort_;
     /**
@@ -1173,15 +1178,11 @@ public final class ZooKeeperProtos {
       return infoPort_;
     }
 
-    private void initFields() {
-      master_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      rpcVersion_ = 0;
-      infoPort_ = 0;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasMaster()) {
         memoizedIsInitialized = 0;
@@ -1197,9 +1198,8 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, master_);
+        output.writeMessage(1, getMaster());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt32(2, rpcVersion_);
@@ -1207,18 +1207,17 @@ public final class ZooKeeperProtos {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeUInt32(3, infoPort_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, master_);
+          .computeMessageSize(1, getMaster());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1228,18 +1227,12 @@ public final class ZooKeeperProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(3, infoPort_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1266,12 +1259,10 @@ public final class ZooKeeperProtos {
         result = result && (getInfoPort()
             == other.getInfoPort());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -1291,7 +1282,7 @@ public final class ZooKeeperProtos {
         hash = (37 * hash) + INFO_PORT_FIELD_NUMBER;
         hash = (53 * hash) + getInfoPort();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1319,66 +1310,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code Master}
-     *
      * <pre>
      **
      * Content of the master znode.
      * </pre>
+     *
+     * Protobuf type {@code Master}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MasterOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Master)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.MasterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_Master_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_Master_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1391,23 +1394,20 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getMasterFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (masterBuilder_ == null) {
-          master_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          master_ = null;
         } else {
           masterBuilder_.clear();
         }
@@ -1417,10 +1417,6 @@ public final class ZooKeeperProtos {
         infoPort_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -1465,6 +1461,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master)other);
@@ -1485,17 +1507,16 @@ public final class ZooKeeperProtos {
         if (other.hasInfoPort()) {
           setInfoPort(other.getInfoPort());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasMaster()) {
-          
           return false;
         }
         if (!getMaster().isInitialized()) {
-          
           return false;
         }
         return true;
@@ -1510,7 +1531,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -1520,40 +1541,39 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required .ServerName master = 1;
-      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName master_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName master_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> masterBuilder_;
       /**
-       * <code>required .ServerName master = 1;</code>
-       *
        * <pre>
        * The ServerName of the current Master
        * </pre>
+       *
+       * <code>required .ServerName master = 1;</code>
        */
       public boolean hasMaster() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .ServerName master = 1;</code>
-       *
        * <pre>
        * The ServerName of the current Master
        * </pre>
+       *
+       * <code>required .ServerName master = 1;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getMaster() {
         if (masterBuilder_ == null) {
-          return master_;
+          return master_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : master_;
         } else {
           return masterBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .ServerName master = 1;</code>
-       *
        * <pre>
        * The ServerName of the current Master
        * </pre>
+       *
+       * <code>required .ServerName master = 1;</code>
        */
       public Builder setMaster(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName value) {
         if (masterBuilder_ == null) {
@@ -1569,11 +1589,11 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName master = 1;</code>
-       *
        * <pre>
        * The ServerName of the current Master
        * </pre>
+       *
+       * <code>required .ServerName master = 1;</code>
        */
       public Builder setMaster(
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder builderForValue) {
@@ -1587,15 +1607,16 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName master = 1;</code>
-       *
        * <pre>
        * The ServerName of the current Master
        * </pre>
+       *
+       * <code>required .ServerName master = 1;</code>
        */
       public Builder mergeMaster(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName value) {
         if (masterBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              master_ != null &&
               master_ != org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance()) {
             master_ =
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.newBuilder(master_).mergeFrom(value).buildPartial();
@@ -1610,15 +1631,15 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName master = 1;</code>
-       *
        * <pre>
        * The ServerName of the current Master
        * </pre>
+       *
+       * <code>required .ServerName master = 1;</code>
        */
       public Builder clearMaster() {
         if (masterBuilder_ == null) {
-          master_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          master_ = null;
           onChanged();
         } else {
           masterBuilder_.clear();
@@ -1627,11 +1648,11 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName master = 1;</code>
-       *
        * <pre>
        * The ServerName of the current Master
        * </pre>
+       *
+       * <code>required .ServerName master = 1;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder getMasterBuilder() {
         bitField0_ |= 0x00000001;
@@ -1639,33 +1660,34 @@ public final class ZooKeeperProtos {
         return getMasterFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .ServerName master = 1;</code>
-       *
        * <pre>
        * The ServerName of the current Master
        * </pre>
+       *
+       * <code>required .ServerName master = 1;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getMasterOrBuilder() {
         if (masterBuilder_ != null) {
           return masterBuilder_.getMessageOrBuilder();
         } else {
-          return master_;
+          return master_ == null ?
+              org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : master_;
         }
       }
       /**
-       * <code>required .ServerName master = 1;</code>
-       *
        * <pre>
        * The ServerName of the current Master
        * </pre>
+       *
+       * <code>required .ServerName master = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> 
           getMasterFieldBuilder() {
         if (masterBuilder_ == null) {
-          masterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          masterBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder>(
-                  master_,
+                  getMaster(),
                   getParentForChildren(),
                   isClean());
           master_ = null;
@@ -1673,34 +1695,33 @@ public final class ZooKeeperProtos {
         return masterBuilder_;
       }
 
-      // optional uint32 rpc_version = 2;
       private int rpcVersion_ ;
       /**
-       * <code>optional uint32 rpc_version = 2;</code>
-       *
        * <pre>
        * Major RPC version so that clients can know what version the master can accept.
        * </pre>
+       *
+       * <code>optional uint32 rpc_version = 2;</code>
        */
       public boolean hasRpcVersion() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional uint32 rpc_version = 2;</code>
-       *
        * <pre>
        * Major RPC version so that clients can know what version the master can accept.
        * </pre>
+       *
+       * <code>optional uint32 rpc_version = 2;</code>
        */
       public int getRpcVersion() {
         return rpcVersion_;
       }
       /**
-       * <code>optional uint32 rpc_version = 2;</code>
-       *
        * <pre>
        * Major RPC version so that clients can know what version the master can accept.
        * </pre>
+       *
+       * <code>optional uint32 rpc_version = 2;</code>
        */
       public Builder setRpcVersion(int value) {
         bitField0_ |= 0x00000002;
@@ -1709,11 +1730,11 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>optional uint32 rpc_version = 2;</code>
-       *
        * <pre>
        * Major RPC version so that clients can know what version the master can accept.
        * </pre>
+       *
+       * <code>optional uint32 rpc_version = 2;</code>
        */
       public Builder clearRpcVersion() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -1722,7 +1743,6 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // optional uint32 info_port = 3;
       private int infoPort_ ;
       /**
        * <code>optional uint32 info_port = 3;</code>
@@ -1754,89 +1774,118 @@ public final class ZooKeeperProtos {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:Master)
     }
 
+    // @@protoc_insertion_point(class_scope:Master)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master DEFAULT_INSTANCE;
     static {
-      defaultInstance = new Master(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master();
     }
 
-    // @@protoc_insertion_point(class_scope:Master)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Master>
+        PARSER = new com.google.protobuf.AbstractParser<Master>() {
+      public Master parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Master(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Master> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Master> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Master getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface ClusterUpOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ClusterUpOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ClusterUp)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string start_date = 1;
     /**
-     * <code>required string start_date = 1;</code>
-     *
      * <pre>
      * If this znode is present, cluster is up.  Currently
      * the data is cluster start_date.
      * </pre>
+     *
+     * <code>required string start_date = 1;</code>
      */
     boolean hasStartDate();
     /**
-     * <code>required string start_date = 1;</code>
-     *
      * <pre>
      * If this znode is present, cluster is up.  Currently
      * the data is cluster start_date.
      * </pre>
+     *
+     * <code>required string start_date = 1;</code>
      */
     java.lang.String getStartDate();
     /**
-     * <code>required string start_date = 1;</code>
-     *
      * <pre>
      * If this znode is present, cluster is up.  Currently
      * the data is cluster start_date.
      * </pre>
+     *
+     * <code>required string start_date = 1;</code>
      */
     com.google.protobuf.ByteString
         getStartDateBytes();
   }
   /**
-   * Protobuf type {@code ClusterUp}
-   *
    * <pre>
    **
    * Content of the '/hbase/running', cluster state, znode.
    * </pre>
+   *
+   * Protobuf type {@code ClusterUp}
    */
-  public static final class ClusterUp extends
-      com.google.protobuf.GeneratedMessage
-      implements ClusterUpOrBuilder {
+  public  static final class ClusterUp extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ClusterUp)
+      ClusterUpOrBuilder {
     // Use ClusterUp.newBuilder() to construct.
-    private ClusterUp(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ClusterUp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ClusterUp(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final ClusterUp defaultInstance;
-    public static ClusterUp getDefaultInstance() {
-      return defaultInstance;
+    private ClusterUp() {
+      startDate_ = "";
     }
 
-    public ClusterUp getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private ClusterUp(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1856,8 +1905,9 @@ public final class ZooKeeperProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              startDate_ = input.readBytes();
+              startDate_ = bs;
               break;
             }
           }
@@ -1866,7 +1916,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1877,50 +1927,34 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ClusterUp_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ClusterUp_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ClusterUp> PARSER =
-        new com.google.protobuf.AbstractParser<ClusterUp>() {
-      public ClusterUp parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ClusterUp(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ClusterUp> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required string start_date = 1;
     public static final int START_DATE_FIELD_NUMBER = 1;
-    private java.lang.Object startDate_;
+    private volatile java.lang.Object startDate_;
     /**
-     * <code>required string start_date = 1;</code>
-     *
      * <pre>
      * If this znode is present, cluster is up.  Currently
      * the data is cluster start_date.
      * </pre>
+     *
+     * <code>required string start_date = 1;</code>
      */
     public boolean hasStartDate() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string start_date = 1;</code>
-     *
      * <pre>
      * If this znode is present, cluster is up.  Currently
      * the data is cluster start_date.
      * </pre>
+     *
+     * <code>required string start_date = 1;</code>
      */
     public java.lang.String getStartDate() {
       java.lang.Object ref = startDate_;
@@ -1937,12 +1971,12 @@ public final class ZooKeeperProtos {
       }
     }
     /**
-     * <code>required string start_date = 1;</code>
-     *
      * <pre>
      * If this znode is present, cluster is up.  Currently
      * the data is cluster start_date.
      * </pre>
+     *
+     * <code>required string start_date = 1;</code>
      */
     public com.google.protobuf.ByteString
         getStartDateBytes() {
@@ -1958,13 +1992,11 @@ public final class ZooKeeperProtos {
       }
     }
 
-    private void initFields() {
-      startDate_ = "";
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasStartDate()) {
         memoizedIsInitialized = 0;
@@ -1976,35 +2008,26 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getStartDateBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, startDate_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getStartDateBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, startDate_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2021,12 +2044,10 @@ public final class ZooKeeperProtos {
         result = result && getStartDate()
             .equals(other.getStartDate());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -2038,7 +2059,7 @@ public final class ZooKeeperProtos {
         hash = (37 * hash) + START_DATE_FIELD_NUMBER;
         hash = (53 * hash) + getStartDate().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2066,66 +2087,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code ClusterUp}
-     *
      * <pre>
      **
      * Content of the '/hbase/running', cluster state, znode.
      * </pre>
+     *
+     * Protobuf type {@code ClusterUp}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUpOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ClusterUp)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUpOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ClusterUp_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ClusterUp_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2138,27 +2171,20 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         startDate_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -2191,6 +2217,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp)other);
@@ -2207,13 +2259,13 @@ public final class ZooKeeperProtos {
           startDate_ = other.startDate_;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasStartDate()) {
-          
           return false;
         }
         return true;
@@ -2228,7 +2280,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -2238,45 +2290,47 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required string start_date = 1;
       private java.lang.Object startDate_ = "";
       /**
-       * <code>required string start_date = 1;</code>
-       *
        * <pre>
        * If this znode is present, cluster is up.  Currently
        * the data is cluster start_date.
        * </pre>
+       *
+       * <code>required string start_date = 1;</code>
        */
       public boolean hasStartDate() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string start_date = 1;</code>
-       *
        * <pre>
        * If this znode is present, cluster is up.  Currently
        * the data is cluster start_date.
        * </pre>
+       *
+       * <code>required string start_date = 1;</code>
        */
       public java.lang.String getStartDate() {
         java.lang.Object ref = startDate_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          startDate_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            startDate_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>required string start_date = 1;</code>
-       *
        * <pre>
        * If this znode is present, cluster is up.  Currently
        * the data is cluster start_date.
        * </pre>
+       *
+       * <code>required string start_date = 1;</code>
        */
       public com.google.protobuf.ByteString
           getStartDateBytes() {
@@ -2292,12 +2346,12 @@ public final class ZooKeeperProtos {
         }
       }
       /**
-       * <code>required string start_date = 1;</code>
-       *
        * <pre>
        * If this znode is present, cluster is up.  Currently
        * the data is cluster start_date.
        * </pre>
+       *
+       * <code>required string start_date = 1;</code>
        */
       public Builder setStartDate(
           java.lang.String value) {
@@ -2310,12 +2364,12 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required string start_date = 1;</code>
-       *
        * <pre>
        * If this znode is present, cluster is up.  Currently
        * the data is cluster start_date.
        * </pre>
+       *
+       * <code>required string start_date = 1;</code>
        */
       public Builder clearStartDate() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -2324,12 +2378,12 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required string start_date = 1;</code>
-       *
        * <pre>
        * If this znode is present, cluster is up.  Currently
        * the data is cluster start_date.
        * </pre>
+       *
+       * <code>required string start_date = 1;</code>
        */
       public Builder setStartDateBytes(
           com.google.protobuf.ByteString value) {
@@ -2341,58 +2395,93 @@ public final class ZooKeeperProtos {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:ClusterUp)
     }
 
+    // @@protoc_insertion_point(class_scope:ClusterUp)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp DEFAULT_INSTANCE;
     static {
-      defaultInstance = new ClusterUp(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp();
     }
 
-    // @@protoc_insertion_point(class_scope:ClusterUp)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ClusterUp>
+        PARSER = new com.google.protobuf.AbstractParser<ClusterUp>() {
+      public ClusterUp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ClusterUp(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ClusterUp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ClusterUp> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ClusterUp getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface RegionTransitionOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface RegionTransitionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:RegionTransition)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required uint32 event_type_code = 1;
     /**
-     * <code>required uint32 event_type_code = 1;</code>
-     *
      * <pre>
      * Code for EventType gotten by doing o.a.h.h.EventHandler.EventType.getCode()
      * </pre>
+     *
+     * <code>required uint32 event_type_code = 1;</code>
      */
     boolean hasEventTypeCode();
     /**
-     * <code>required uint32 event_type_code = 1;</code>
-     *
      * <pre>
      * Code for EventType gotten by doing o.a.h.h.EventHandler.EventType.getCode()
      * </pre>
+     *
+     * <code>required uint32 event_type_code = 1;</code>
      */
     int getEventTypeCode();
 
-    // required bytes region_name = 2;
     /**
-     * <code>required bytes region_name = 2;</code>
-     *
      * <pre>
      * Full regionname in bytes
      * </pre>
+     *
+     * <code>required bytes region_name = 2;</code>
      */
     boolean hasRegionName();
     /**
-     * <code>required bytes region_name = 2;</code>
-     *
      * <pre>
      * Full regionname in bytes
      * </pre>
+     *
+     * <code>required bytes region_name = 2;</code>
      */
     com.google.protobuf.ByteString getRegionName();
 
-    // required uint64 create_time = 3;
     /**
      * <code>required uint64 create_time = 3;</code>
      */
@@ -2402,33 +2491,31 @@ public final class ZooKeeperProtos {
      */
     long getCreateTime();
 
-    // required .ServerName server_name = 4;
     /**
-     * <code>required .ServerName server_name = 4;</code>
-     *
      * <pre>
      * The region server where the transition will happen or is happening
      * </pre>
+     *
+     * <code>required .ServerName server_name = 4;</code>
      */
     boolean hasServerName();
     /**
-     * <code>required .ServerName server_name = 4;</code>
-     *
      * <pre>
      * The region server where the transition will happen or is happening
      * </pre>
+     *
+     * <code>required .ServerName server_name = 4;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getServerName();
     /**
-     * <code>required .ServerName server_name = 4;</code>
-     *
      * <pre>
      * The region server where the transition will happen or is happening
      * </pre>
+     *
+     * <code>required .ServerName server_name = 4;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getServerNameOrBuilder();
 
-    // optional bytes payload = 5;
     /**
      * <code>optional bytes payload = 5;</code>
      */
@@ -2439,44 +2526,39 @@ public final class ZooKeeperProtos {
     com.google.protobuf.ByteString getPayload();
   }
   /**
-   * Protobuf type {@code RegionTransition}
-   *
    * <pre>
    **
    * What we write under unassigned up in zookeeper as a region moves through
    * open/close, etc., regions.  Details a region in transition.
    * </pre>
+   *
+   * Protobuf type {@code RegionTransition}
    */
-  public static final class RegionTransition extends
-      com.google.protobuf.GeneratedMessage
-      implements RegionTransitionOrBuilder {
+  public  static final class RegionTransition extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:RegionTransition)
+      RegionTransitionOrBuilder {
     // Use RegionTransition.newBuilder() to construct.
-    private RegionTransition(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private RegionTransition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private RegionTransition(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final RegionTransition defaultInstance;
-    public static RegionTransition getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public RegionTransition getDefaultInstanceForType() {
-      return defaultInstance;
+    private RegionTransition() {
+      eventTypeCode_ = 0;
+      regionName_ = com.google.protobuf.ByteString.EMPTY;
+      createTime_ = 0L;
+      payload_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private RegionTransition(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2534,7 +2616,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2545,78 +2627,60 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_RegionTransition_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_RegionTransition_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<RegionTransition> PARSER =
-        new com.google.protobuf.AbstractParser<RegionTransition>() {
-      public RegionTransition parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RegionTransition(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<RegionTransition> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required uint32 event_type_code = 1;
     public static final int EVENT_TYPE_CODE_FIELD_NUMBER = 1;
     private int eventTypeCode_;
     /**
-     * <code>required uint32 event_type_code = 1;</code>
-     *
      * <pre>
      * Code for EventType gotten by doing o.a.h.h.EventHandler.EventType.getCode()
      * </pre>
+     *
+     * <code>required uint32 event_type_code = 1;</code>
      */
     public boolean hasEventTypeCode() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required uint32 event_type_code = 1;</code>
-     *
      * <pre>
      * Code for EventType gotten by doing o.a.h.h.EventHandler.EventType.getCode()
      * </pre>
+     *
+     * <code>required uint32 event_type_code = 1;</code>
      */
     public int getEventTypeCode() {
       return eventTypeCode_;
     }
 
-    // required bytes region_name = 2;
     public static final int REGION_NAME_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString regionName_;
     /**
-     * <code>required bytes region_name = 2;</code>
-     *
      * <pre>
      * Full regionname in bytes
      * </pre>
+     *
+     * <code>required bytes region_name = 2;</code>
      */
     public boolean hasRegionName() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required bytes region_name = 2;</code>
-     *
      * <pre>
      * Full regionname in bytes
      * </pre>
+     *
+     * <code>required bytes region_name = 2;</code>
      */
     public com.google.protobuf.ByteString getRegionName() {
       return regionName_;
     }
 
-    // required uint64 create_time = 3;
     public static final int CREATE_TIME_FIELD_NUMBER = 3;
     private long createTime_;
     /**
@@ -2632,41 +2696,39 @@ public final class ZooKeeperProtos {
       return createTime_;
     }
 
-    // required .ServerName server_name = 4;
     public static final int SERVER_NAME_FIELD_NUMBER = 4;
     private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName serverName_;
     /**
-     * <code>required .ServerName server_name = 4;</code>
-     *
      * <pre>
      * The region server where the transition will happen or is happening
      * </pre>
+     *
+     * <code>required .ServerName server_name = 4;</code>
      */
     public boolean hasServerName() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required .ServerName server_name = 4;</code>
-     *
      * <pre>
      * The region server where the transition will happen or is happening
      * </pre>
+     *
+     * <code>required .ServerName server_name = 4;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getServerName() {
-      return serverName_;
+      return serverName_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : serverName_;
     }
     /**
-     * <code>required .ServerName server_name = 4;</code>
-     *
      * <pre>
      * The region server where the transition will happen or is happening
      * </pre>
+     *
+     * <code>required .ServerName server_name = 4;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getServerNameOrBuilder() {
-      return serverName_;
+      return serverName_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : serverName_;
     }
 
-    // optional bytes payload = 5;
     public static final int PAYLOAD_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString payload_;
     /**
@@ -2682,17 +2744,11 @@ public final class ZooKeeperProtos {
       return payload_;
     }
 
-    private void initFields() {
-      eventTypeCode_ = 0;
-      regionName_ = com.google.protobuf.ByteString.EMPTY;
-      createTime_ = 0L;
-      serverName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      payload_ = com.google.protobuf.ByteString.EMPTY;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasEventTypeCode()) {
         memoizedIsInitialized = 0;
@@ -2720,7 +2776,6 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeUInt32(1, eventTypeCode_);
       }
@@ -2731,17 +2786,16 @@ public final class ZooKeeperProtos {
         output.writeUInt64(3, createTime_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(4, serverName_);
+        output.writeMessage(4, getServerName());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeBytes(5, payload_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -2759,24 +2813,18 @@ public final class ZooKeeperProtos {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, serverName_);
+          .computeMessageSize(4, getServerName());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, payload_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2813,12 +2861,10 @@ public final class ZooKeeperProtos {
         result = result && getPayload()
             .equals(other.getPayload());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -2836,7 +2882,8 @@ public final class ZooKeeperProtos {
       }
       if (hasCreateTime()) {
         hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getCreateTime());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCreateTime());
       }
       if (hasServerName()) {
         hash = (37 * hash) + SERVER_NAME_FIELD_NUMBER;
@@ -2846,7 +2893,7 @@ public final class ZooKeeperProtos {
         hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
         hash = (53 * hash) + getPayload().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2874,67 +2921,79 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code RegionTransition}
-     *
      * <pre>
      **
      * What we write under unassigned up in zookeeper as a region moves through
      * open/close, etc., regions.  Details a region in transition.
      * </pre>
+     *
+     * Protobuf type {@code RegionTransition}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransitionOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:RegionTransition)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransitionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_RegionTransition_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_RegionTransition_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2947,19 +3006,16 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getServerNameFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         eventTypeCode_ = 0;
@@ -2969,7 +3025,7 @@ public final class ZooKeeperProtos {
         createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000004);
         if (serverNameBuilder_ == null) {
-          serverName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          serverName_ = null;
         } else {
           serverNameBuilder_.clear();
         }
@@ -2977,10 +3033,6 @@ public final class ZooKeeperProtos {
         payload_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -3033,6 +3085,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition)other);
@@ -3059,29 +3137,25 @@ public final class ZooKeeperProtos {
         if (other.hasPayload()) {
           setPayload(other.getPayload());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasEventTypeCode()) {
-          
           return false;
         }
         if (!hasRegionName()) {
-          
           return false;
         }
         if (!hasCreateTime()) {
-          
           return false;
         }
         if (!hasServerName()) {
-          
           return false;
         }
         if (!getServerName().isInitialized()) {
-          
           return false;
         }
         return true;
@@ -3096,7 +3170,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -3106,34 +3180,33 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required uint32 event_type_code = 1;
       private int eventTypeCode_ ;
       /**
-       * <code>required uint32 event_type_code = 1;</code>
-       *
        * <pre>
        * Code for EventType gotten by doing o.a.h.h.EventHandler.EventType.getCode()
        * </pre>
+       *
+       * <code>required uint32 event_type_code = 1;</code>
        */
       public boolean hasEventTypeCode() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required uint32 event_type_code = 1;</code>
-       *
        * <pre>
        * Code for EventType gotten by doing o.a.h.h.EventHandler.EventType.getCode()
        * </pre>
+       *
+       * <code>required uint32 event_type_code = 1;</code>
        */
       public int getEventTypeCode() {
         return eventTypeCode_;
       }
       /**
-       * <code>required uint32 event_type_code = 1;</code>
-       *
        * <pre>
        * Code for EventType gotten by doing o.a.h.h.EventHandler.EventType.getCode()
        * </pre>
+       *
+       * <code>required uint32 event_type_code = 1;</code>
        */
       public Builder setEventTypeCode(int value) {
         bitField0_ |= 0x00000001;
@@ -3142,11 +3215,11 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required uint32 event_type_code = 1;</code>
-       *
        * <pre>
        * Code for EventType gotten by doing o.a.h.h.EventHandler.EventType.getCode()
        * </pre>
+       *
+       * <code>required uint32 event_type_code = 1;</code>
        */
       public Builder clearEventTypeCode() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -3155,34 +3228,33 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // required bytes region_name = 2;
       private com.google.protobuf.ByteString regionName_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required bytes region_name = 2;</code>
-       *
        * <pre>
        * Full regionname in bytes
        * </pre>
+       *
+       * <code>required bytes region_name = 2;</code>
        */
       public boolean hasRegionName() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required bytes region_name = 2;</code>
-       *
        * <pre>
        * Full regionname in bytes
        * </pre>
+       *
+       * <code>required bytes region_name = 2;</code>
        */
       public com.google.protobuf.ByteString getRegionName() {
         return regionName_;
       }
       /**
-       * <code>required bytes region_name = 2;</code>
-       *
        * <pre>
        * Full regionname in bytes
        * </pre>
+       *
+       * <code>required bytes region_name = 2;</code>
        */
       public Builder setRegionName(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -3194,11 +3266,11 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required bytes region_name = 2;</code>
-       *
        * <pre>
        * Full regionname in bytes
        * </pre>
+       *
+       * <code>required bytes region_name = 2;</code>
        */
       public Builder clearRegionName() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -3207,7 +3279,6 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // required uint64 create_time = 3;
       private long createTime_ ;
       /**
        * <code>required uint64 create_time = 3;</code>
@@ -3240,40 +3311,39 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // required .ServerName server_name = 4;
-      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName serverName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName serverName_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> serverNameBuilder_;
       /**
-       * <code>required .ServerName server_name = 4;</code>
-       *
        * <pre>
        * The region server where the transition will happen or is happening
        * </pre>
+       *
+       * <code>required .ServerName server_name = 4;</code>
        */
       public boolean hasServerName() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required .ServerName server_name = 4;</code>
-       *
        * <pre>
        * The region server where the transition will happen or is happening
        * </pre>
+       *
+       * <code>required .ServerName server_name = 4;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getServerName() {
         if (serverNameBuilder_ == null) {
-          return serverName_;
+          return serverName_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : serverName_;
         } else {
           return serverNameBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .ServerName server_name = 4;</code>
-       *
        * <pre>
        * The region server where the transition will happen or is happening
        * </pre>
+       *
+       * <code>required .ServerName server_name = 4;</code>
        */
       public Builder setServerName(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName value) {
         if (serverNameBuilder_ == null) {
@@ -3289,11 +3359,11 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName server_name = 4;</code>
-       *
        * <pre>
        * The region server where the transition will happen or is happening
        * </pre>
+       *
+       * <code>required .ServerName server_name = 4;</code>
        */
       public Builder setServerName(
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder builderForValue) {
@@ -3307,15 +3377,16 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName server_name = 4;</code>
-       *
        * <pre>
        * The region server where the transition will happen or is happening
        * </pre>
+       *
+       * <code>required .ServerName server_name = 4;</code>
        */
       public Builder mergeServerName(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName value) {
         if (serverNameBuilder_ == null) {
           if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              serverName_ != null &&
               serverName_ != org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance()) {
             serverName_ =
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.newBuilder(serverName_).mergeFrom(value).buildPartial();
@@ -3330,15 +3401,15 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName server_name = 4;</code>
-       *
        * <pre>
        * The region server where the transition will happen or is happening
        * </pre>
+       *
+       * <code>required .ServerName server_name = 4;</code>
        */
       public Builder clearServerName() {
         if (serverNameBuilder_ == null) {
-          serverName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          serverName_ = null;
           onChanged();
         } else {
           serverNameBuilder_.clear();
@@ -3347,11 +3418,11 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required .ServerName server_name = 4;</code>
-       *
        * <pre>
        * The region server where the transition will happen or is happening
        * </pre>
+       *
+       * <code>required .ServerName server_name = 4;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder getServerNameBuilder() {
         bitField0_ |= 0x00000008;
@@ -3359,33 +3430,34 @@ public final class ZooKeeperProtos {
         return getServerNameFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .ServerName server_name = 4;</code>
-       *
        * <pre>
        * The region server where the transition will happen or is happening
        * </pre>
+       *
+       * <code>required .ServerName server_name = 4;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getServerNameOrBuilder() {
         if (serverNameBuilder_ != null) {
           return serverNameBuilder_.getMessageOrBuilder();
         } else {
-          return serverName_;
+          return serverName_ == null ?
+              org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : serverName_;
         }
       }
       /**
-       * <code>required .ServerName server_name = 4;</code>
-       *
        * <pre>
        * The region server where the transition will happen or is happening
        * </pre>
+       *
+       * <code>required .ServerName server_name = 4;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> 
           getServerNameFieldBuilder() {
         if (serverNameBuilder_ == null) {
-          serverNameBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          serverNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder>(
-                  serverName_,
+                  getServerName(),
                   getParentForChildren(),
                   isClean());
           serverName_ = null;
@@ -3393,7 +3465,6 @@ public final class ZooKeeperProtos {
         return serverNameBuilder_;
       }
 
-      // optional bytes payload = 5;
       private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes payload = 5;</code>
@@ -3428,22 +3499,59 @@ public final class ZooKeeperProtos {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:RegionTransition)
     }
 
+    // @@protoc_insertion_point(class_scope:RegionTransition)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition DEFAULT_INSTANCE;
     static {
-      defaultInstance = new RegionTransition(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition();
     }
 
-    // @@protoc_insertion_point(class_scope:RegionTransition)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<RegionTransition>
+        PARSER = new com.google.protobuf.AbstractParser<RegionTransition>() {
+      public RegionTransition parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new RegionTransition(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RegionTransition> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RegionTransition> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.RegionTransition getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface SplitLogTaskOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SplitLogTaskOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SplitLogTask)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .SplitLogTask.State state = 1;
     /**
      * <code>required .SplitLogTask.State state = 1;</code>
      */
@@ -3453,7 +3561,6 @@ public final class ZooKeeperProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State getState();
 
-    // required .ServerName server_name = 2;
     /**
      * <code>required .ServerName server_name = 2;</code>
      */
@@ -3467,7 +3574,6 @@ public final class ZooKeeperProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getServerNameOrBuilder();
 
-    // optional .SplitLogTask.RecoveryMode mode = 3 [default = UNKNOWN];
     /**
      * <code>optional .SplitLogTask.RecoveryMode mode = 3 [default = UNKNOWN];</code>
      */
@@ -3478,44 +3584,37 @@ public final class ZooKeeperProtos {
     org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode getMode();
   }
   /**
-   * Protobuf type {@code SplitLogTask}
-   *
    * <pre>
    **
    * WAL SplitLog directory znodes have this for content.  Used doing distributed
    * WAL splitting.  Holds current state and name of server that originated split.
    * </pre>
+   *
+   * Protobuf type {@code SplitLogTask}
    */
-  public static final class SplitLogTask extends
-      com.google.protobuf.GeneratedMessage
-      implements SplitLogTaskOrBuilder {
+  public  static final class SplitLogTask extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SplitLogTask)
+      SplitLogTaskOrBuilder {
     // Use SplitLogTask.newBuilder() to construct.
-    private SplitLogTask(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private SplitLogTask(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private SplitLogTask(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final SplitLogTask defaultInstance;
-    public static SplitLogTask getDefaultInstance() {
-      return defaultInstance;
+    private SplitLogTask() {
+      state_ = 0;
+      mode_ = 0;
     }
 
-    public SplitLogTask getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private SplitLogTask(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3541,7 +3640,7 @@ public final class ZooKeeperProtos {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
                 bitField0_ |= 0x00000001;
-                state_ = value;
+                state_ = rawValue;
               }
               break;
             }
@@ -3565,7 +3664,7 @@ public final class ZooKeeperProtos {
                 unknownFields.mergeVarintField(3, rawValue);
               } else {
                 bitField0_ |= 0x00000004;
-                mode_ = value;
+                mode_ = rawValue;
               }
               break;
             }
@@ -3575,7 +3674,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3586,26 +3685,11 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_SplitLogTask_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_SplitLogTask_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<SplitLogTask> PARSER =
-        new com.google.protobuf.AbstractParser<SplitLogTask>() {
-      public SplitLogTask parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SplitLogTask(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SplitLogTask> getParserForType() {
-      return PARSER;
     }
 
     /**
@@ -3616,23 +3700,23 @@ public final class ZooKeeperProtos {
       /**
        * <code>UNASSIGNED = 0;</code>
        */
-      UNASSIGNED(0, 0),
+      UNASSIGNED(0),
       /**
        * <code>OWNED = 1;</code>
        */
-      OWNED(1, 1),
+      OWNED(1),
       /**
        * <code>RESIGNED = 2;</code>
        */
-      RESIGNED(2, 2),
+      RESIGNED(2),
       /**
        * <code>DONE = 3;</code>
        */
-      DONE(3, 3),
+      DONE(3),
       /**
        * <code>ERR = 4;</code>
        */
-      ERR(4, 4),
+      ERR(4),
       ;
 
       /**
@@ -3657,9 +3741,19 @@ public final class ZooKeeperProtos {
       public static final int ERR_VALUE = 4;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static State valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static State forNumber(int value) {
         switch (value) {
           case 0: return UNASSIGNED;
           case 1: return OWNED;
@@ -3674,17 +3768,17 @@ public final class ZooKeeperProtos {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<State>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          State> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<State>() {
               public State findValueByNumber(int number) {
-                return State.valueOf(number);
+                return State.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -3706,11 +3800,9 @@ public final class ZooKeeperProtos {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private State(int index, int value) {
-        this.index = index;
+      private State(int value) {
         this.value = value;
       }
 
@@ -3725,15 +3817,15 @@ public final class ZooKeeperProtos {
       /**
        * <code>UNKNOWN = 0;</code>
        */
-      UNKNOWN(0, 0),
+      UNKNOWN(0),
       /**
        * <code>LOG_SPLITTING = 1;</code>
        */
-      LOG_SPLITTING(1, 1),
+      LOG_SPLITTING(1),
       /**
        * <code>LOG_REPLAY = 2;</code>
        */
-      LOG_REPLAY(2, 2),
+      LOG_REPLAY(2),
       ;
 
       /**
@@ -3750,9 +3842,19 @@ public final class ZooKeeperProtos {
       public static final int LOG_REPLAY_VALUE = 2;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static RecoveryMode valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static RecoveryMode forNumber(int value) {
         switch (value) {
           case 0: return UNKNOWN;
           case 1: return LOG_SPLITTING;
@@ -3765,17 +3867,17 @@ public final class ZooKeeperProtos {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<RecoveryMode>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          RecoveryMode> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<RecoveryMode>() {
               public RecoveryMode findValueByNumber(int number) {
-                return RecoveryMode.valueOf(number);
+                return RecoveryMode.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -3797,11 +3899,9 @@ public final class ZooKeeperProtos {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private RecoveryMode(int index, int value) {
-        this.index = index;
+      private RecoveryMode(int value) {
         this.value = value;
       }
 
@@ -3809,9 +3909,8 @@ public final class ZooKeeperProtos {
     }
 
     private int bitField0_;
-    // required .SplitLogTask.State state = 1;
     public static final int STATE_FIELD_NUMBER = 1;
-    private org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State state_;
+    private int state_;
     /**
      * <code>required .SplitLogTask.State state = 1;</code>
      */
@@ -3822,10 +3921,10 @@ public final class ZooKeeperProtos {
      * <code>required .SplitLogTask.State state = 1;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State getState() {
-      return state_;
+      org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State result = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State.valueOf(state_);
+      return result == null ? org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State.UNASSIGNED : result;
     }
 
-    // required .ServerName server_name = 2;
     public static final int SERVER_NAME_FIELD_NUMBER = 2;
     private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName serverName_;
     /**
@@ -3838,18 +3937,17 @@ public final class ZooKeeperProtos {
      * <code>required .ServerName server_name = 2;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getServerName() {
-      return serverName_;
+      return serverName_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : serverName_;
     }
     /**
      * <code>required .ServerName server_name = 2;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getServerNameOrBuilder() {
-      return serverName_;
+      return serverName_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : serverName_;
     }
 
-    // optional .SplitLogTask.RecoveryMode mode = 3 [default = UNKNOWN];
     public static final int MODE_FIELD_NUMBER = 3;
-    private org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode mode_;
+    private int mode_;
     /**
      * <code>optional .SplitLogTask.RecoveryMode mode = 3 [default = UNKNOWN];</code>
      */
@@ -3860,18 +3958,15 @@ public final class ZooKeeperProtos {
      * <code>optional .SplitLogTask.RecoveryMode mode = 3 [default = UNKNOWN];</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode getMode() {
-      return mode_;
+      org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode result = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode.valueOf(mode_);
+      return result == null ? org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode.UNKNOWN : result;
     }
 
-    private void initFields() {
-      state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State.UNASSIGNED;
-      serverName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      mode_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode.UNKNOWN;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasState()) {
         memoizedIsInitialized = 0;
@@ -3891,49 +3986,41 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, state_.getNumber());
+        output.writeEnum(1, state_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, serverName_);
+        output.writeMessage(2, getServerName());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeEnum(3, mode_.getNumber());
+        output.writeEnum(3, mode_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, state_.getNumber());
+          .computeEnumSize(1, state_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, serverName_);
+          .computeMessageSize(2, getServerName());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, mode_.getNumber());
+          .computeEnumSize(3, mode_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -3947,8 +4034,7 @@ public final class ZooKeeperProtos {
       boolean result = true;
       result = result && (hasState() == other.hasState());
       if (hasState()) {
-        result = result &&
-            (getState() == other.getState());
+        result = result && state_ == other.state_;
       }
       result = result && (hasServerName() == other.hasServerName());
       if (hasServerName()) {
@@ -3957,15 +4043,12 @@ public final class ZooKeeperProtos {
       }
       result = result && (hasMode() == other.hasMode());
       if (hasMode()) {
-        result = result &&
-            (getMode() == other.getMode());
+        result = result && mode_ == other.mode_;
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -3975,7 +4058,7 @@ public final class ZooKeeperProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasState()) {
         hash = (37 * hash) + STATE_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getState());
+        hash = (53 * hash) + state_;
       }
       if (hasServerName()) {
         hash = (37 * hash) + SERVER_NAME_FIELD_NUMBER;
@@ -3983,9 +4066,9 @@ public final class ZooKeeperProtos {
       }
       if (hasMode()) {
         hash = (37 * hash) + MODE_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getMode());
+        hash = (53 * hash) + mode_;
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4013,67 +4096,79 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code SplitLogTask}
-     *
      * <pre>
      **
      * WAL SplitLog directory znodes have this for content.  Used doing distributed
      * WAL splitting.  Holds current state and name of server that originated split.
      * </pre>
+     *
+     * Protobuf type {@code SplitLogTask}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTaskOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SplitLogTask)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTaskOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_SplitLogTask_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_SplitLogTask_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4086,36 +4181,29 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getServerNameFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State.UNASSIGNED;
+        state_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (serverNameBuilder_ == null) {
-          serverName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          serverName_ = null;
         } else {
           serverNameBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
-        mode_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode.UNKNOWN;
+        mode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -4160,6 +4248,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask)other);
@@ -4180,21 +4294,19 @@ public final class ZooKeeperProtos {
         if (other.hasMode()) {
           setMode(other.getMode());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasState()) {
-          
           return false;
         }
         if (!hasServerName()) {
-          
           return false;
         }
         if (!getServerName().isInitialized()) {
-          
           return false;
         }
         return true;
@@ -4209,7 +4321,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -4219,8 +4331,7 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required .SplitLogTask.State state = 1;
-      private org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State.UNASSIGNED;
+      private int state_ = 0;
       /**
        * <code>required .SplitLogTask.State state = 1;</code>
        */
@@ -4231,7 +4342,8 @@ public final class ZooKeeperProtos {
        * <code>required .SplitLogTask.State state = 1;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State getState() {
-        return state_;
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State result = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State.valueOf(state_);
+        return result == null ? org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State.UNASSIGNED : result;
       }
       /**
        * <code>required .SplitLogTask.State state = 1;</code>
@@ -4241,7 +4353,7 @@ public final class ZooKeeperProtos {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000001;
-        state_ = value;
+        state_ = value.getNumber();
         onChanged();
         return this;
       }
@@ -4250,14 +4362,13 @@ public final class ZooKeeperProtos {
        */
       public Builder clearState() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.State.UNASSIGNED;
+        state_ = 0;
         onChanged();
         return this;
       }
 
-      // required .ServerName server_name = 2;
-      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName serverName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName serverName_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> serverNameBuilder_;
       /**
        * <code>required .ServerName server_name = 2;</code>
@@ -4270,7 +4381,7 @@ public final class ZooKeeperProtos {
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getServerName() {
         if (serverNameBuilder_ == null) {
-          return serverName_;
+          return serverName_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : serverName_;
         } else {
           return serverNameBuilder_.getMessage();
         }
@@ -4311,6 +4422,7 @@ public final class ZooKeeperProtos {
       public Builder mergeServerName(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName value) {
         if (serverNameBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              serverName_ != null &&
               serverName_ != org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance()) {
             serverName_ =
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.newBuilder(serverName_).mergeFrom(value).buildPartial();
@@ -4329,7 +4441,7 @@ public final class ZooKeeperProtos {
        */
       public Builder clearServerName() {
         if (serverNameBuilder_ == null) {
-          serverName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          serverName_ = null;
           onChanged();
         } else {
           serverNameBuilder_.clear();
@@ -4352,19 +4464,20 @@ public final class ZooKeeperProtos {
         if (serverNameBuilder_ != null) {
           return serverNameBuilder_.getMessageOrBuilder();
         } else {
-          return serverName_;
+          return serverName_ == null ?
+              org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : serverName_;
         }
       }
       /**
        * <code>required .ServerName server_name = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> 
           getServerNameFieldBuilder() {
         if (serverNameBuilder_ == null) {
-          serverNameBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          serverNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder>(
-                  serverName_,
+                  getServerName(),
                   getParentForChildren(),
                   isClean());
           serverName_ = null;
@@ -4372,8 +4485,7 @@ public final class ZooKeeperProtos {
         return serverNameBuilder_;
       }
 
-      // optional .SplitLogTask.RecoveryMode mode = 3 [default = UNKNOWN];
-      private org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode mode_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode.UNKNOWN;
+      private int mode_ = 0;
       /**
        * <code>optional .SplitLogTask.RecoveryMode mode = 3 [default = UNKNOWN];</code>
        */
@@ -4384,7 +4496,8 @@ public final class ZooKeeperProtos {
        * <code>optional .SplitLogTask.RecoveryMode mode = 3 [default = UNKNOWN];</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode getMode() {
-        return mode_;
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode result = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode.valueOf(mode_);
+        return result == null ? org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode.UNKNOWN : result;
       }
       /**
        * <code>optional .SplitLogTask.RecoveryMode mode = 3 [default = UNKNOWN];</code>
@@ -4394,7 +4507,7 @@ public final class ZooKeeperProtos {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000004;
-        mode_ = value;
+        mode_ = value.getNumber();
         onChanged();
         return this;
       }
@@ -4403,85 +4516,114 @@ public final class ZooKeeperProtos {
        */
       public Builder clearMode() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        mode_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask.RecoveryMode.UNKNOWN;
+        mode_ = 0;
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:SplitLogTask)
     }
 
+    // @@protoc_insertion_point(class_scope:SplitLogTask)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask DEFAULT_INSTANCE;
     static {
-      defaultInstance = new SplitLogTask(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask();
     }
 
-    // @@protoc_insertion_point(class_scope:SplitLogTask)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<SplitLogTask>
+        PARSER = new com.google.protobuf.AbstractParser<SplitLogTask>() {
+      public SplitLogTask parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SplitLogTask(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SplitLogTask> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SplitLogTask> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SplitLogTask getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface TableOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TableOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Table)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .Table.State state = 1 [default = ENABLED];
     /**
-     * <code>required .Table.State state = 1 [default = ENABLED];</code>
-     *
      * <pre>
      * This is the table's state.  If no znode for a table,
      * its state is presumed enabled.  See o.a.h.h.zookeeper.ZKTable class
      * for more.
      * </pre>
+     *
+     * <code>required .Table.State state = 1 [default = ENABLED];</code>
      */
     boolean hasState();
     /**
-     * <code>required .Table.State state = 1 [default = ENABLED];</code>
-     *
      * <pre>
      * This is the table's state.  If no znode for a table,
      * its state is presumed enabled.  See o.a.h.h.zookeeper.ZKTable class
      * for more.
      * </pre>
+     *
+     * <code>required .Table.State state = 1 [default = ENABLED];</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State getState();
   }
   /**
-   * Protobuf type {@code Table}
-   *
    * <pre>
    **
    * The znode that holds state of table.
    * </pre>
+   *
+   * Protobuf type {@code Table}
    */
-  public static final class Table extends
-      com.google.protobuf.GeneratedMessage
-      implements TableOrBuilder {
+  public  static final class Table extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Table)
+      TableOrBuilder {
     // Use Table.newBuilder() to construct.
-    private Table(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Table(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Table(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Table defaultInstance;
-    public static Table getDefaultInstance() {
-      return defaultInstance;
+    private Table() {
+      state_ = 0;
     }
 
-    public Table getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private Table(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -4507,7 +4649,7 @@ public final class ZooKeeperProtos {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
                 bitField0_ |= 0x00000001;
-                state_ = value;
+                state_ = rawValue;
               }
               break;
             }
@@ -4517,7 +4659,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -4528,53 +4670,38 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_Table_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_Table_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Table> PARSER =
-        new com.google.protobuf.AbstractParser<Table>() {
-      public Table parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Table(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Table> getParserForType() {
-      return PARSER;
-    }
-
     /**
-     * Protobuf enum {@code Table.State}
-     *
      * <pre>
      * Table's current state
      * </pre>
+     *
+     * Protobuf enum {@code Table.State}
      */
     public enum State
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <code>ENABLED = 0;</code>
        */
-      ENABLED(0, 0),
+      ENABLED(0),
       /**
        * <code>DISABLED = 1;</code>
        */
-      DISABLED(1, 1),
+      DISABLED(1),
       /**
        * <code>DISABLING = 2;</code>
        */
-      DISABLING(2, 2),
+      DISABLING(2),
       /**
        * <code>ENABLING = 3;</code>
        */
-      ENABLING(3, 3),
+      ENABLING(3),
       ;
 
       /**
@@ -4595,9 +4722,19 @@ public final class ZooKeeperProtos {
       public static final int ENABLING_VALUE = 3;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static State valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static State forNumber(int value) {
         switch (value) {
           case 0: return ENABLED;
           case 1: return DISABLED;
@@ -4611,17 +4748,17 @@ public final class ZooKeeperProtos {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<State>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          State> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<State>() {
               public State findValueByNumber(int number) {
-                return State.valueOf(number);
+                return State.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -4643,11 +4780,9 @@ public final class ZooKeeperProtos {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private State(int index, int value) {
-        this.index = index;
+      private State(int value) {
         this.value = value;
       }
 
@@ -4655,41 +4790,39 @@ public final class ZooKeeperProtos {
     }
 
     private int bitField0_;
-    // required .Table.State state = 1 [default = ENABLED];
     public static final int STATE_FIELD_NUMBER = 1;
-    private org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State state_;
+    private int state_;
     /**
-     * <code>required .Table.State state = 1 [default = ENABLED];</code>
-     *
      * <pre>
      * This is the table's state.  If no znode for a table,
      * its state is presumed enabled.  See o.a.h.h.zookeeper.ZKTable class
      * for more.
      * </pre>
+     *
+     * <code>required .Table.State state = 1 [default = ENABLED];</code>
      */
     public boolean hasState() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .Table.State state = 1 [default = ENABLED];</code>
-     *
      * <pre>
      * This is the table's state.  If no znode for a table,
      * its state is presumed enabled.  See o.a.h.h.zookeeper.ZKTable class
      * for more.
      * </pre>
+     *
+     * <code>required .Table.State state = 1 [default = ENABLED];</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State getState() {
-      return state_;
+      org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State result = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.valueOf(state_);
+      return result == null ? org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.ENABLED : result;
     }
 
-    private void initFields() {
-      state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.ENABLED;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasState()) {
         memoizedIsInitialized = 0;
@@ -4701,35 +4834,27 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, state_.getNumber());
+        output.writeEnum(1, state_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, state_.getNumber());
+          .computeEnumSize(1, state_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -4743,15 +4868,12 @@ public final class ZooKeeperProtos {
       boolean result = true;
       result = result && (hasState() == other.hasState());
       if (hasState()) {
-        result = result &&
-            (getState() == other.getState());
+        result = result && state_ == other.state_;
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -4761,9 +4883,9 @@ public final class ZooKeeperProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasState()) {
         hash = (37 * hash) + STATE_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getState());
+        hash = (53 * hash) + state_;
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4791,66 +4913,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code Table}
-     *
      * <pre>
      **
      * The znode that holds state of table.
      * </pre>
+     *
+     * Protobuf type {@code Table}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Table)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_Table_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_Table_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4863,27 +4997,20 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.ENABLED;
+        state_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -4916,6 +5043,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table)other);
@@ -4930,13 +5083,13 @@ public final class ZooKeeperProtos {
         if (other.hasState()) {
           setState(other.getState());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasState()) {
-          
           return false;
         }
         return true;
@@ -4951,7 +5104,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -4961,111 +5114,147 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required .Table.State state = 1 [default = ENABLED];
-      private org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.ENABLED;
+      private int state_ = 0;
       /**
-       * <code>required .Table.State state = 1 [default = ENABLED];</code>
-       *
        * <pre>
        * This is the table's state.  If no znode for a table,
        * its state is presumed enabled.  See o.a.h.h.zookeeper.ZKTable class
        * for more.
        * </pre>
+       *
+       * <code>required .Table.State state = 1 [default = ENABLED];</code>
        */
       public boolean hasState() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .Table.State state = 1 [default = ENABLED];</code>
-       *
        * <pre>
        * This is the table's state.  If no znode for a table,
        * its state is presumed enabled.  See o.a.h.h.zookeeper.ZKTable class
        * for more.
        * </pre>
+       *
+       * <code>required .Table.State state = 1 [default = ENABLED];</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State getState() {
-        return state_;
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State result = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.valueOf(state_);
+        return result == null ? org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.ENABLED : result;
       }
       /**
-       * <code>required .Table.State state = 1 [default = ENABLED];</code>
-       *
        * <pre>
        * This is the table's state.  If no znode for a table,
        * its state is presumed enabled.  See o.a.h.h.zookeeper.ZKTable class
        * for more.
        * </pre>
+       *
+       * <code>required .Table.State state = 1 [default = ENABLED];</code>
        */
       public Builder setState(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000001;
-        state_ = value;
+        state_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>required .Table.State state = 1 [default = ENABLED];</code>
-       *
        * <pre>
        * This is the table's state.  If no znode for a table,
        * its state is presumed enabled.  See o.a.h.h.zookeeper.ZKTable class
        * for more.
        * </pre>
+       *
+       * <code>required .Table.State state = 1 [default = ENABLED];</code>
        */
       public Builder clearState() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table.State.ENABLED;
+        state_ = 0;
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:Table)
     }
 
+    // @@protoc_insertion_point(class_scope:Table)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table DEFAULT_INSTANCE;
     static {
-      defaultInstance = new Table(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table();
     }
 
-    // @@protoc_insertion_point(class_scope:Table)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Table>
+        PARSER = new com.google.protobuf.AbstractParser<Table>() {
+      public Table parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Table(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Table> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Table> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.Table getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface ReplicationPeerOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ReplicationPeerOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ReplicationPeer)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string clusterkey = 1;
     /**
-     * <code>required string clusterkey = 1;</code>
-     *
      * <pre>
      * clusterkey is the concatenation of the slave cluster's
      * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
      * </pre>
+     *
+     * <code>required string clusterkey = 1;</code>
      */
     boolean hasClusterkey();
     /**
-     * <code>required string clusterkey = 1;</code>
-     *
      * <pre>
      * clusterkey is the concatenation of the slave cluster's
      * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
      * </pre>
+     *
+     * <code>required string clusterkey = 1;</code>
      */
     java.lang.String getClusterkey();
     /**
-     * <code>required string clusterkey = 1;</code>
-     *
      * <pre>
      * clusterkey is the concatenation of the slave cluster's
      * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
      * </pre>
+     *
+     * <code>required string clusterkey = 1;</code>
      */
     com.google.protobuf.ByteString
         getClusterkeyBytes();
 
-    // optional string replicationEndpointImpl = 2;
     /**
      * <code>optional string replicationEndpointImpl = 2;</code>
      */
@@ -5080,7 +5269,6 @@ public final class ZooKeeperProtos {
     com.google.protobuf.ByteString
         getReplicationEndpointImplBytes();
 
-    // repeated .BytesBytesPair data = 3;
     /**
      * <code>repeated .BytesBytesPair data = 3;</code>
      */
@@ -5105,7 +5293,6 @@ public final class ZooKeeperProtos {
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPairOrBuilder getDataOrBuilder(
         int index);
 
-    // repeated .NameStringPair configuration = 4;
     /**
      * <code>repeated .NameStringPair configuration = 4;</code>
      */
@@ -5131,43 +5318,38 @@ public final class ZooKeeperProtos {
         int index);
   }
   /**
-   * Protobuf type {@code ReplicationPeer}
-   *
    * <pre>
    **
    * Used by replication. Holds a replication peer key.
    * </pre>
+   *
+   * Protobuf type {@code ReplicationPeer}
    */
-  public static final class ReplicationPeer extends
-      com.google.protobuf.GeneratedMessage
-      implements ReplicationPeerOrBuilder {
+  public  static final class ReplicationPeer extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ReplicationPeer)
+      ReplicationPeerOrBuilder {
     // Use ReplicationPeer.newBuilder() to construct.
-    private ReplicationPeer(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ReplicationPeer(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ReplicationPeer(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final ReplicationPeer defaultInstance;
-    public static ReplicationPeer getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public ReplicationPeer getDefaultInstanceForType() {
-      return defaultInstance;
+    private ReplicationPeer() {
+      clusterkey_ = "";
+      replicationEndpointImpl_ = "";
+      data_ = java.util.Collections.emptyList();
+      configuration_ = java.util.Collections.emptyList();
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private ReplicationPeer(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -5187,13 +5369,15 @@ public final class ZooKeeperProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              clusterkey_ = input.readBytes();
+              clusterkey_ = bs;
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              replicationEndpointImpl_ = input.readBytes();
+              replicationEndpointImpl_ = bs;
               break;
             }
             case 26: {
@@ -5201,7 +5385,8 @@ public final class ZooKeeperProtos {
                 data_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              data_.add(input.readMessage(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair.PARSER, extensionRegistry));
+              data_.add(
+                  input.readMessage(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair.PARSER, extensionRegistry));
               break;
             }
             case 34: {
@@ -5209,7 +5394,8 @@ public final class ZooKeeperProtos {
                 configuration_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair>();
                 mutable_bitField0_ |= 0x00000008;
               }
-              configuration_.add(input.readMessage(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair.PARSER, extensionRegistry));
+              configuration_.add(
+                  input.readMessage(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair.PARSER, extensionRegistry));
               break;
             }
           }
@@ -5218,7 +5404,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           data_ = java.util.Collections.unmodifiableList(data_);
@@ -5235,50 +5421,34 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationPeer_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationPeer_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ReplicationPeer> PARSER =
-        new com.google.protobuf.AbstractParser<ReplicationPeer>() {
-      public ReplicationPeer parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReplicationPeer(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ReplicationPeer> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required string clusterkey = 1;
     public static final int CLUSTERKEY_FIELD_NUMBER = 1;
-    private java.lang.Object clusterkey_;
+    private volatile java.lang.Object clusterkey_;
     /**
-     * <code>required string clusterkey = 1;</code>
-     *
      * <pre>
      * clusterkey is the concatenation of the slave cluster's
      * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
      * </pre>
+     *
+     * <code>required string clusterkey = 1;</code>
      */
     public boolean hasClusterkey() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string clusterkey = 1;</code>
-     *
      * <pre>
      * clusterkey is the concatenation of the slave cluster's
      * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
      * </pre>
+     *
+     * <code>required string clusterkey = 1;</code>
      */
     public java.lang.String getClusterkey() {
       java.lang.Object ref = clusterkey_;
@@ -5295,12 +5465,12 @@ public final class ZooKeeperProtos {
       }
     }
     /**
-     * <code>required string clusterkey = 1;</code>
-     *
      * <pre>
      * clusterkey is the concatenation of the slave cluster's
      * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
      * </pre>
+     *
+     * <code>required string clusterkey = 1;</code>
      */
     public com.google.protobuf.ByteString
         getClusterkeyBytes() {
@@ -5316,9 +5486,8 @@ public final class ZooKeeperProtos {
       }
     }
 
-    // optional string replicationEndpointImpl = 2;
     public static final int REPLICATIONENDPOINTIMPL_FIELD_NUMBER = 2;
-    private java.lang.Object replicationEndpointImpl_;
+    private volatile java.lang.Object replicationEndpointImpl_;
     /**
      * <code>optional string replicationEndpointImpl = 2;</code>
      */
@@ -5359,7 +5528,6 @@ public final class ZooKeeperProtos {
       }
     }
 
-    // repeated .BytesBytesPair data = 3;
     public static final int DATA_FIELD_NUMBER = 3;
     private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair> data_;
     /**
@@ -5395,7 +5563,6 @@ public final class ZooKeeperProtos {
       return data_.get(index);
     }
 
-    // repeated .NameStringPair configuration = 4;
     public static final int CONFIGURATION_FIELD_NUMBER = 4;
     private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair> configuration_;
     /**
@@ -5431,16 +5598,11 @@ public final class ZooKeeperProtos {
       return configuration_.get(index);
     }
 
-    private void initFields() {
-      clusterkey_ = "";
-      replicationEndpointImpl_ = "";
-      data_ = java.util.Collections.emptyList();
-      configuration_ = java.util.Collections.emptyList();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasClusterkey()) {
         memoizedIsInitialized = 0;
@@ -5464,12 +5626,11 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getClusterkeyBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, clusterkey_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getReplicationEndpointImplBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, replicationEndpointImpl_);
       }
       for (int i = 0; i < data_.size(); i++) {
         output.writeMessage(3, data_.get(i));
@@ -5477,22 +5638,19 @@ public final class ZooKeeperProtos {
       for (int i = 0; i < configuration_.size(); i++) {
         output.writeMessage(4, configuration_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getClusterkeyBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, clusterkey_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getReplicationEndpointImplBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, replicationEndpointImpl_);
       }
       for (int i = 0; i < data_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -5502,18 +5660,12 @@ public final class ZooKeeperProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, configuration_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -5539,12 +5691,10 @@ public final class ZooKeeperProtos {
           .equals(other.getDataList());
       result = result && getConfigurationList()
           .equals(other.getConfigurationList());
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -5568,7 +5718,7 @@ public final class ZooKeeperProtos {
         hash = (37 * hash) + CONFIGURATION_FIELD_NUMBER;
         hash = (53 * hash) + getConfigurationList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5596,66 +5746,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code ReplicationPeer}
-     *
      * <pre>
      **
      * Used by replication. Holds a replication peer key.
      * </pre>
+     *
+     * Protobuf type {@code ReplicationPeer}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeerOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ReplicationPeer)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeerOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationPeer_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationPeer_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -5668,20 +5830,17 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getDataFieldBuilder();
           getConfigurationFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         clusterkey_ = "";
@@ -5701,10 +5860,6 @@ public final class ZooKeeperProtos {
           configurationBuilder_.clear();
         }
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -5759,6 +5914,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer)other);
@@ -5799,7 +5980,7 @@ public final class ZooKeeperProtos {
               data_ = other.data_;
               bitField0_ = (bitField0_ & ~0x00000004);
               dataBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDataFieldBuilder() : null;
             } else {
               dataBuilder_.addAllMessages(other.data_);
@@ -5825,31 +6006,29 @@ public final class ZooKeeperProtos {
               configuration_ = other.configuration_;
               bitField0_ = (bitField0_ & ~0x00000008);
               configurationBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getConfigurationFieldBuilder() : null;
             } else {
               configurationBuilder_.addAllMessages(other.configuration_);
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasClusterkey()) {
-          
           return false;
         }
         for (int i = 0; i < getDataCount(); i++) {
           if (!getData(i).isInitialized()) {
-            
             return false;
           }
         }
         for (int i = 0; i < getConfigurationCount(); i++) {
           if (!getConfiguration(i).isInitialized()) {
-            
             return false;
           }
         }
@@ -5865,7 +6044,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -5875,45 +6054,47 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required string clusterkey = 1;
       private java.lang.Object clusterkey_ = "";
       /**
-       * <code>required string clusterkey = 1;</code>
-       *
        * <pre>
        * clusterkey is the concatenation of the slave cluster's
        * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
        * </pre>
+       *
+       * <code>required string clusterkey = 1;</code>
        */
       public boolean hasClusterkey() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string clusterkey = 1;</code>
-       *
        * <pre>
        * clusterkey is the concatenation of the slave cluster's
        * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
        * </pre>
+       *
+       * <code>required string clusterkey = 1;</code>
        */
       public java.lang.String getClusterkey() {
         java.lang.Object ref = clusterkey_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          clusterkey_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            clusterkey_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>required string clusterkey = 1;</code>
-       *
        * <pre>
        * clusterkey is the concatenation of the slave cluster's
        * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
        * </pre>
+       *
+       * <code>required string clusterkey = 1;</code>
        */
       public com.google.protobuf.ByteString
           getClusterkeyBytes() {
@@ -5929,12 +6110,12 @@ public final class ZooKeeperProtos {
         }
       }
       /**
-       * <code>required string clusterkey = 1;</code>
-       *
        * <pre>
        * clusterkey is the concatenation of the slave cluster's
        * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
        * </pre>
+       *
+       * <code>required string clusterkey = 1;</code>
        */
       public Builder setClusterkey(
           java.lang.String value) {
@@ -5947,12 +6128,12 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required string clusterkey = 1;</code>
-       *
        * <pre>
        * clusterkey is the concatenation of the slave cluster's
        * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
        * </pre>
+       *
+       * <code>required string clusterkey = 1;</code>
        */
       public Builder clearClusterkey() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -5961,12 +6142,12 @@ public final class ZooKeeperProtos {
         return this;
       }
       /**
-       * <code>required string clusterkey = 1;</code>
-       *
        * <pre>
        * clusterkey is the concatenation of the slave cluster's
        * hbase.zookeeper.quorum:hbase.zookeeper.property.clientPort:zookeeper.znode.parent
        * </pre>
+       *
+       * <code>required string clusterkey = 1;</code>
        */
       public Builder setClusterkeyBytes(
           com.google.protobuf.ByteString value) {
@@ -5979,7 +6160,6 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // optional string replicationEndpointImpl = 2;
       private java.lang.Object replicationEndpointImpl_ = "";
       /**
        * <code>optional string replicationEndpointImpl = 2;</code>
@@ -5993,9 +6173,12 @@ public final class ZooKeeperProtos {
       public java.lang.String getReplicationEndpointImpl() {
         java.lang.Object ref = replicationEndpointImpl_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          replicationEndpointImpl_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            replicationEndpointImpl_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -6053,7 +6236,6 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // repeated .BytesBytesPair data = 3;
       private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair> data_ =
         java.util.Collections.emptyList();
       private void ensureDataIsMutable() {
@@ -6063,7 +6245,7 @@ public final class ZooKeeperProtos {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPairOrBuilder> dataBuilder_;
 
       /**
@@ -6195,7 +6377,8 @@ public final class ZooKeeperProtos {
           java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair> values) {
         if (dataBuilder_ == null) {
           ensureDataIsMutable();
-          super.addAll(values, data_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, data_);
           onChanged();
         } else {
           dataBuilder_.addAllMessages(values);
@@ -6278,11 +6461,11 @@ public final class ZooKeeperProtos {
            getDataBuilderList() {
         return getDataFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPairOrBuilder> 
           getDataFieldBuilder() {
         if (dataBuilder_ == null) {
-          dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          dataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPair.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.BytesBytesPairOrBuilder>(
                   data_,
                   ((bitField0_ & 0x00000004) == 0x00000004),
@@ -6293,7 +6476,6 @@ public final class ZooKeeperProtos {
         return dataBuilder_;
       }
 
-      // repeated .NameStringPair configuration = 4;
       private java.util.List<org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair> configuration_ =
         java.util.Collections.emptyList();
       private void ensureConfigurationIsMutable() {
@@ -6303,7 +6485,7 @@ public final class ZooKeeperProtos {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPairOrBuilder> configurationBuilder_;
 
       /**
@@ -6435,7 +6617,8 @@ public final class ZooKeeperProtos {
           java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair> values) {
         if (configurationBuilder_ == null) {
           ensureConfigurationIsMutable();
-          super.addAll(values, configuration_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, configuration_);
           onChanged();
         } else {
           configurationBuilder_.addAllMessages(values);
@@ -6518,11 +6701,11 @@ public final class ZooKeeperProtos {
            getConfigurationBuilderList() {
         return getConfigurationFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPairOrBuilder> 
           getConfigurationFieldBuilder() {
         if (configurationBuilder_ == null) {
-          configurationBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          configurationBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPair.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.NameStringPairOrBuilder>(
                   configuration_,
                   ((bitField0_ & 0x00000008) == 0x00000008),
@@ -6532,22 +6715,59 @@ public final class ZooKeeperProtos {
         }
         return configurationBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:ReplicationPeer)
     }
 
+    // @@protoc_insertion_point(class_scope:ReplicationPeer)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer DEFAULT_INSTANCE;
     static {
-      defaultInstance = new ReplicationPeer(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer();
     }
 
-    // @@protoc_insertion_point(class_scope:ReplicationPeer)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ReplicationPeer>
+        PARSER = new com.google.protobuf.AbstractParser<ReplicationPeer>() {
+      public ReplicationPeer parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ReplicationPeer(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReplicationPeer> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReplicationPeer> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationPeer getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface ReplicationStateOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ReplicationStateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ReplicationState)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .ReplicationState.State state = 1;
     /**
      * <code>required .ReplicationState.State state = 1;</code>
      */
@@ -6558,43 +6778,35 @@ public final class ZooKeeperProtos {
     org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State getState();
   }
   /**
-   * Protobuf type {@code ReplicationState}
-   *
    * <pre>
    **
    * Used by replication. Holds whether enabled or disabled
    * </pre>
+   *
+   * Protobuf type {@code ReplicationState}
    */
-  public static final class ReplicationState extends
-      com.google.protobuf.GeneratedMessage
-      implements ReplicationStateOrBuilder {
+  public  static final class ReplicationState extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ReplicationState)
+      ReplicationStateOrBuilder {
     // Use ReplicationState.newBuilder() to construct.
-    private ReplicationState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ReplicationState(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ReplicationState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final ReplicationState defaultInstance;
-    public static ReplicationState getDefaultInstance() {
-      return defaultInstance;
+    private ReplicationState() {
+      state_ = 0;
     }
 
-    public ReplicationState getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private ReplicationState(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6620,7 +6832,7 @@ public final class ZooKeeperProtos {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
                 bitField0_ |= 0x00000001;
-                state_ = value;
+                state_ = rawValue;
               }
               break;
             }
@@ -6630,7 +6842,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -6641,26 +6853,11 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationState_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationState_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<ReplicationState> PARSER =
-        new com.google.protobuf.AbstractParser<ReplicationState>() {
-      public ReplicationState parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReplicationState(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ReplicationState> getParserForType() {
-      return PARSER;
     }
 
     /**
@@ -6671,11 +6868,11 @@ public final class ZooKeeperProtos {
       /**
        * <code>ENABLED = 0;</code>
        */
-      ENABLED(0, 0),
+      ENABLED(0),
       /**
        * <code>DISABLED = 1;</code>
        */
-      DISABLED(1, 1),
+      DISABLED(1),
       ;
 
       /**
@@ -6688,9 +6885,19 @@ public final class ZooKeeperProtos {
       public static final int DISABLED_VALUE = 1;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static State valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static State forNumber(int value) {
         switch (value) {
           case 0: return ENABLED;
           case 1: return DISABLED;
@@ -6702,17 +6909,17 @@ public final class ZooKeeperProtos {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<State>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          State> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<State>() {
               public State findValueByNumber(int number) {
-                return State.valueOf(number);
+                return State.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -6734,11 +6941,9 @@ public final class ZooKeeperProtos {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private State(int index, int value) {
-        this.index = index;
+      private State(int value) {
         this.value = value;
       }
 
@@ -6746,9 +6951,8 @@ public final class ZooKeeperProtos {
     }
 
     private int bitField0_;
-    // required .ReplicationState.State state = 1;
     public static final int STATE_FIELD_NUMBER = 1;
-    private org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State state_;
+    private int state_;
     /**
      * <code>required .ReplicationState.State state = 1;</code>
      */
@@ -6759,16 +6963,15 @@ public final class ZooKeeperProtos {
      * <code>required .ReplicationState.State state = 1;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State getState() {
-      return state_;
+      org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State result = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State.valueOf(state_);
+      return result == null ? org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State.ENABLED : result;
     }
 
-    private void initFields() {
-      state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State.ENABLED;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasState()) {
         memoizedIsInitialized = 0;
@@ -6780,35 +6983,27 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, state_.getNumber());
+        output.writeEnum(1, state_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, state_.getNumber());
+          .computeEnumSize(1, state_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -6822,15 +7017,12 @@ public final class ZooKeeperProtos {
       boolean result = true;
       result = result && (hasState() == other.hasState());
       if (hasState()) {
-        result = result &&
-            (getState() == other.getState());
+        result = result && state_ == other.state_;
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -6840,9 +7032,9 @@ public final class ZooKeeperProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasState()) {
         hash = (37 * hash) + STATE_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getState());
+        hash = (53 * hash) + state_;
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6870,66 +7062,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code ReplicationState}
-     *
      * <pre>
      **
      * Used by replication. Holds whether enabled or disabled
      * </pre>
+     *
+     * Protobuf type {@code ReplicationState}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationStateOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ReplicationState)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationStateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationState_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationState_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -6942,27 +7146,20 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State.ENABLED;
+        state_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -6995,6 +7192,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState)other);
@@ -7009,13 +7232,13 @@ public final class ZooKeeperProtos {
         if (other.hasState()) {
           setState(other.getState());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasState()) {
-          
           return false;
         }
         return true;
@@ -7030,7 +7253,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -7040,8 +7263,7 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required .ReplicationState.State state = 1;
-      private org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State.ENABLED;
+      private int state_ = 0;
       /**
        * <code>required .ReplicationState.State state = 1;</code>
        */
@@ -7052,7 +7274,8 @@ public final class ZooKeeperProtos {
        * <code>required .ReplicationState.State state = 1;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State getState() {
-        return state_;
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State result = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State.valueOf(state_);
+        return result == null ? org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State.ENABLED : result;
       }
       /**
        * <code>required .ReplicationState.State state = 1;</code>
@@ -7062,7 +7285,7 @@ public final class ZooKeeperProtos {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000001;
-        state_ = value;
+        state_ = value.getNumber();
         onChanged();
         return this;
       }
@@ -7071,26 +7294,63 @@ public final class ZooKeeperProtos {
        */
       public Builder clearState() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState.State.ENABLED;
+        state_ = 0;
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:ReplicationState)
     }
 
+    // @@protoc_insertion_point(class_scope:ReplicationState)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState DEFAULT_INSTANCE;
     static {
-      defaultInstance = new ReplicationState(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState();
     }
 
-    // @@protoc_insertion_point(class_scope:ReplicationState)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ReplicationState>
+        PARSER = new com.google.protobuf.AbstractParser<ReplicationState>() {
+      public ReplicationState parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ReplicationState(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReplicationState> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReplicationState> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationState getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface ReplicationHLogPositionOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ReplicationHLogPositionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ReplicationHLogPosition)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int64 position = 1;
     /**
      * <code>required int64 position = 1;</code>
      */
@@ -7101,43 +7361,35 @@ public final class ZooKeeperProtos {
     long getPosition();
   }
   /**
-   * Protobuf type {@code ReplicationHLogPosition}
-   *
    * <pre>
    **
    * Used by replication. Holds the current position in an WAL file.
    * </pre>
+   *
+   * Protobuf type {@code ReplicationHLogPosition}
    */
-  public static final class ReplicationHLogPosition extends
-      com.google.protobuf.GeneratedMessage
-      implements ReplicationHLogPositionOrBuilder {
+  public  static final class ReplicationHLogPosition extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ReplicationHLogPosition)
+      ReplicationHLogPositionOrBuilder {
     // Use ReplicationHLogPosition.newBuilder() to construct.
-    private ReplicationHLogPosition(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ReplicationHLogPosition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ReplicationHLogPosition(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final ReplicationHLogPosition defaultInstance;
-    public static ReplicationHLogPosition getDefaultInstance() {
-      return defaultInstance;
+    private ReplicationHLogPosition() {
+      position_ = 0L;
     }
 
-    public ReplicationHLogPosition getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private ReplicationHLogPosition(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -7167,7 +7419,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -7178,30 +7430,14 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationHLogPosition_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationHLogPosition_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ReplicationHLogPosition> PARSER =
-        new com.google.protobuf.AbstractParser<ReplicationHLogPosition>() {
-      public ReplicationHLogPosition parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReplicationHLogPosition(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ReplicationHLogPosition> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required int64 position = 1;
     public static final int POSITION_FIELD_NUMBER = 1;
     private long position_;
     /**
@@ -7217,13 +7453,11 @@ public final class ZooKeeperProtos {
       return position_;
     }
 
-    private void initFields() {
-      position_ = 0L;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasPosition()) {
         memoizedIsInitialized = 0;
@@ -7235,16 +7469,14 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, position_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -7252,18 +7484,12 @@ public final class ZooKeeperProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, position_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -7280,12 +7506,10 @@ public final class ZooKeeperProtos {
         result = result && (getPosition()
             == other.getPosition());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -7295,9 +7519,10 @@ public final class ZooKeeperProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasPosition()) {
         hash = (37 * hash) + POSITION_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getPosition());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPosition());
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7325,66 +7550,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code ReplicationHLogPosition}
-     *
      * <pre>
      **
      * Used by replication. Holds the current position in an WAL file.
      * </pre>
+     *
+     * Protobuf type {@code ReplicationHLogPosition}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPositionOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ReplicationHLogPosition)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPositionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationHLogPosition_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationHLogPosition_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -7397,27 +7634,20 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         position_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -7450,6 +7680,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition)other);
@@ -7464,13 +7720,13 @@ public final class ZooKeeperProtos {
         if (other.hasPosition()) {
           setPosition(other.getPosition());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasPosition()) {
-          
           return false;
         }
         return true;
@@ -7485,7 +7741,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -7495,7 +7751,6 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required int64 position = 1;
       private long position_ ;
       /**
        * <code>required int64 position = 1;</code>
@@ -7527,22 +7782,59 @@ public final class ZooKeeperProtos {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:ReplicationHLogPosition)
     }
 
+    // @@protoc_insertion_point(class_scope:ReplicationHLogPosition)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition DEFAULT_INSTANCE;
     static {
-      defaultInstance = new ReplicationHLogPosition(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition();
     }
 
-    // @@protoc_insertion_point(class_scope:ReplicationHLogPosition)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ReplicationHLogPosition>
+        PARSER = new com.google.protobuf.AbstractParser<ReplicationHLogPosition>() {
+      public ReplicationHLogPosition parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ReplicationHLogPosition(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReplicationHLogPosition> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReplicationHLogPosition> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationHLogPosition getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface ReplicationLockOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ReplicationLockOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ReplicationLock)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string lock_owner = 1;
     /**
      * <code>required string lock_owner = 1;</code>
      */
@@ -7558,43 +7850,35 @@ public final class ZooKeeperProtos {
         getLockOwnerBytes();
   }
   /**
-   * Protobuf type {@code ReplicationLock}
-   *
    * <pre>
    **
    * Used by replication. Used to lock a region server during failover.
    * </pre>
+   *
+   * Protobuf type {@code ReplicationLock}
    */
-  public static final class ReplicationLock extends
-      com.google.protobuf.GeneratedMessage
-      implements ReplicationLockOrBuilder {
+  public  static final class ReplicationLock extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ReplicationLock)
+      ReplicationLockOrBuilder {
     // Use ReplicationLock.newBuilder() to construct.
-    private ReplicationLock(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ReplicationLock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ReplicationLock(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final ReplicationLock defaultInstance;
-    public static ReplicationLock getDefaultInstance() {
-      return defaultInstance;
+    private ReplicationLock() {
+      lockOwner_ = "";
     }
 
-    public ReplicationLock getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private ReplicationLock(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -7614,8 +7898,9 @@ public final class ZooKeeperProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              lockOwner_ = input.readBytes();
+              lockOwner_ = bs;
               break;
             }
           }
@@ -7624,7 +7909,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -7635,32 +7920,16 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationLock_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationLock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ReplicationLock> PARSER =
-        new com.google.protobuf.AbstractParser<ReplicationLock>() {
-      public ReplicationLock parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReplicationLock(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ReplicationLock> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required string lock_owner = 1;
     public static final int LOCK_OWNER_FIELD_NUMBER = 1;
-    private java.lang.Object lockOwner_;
+    private volatile java.lang.Object lockOwner_;
     /**
      * <code>required string lock_owner = 1;</code>
      */
@@ -7701,13 +7970,11 @@ public final class ZooKeeperProtos {
       }
     }
 
-    private void initFields() {
-      lockOwner_ = "";
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasLockOwner()) {
         memoizedIsInitialized = 0;
@@ -7719,35 +7986,26 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getLockOwnerBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, lockOwner_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getLockOwnerBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, lockOwner_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -7764,12 +8022,10 @@ public final class ZooKeeperProtos {
         result = result && getLockOwner()
             .equals(other.getLockOwner());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -7781,7 +8037,7 @@ public final class ZooKeeperProtos {
         hash = (37 * hash) + LOCK_OWNER_FIELD_NUMBER;
         hash = (53 * hash) + getLockOwner().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7809,66 +8065,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code ReplicationLock}
-     *
      * <pre>
      **
      * Used by replication. Used to lock a region server during failover.
      * </pre>
+     *
+     * Protobuf type {@code ReplicationLock}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLockOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ReplicationLock)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLockOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationLock_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_ReplicationLock_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -7881,27 +8149,20 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         lockOwner_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -7934,6 +8195,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock)other);
@@ -7950,13 +8237,13 @@ public final class ZooKeeperProtos {
           lockOwner_ = other.lockOwner_;
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasLockOwner()) {
-          
           return false;
         }
         return true;
@@ -7971,7 +8258,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -7981,7 +8268,6 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // required string lock_owner = 1;
       private java.lang.Object lockOwner_ = "";
       /**
        * <code>required string lock_owner = 1;</code>
@@ -7995,9 +8281,12 @@ public final class ZooKeeperProtos {
       public java.lang.String getLockOwner() {
         java.lang.Object ref = lockOwner_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          lockOwner_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            lockOwner_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -8054,22 +8343,59 @@ public final class ZooKeeperProtos {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:ReplicationLock)
     }
 
+    // @@protoc_insertion_point(class_scope:ReplicationLock)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock DEFAULT_INSTANCE;
     static {
-      defaultInstance = new ReplicationLock(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock();
     }
 
-    // @@protoc_insertion_point(class_scope:ReplicationLock)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ReplicationLock>
+        PARSER = new com.google.protobuf.AbstractParser<ReplicationLock>() {
+      public ReplicationLock parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ReplicationLock(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ReplicationLock> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ReplicationLock> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.ReplicationLock getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface TableLockOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TableLockOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TableLock)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional .TableName table_name = 1;
     /**
      * <code>optional .TableName table_name = 1;</code>
      */
@@ -8083,7 +8409,6 @@ public final class ZooKeeperProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableNameOrBuilder getTableNameOrBuilder();
 
-    // optional .ServerName lock_owner = 2;
     /**
      * <code>optional .ServerName lock_owner = 2;</code>
      */
@@ -8097,7 +8422,6 @@ public final class ZooKeeperProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getLockOwnerOrBuilder();
 
-    // optional int64 thread_id = 3;
     /**
      * <code>optional int64 thread_id = 3;</code>
      */
@@ -8107,7 +8431,6 @@ public final class ZooKeeperProtos {
      */
     long getThreadId();
 
-    // optional bool is_shared = 4;
     /**
      * <code>optional bool is_shared = 4;</code>
      */
@@ -8117,7 +8440,6 @@ public final class ZooKeeperProtos {
      */
     boolean getIsShared();
 
-    // optional string purpose = 5;
     /**
      * <code>optional string purpose = 5;</code>
      */
@@ -8132,7 +8454,6 @@ public final class ZooKeeperProtos {
     com.google.protobuf.ByteString
         getPurposeBytes();
 
-    // optional int64 create_time = 6;
     /**
      * <code>optional int64 create_time = 6;</code>
      */
@@ -8143,43 +8464,38 @@ public final class ZooKeeperProtos {
     long getCreateTime();
   }
   /**
-   * Protobuf type {@code TableLock}
-   *
    * <pre>
    **
    * Metadata associated with a table lock in zookeeper
    * </pre>
+   *
+   * Protobuf type {@code TableLock}
    */
-  public static final class TableLock extends
-      com.google.protobuf.GeneratedMessage
-      implements TableLockOrBuilder {
+  public  static final class TableLock extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:TableLock)
+      TableLockOrBuilder {
     // Use TableLock.newBuilder() to construct.
-    private TableLock(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private TableLock(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private TableLock(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final TableLock defaultInstance;
-    public static TableLock getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public TableLock getDefaultInstanceForType() {
-      return defaultInstance;
+    private TableLock() {
+      threadId_ = 0L;
+      isShared_ = false;
+      purpose_ = "";
+      createTime_ = 0L;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private TableLock(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -8235,8 +8551,9 @@ public final class ZooKeeperProtos {
               break;
             }
             case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              purpose_ = input.readBytes();
+              purpose_ = bs;
               break;
             }
             case 48: {
@@ -8250,7 +8567,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -8261,30 +8578,14 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_TableLock_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_TableLock_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<TableLock> PARSER =
-        new com.google.protobuf.AbstractParser<TableLock>() {
-      public TableLock parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TableLock(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<TableLock> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // optional .TableName table_name = 1;
     public static final int TABLE_NAME_FIELD_NUMBER = 1;
     private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName tableName_;
     /**
@@ -8297,16 +8598,15 @@ public final class ZooKeeperProtos {
      * <code>optional .TableName table_name = 1;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName getTableName() {
-      return tableName_;
+      return tableName_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.getDefaultInstance() : tableName_;
     }
     /**
      * <code>optional .TableName table_name = 1;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableNameOrBuilder getTableNameOrBuilder() {
-      return tableName_;
+      return tableName_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.getDefaultInstance() : tableName_;
     }
 
-    // optional .ServerName lock_owner = 2;
     public static final int LOCK_OWNER_FIELD_NUMBER = 2;
     private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName lockOwner_;
     /**
@@ -8319,16 +8619,15 @@ public final class ZooKeeperProtos {
      * <code>optional .ServerName lock_owner = 2;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getLockOwner() {
-      return lockOwner_;
+      return lockOwner_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : lockOwner_;
     }
     /**
      * <code>optional .ServerName lock_owner = 2;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder getLockOwnerOrBuilder() {
-      return lockOwner_;
+      return lockOwner_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : lockOwner_;
     }
 
-    // optional int64 thread_id = 3;
     public static final int THREAD_ID_FIELD_NUMBER = 3;
     private long threadId_;
     /**
@@ -8344,7 +8643,6 @@ public final class ZooKeeperProtos {
       return threadId_;
     }
 
-    // optional bool is_shared = 4;
     public static final int IS_SHARED_FIELD_NUMBER = 4;
     private boolean isShared_;
     /**
@@ -8360,9 +8658,8 @@ public final class ZooKeeperProtos {
       return isShared_;
     }
 
-    // optional string purpose = 5;
     public static final int PURPOSE_FIELD_NUMBER = 5;
-    private java.lang.Object purpose_;
+    private volatile java.lang.Object purpose_;
     /**
      * <code>optional string purpose = 5;</code>
      */
@@ -8403,7 +8700,6 @@ public final class ZooKeeperProtos {
       }
     }
 
-    // optional int64 create_time = 6;
     public static final int CREATE_TIME_FIELD_NUMBER = 6;
     private long createTime_;
     /**
@@ -8419,18 +8715,11 @@ public final class ZooKeeperProtos {
       return createTime_;
     }
 
-    private void initFields() {
-      tableName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.getDefaultInstance();
-      lockOwner_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      threadId_ = 0L;
-      isShared_ = false;
-      purpose_ = "";
-      createTime_ = 0L;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (hasTableName()) {
         if (!getTableName().isInitialized()) {
@@ -8450,12 +8739,11 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, tableName_);
+        output.writeMessage(1, getTableName());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, lockOwner_);
+        output.writeMessage(2, getLockOwner());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt64(3, threadId_);
@@ -8464,27 +8752,26 @@ public final class ZooKeeperProtos {
         output.writeBool(4, isShared_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, getPurposeBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, purpose_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeInt64(6, createTime_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, tableName_);
+          .computeMessageSize(1, getTableName());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, lockOwner_);
+          .computeMessageSize(2, getLockOwner());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8495,25 +8782,18 @@ public final class ZooKeeperProtos {
           .computeBoolSize(4, isShared_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getPurposeBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, purpose_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, createTime_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -8555,12 +8835,10 @@ public final class ZooKeeperProtos {
         result = result && (getCreateTime()
             == other.getCreateTime());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -8578,11 +8856,13 @@ public final class ZooKeeperProtos {
       }
       if (hasThreadId()) {
         hash = (37 * hash) + THREAD_ID_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getThreadId());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getThreadId());
       }
       if (hasIsShared()) {
         hash = (37 * hash) + IS_SHARED_FIELD_NUMBER;
-        hash = (53 * hash) + hashBoolean(getIsShared());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getIsShared());
       }
       if (hasPurpose()) {
         hash = (37 * hash) + PURPOSE_FIELD_NUMBER;
@@ -8590,9 +8870,10 @@ public final class ZooKeeperProtos {
       }
       if (hasCreateTime()) {
         hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getCreateTime());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCreateTime());
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8620,66 +8901,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code TableLock}
-     *
      * <pre>
      **
      * Metadata associated with a table lock in zookeeper
      * </pre>
+     *
+     * Protobuf type {@code TableLock}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLockOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TableLock)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLockOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_TableLock_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_TableLock_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -8692,30 +8985,27 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getTableNameFieldBuilder();
           getLockOwnerFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (tableNameBuilder_ == null) {
-          tableName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.getDefaultInstance();
+          tableName_ = null;
         } else {
           tableNameBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         if (lockOwnerBuilder_ == null) {
-          lockOwner_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          lockOwner_ = null;
         } else {
           lockOwnerBuilder_.clear();
         }
@@ -8729,10 +9019,6 @@ public final class ZooKeeperProtos {
         createTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000020);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -8793,6 +9079,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock)other);
@@ -8824,20 +9136,19 @@ public final class ZooKeeperProtos {
         if (other.hasCreateTime()) {
           setCreateTime(other.getCreateTime());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         if (hasTableName()) {
           if (!getTableName().isInitialized()) {
-            
             return false;
           }
         }
         if (hasLockOwner()) {
           if (!getLockOwner().isInitialized()) {
-            
             return false;
           }
         }
@@ -8853,7 +9164,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -8863,9 +9174,8 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // optional .TableName table_name = 1;
-      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName tableName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName tableName_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableNameOrBuilder> tableNameBuilder_;
       /**
        * <code>optional .TableName table_name = 1;</code>
@@ -8878,7 +9188,7 @@ public final class ZooKeeperProtos {
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName getTableName() {
         if (tableNameBuilder_ == null) {
-          return tableName_;
+          return tableName_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.getDefaultInstance() : tableName_;
         } else {
           return tableNameBuilder_.getMessage();
         }
@@ -8919,6 +9229,7 @@ public final class ZooKeeperProtos {
       public Builder mergeTableName(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName value) {
         if (tableNameBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              tableName_ != null &&
               tableName_ != org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.getDefaultInstance()) {
             tableName_ =
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.newBuilder(tableName_).mergeFrom(value).buildPartial();
@@ -8937,7 +9248,7 @@ public final class ZooKeeperProtos {
        */
       public Builder clearTableName() {
         if (tableNameBuilder_ == null) {
-          tableName_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.getDefaultInstance();
+          tableName_ = null;
           onChanged();
         } else {
           tableNameBuilder_.clear();
@@ -8960,19 +9271,20 @@ public final class ZooKeeperProtos {
         if (tableNameBuilder_ != null) {
           return tableNameBuilder_.getMessageOrBuilder();
         } else {
-          return tableName_;
+          return tableName_ == null ?
+              org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.getDefaultInstance() : tableName_;
         }
       }
       /**
        * <code>optional .TableName table_name = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableNameOrBuilder> 
           getTableNameFieldBuilder() {
         if (tableNameBuilder_ == null) {
-          tableNameBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          tableNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.TableNameOrBuilder>(
-                  tableName_,
+                  getTableName(),
                   getParentForChildren(),
                   isClean());
           tableName_ = null;
@@ -8980,9 +9292,8 @@ public final class ZooKeeperProtos {
         return tableNameBuilder_;
       }
 
-      // optional .ServerName lock_owner = 2;
-      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName lockOwner_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName lockOwner_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> lockOwnerBuilder_;
       /**
        * <code>optional .ServerName lock_owner = 2;</code>
@@ -8995,7 +9306,7 @@ public final class ZooKeeperProtos {
        */
       public org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName getLockOwner() {
         if (lockOwnerBuilder_ == null) {
-          return lockOwner_;
+          return lockOwner_ == null ? org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : lockOwner_;
         } else {
           return lockOwnerBuilder_.getMessage();
         }
@@ -9036,6 +9347,7 @@ public final class ZooKeeperProtos {
       public Builder mergeLockOwner(org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName value) {
         if (lockOwnerBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              lockOwner_ != null &&
               lockOwner_ != org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance()) {
             lockOwner_ =
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.newBuilder(lockOwner_).mergeFrom(value).buildPartial();
@@ -9054,7 +9366,7 @@ public final class ZooKeeperProtos {
        */
       public Builder clearLockOwner() {
         if (lockOwnerBuilder_ == null) {
-          lockOwner_ = org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance();
+          lockOwner_ = null;
           onChanged();
         } else {
           lockOwnerBuilder_.clear();
@@ -9077,19 +9389,20 @@ public final class ZooKeeperProtos {
         if (lockOwnerBuilder_ != null) {
           return lockOwnerBuilder_.getMessageOrBuilder();
         } else {
-          return lockOwner_;
+          return lockOwner_ == null ?
+              org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.getDefaultInstance() : lockOwner_;
         }
       }
       /**
        * <code>optional .ServerName lock_owner = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder> 
           getLockOwnerFieldBuilder() {
         if (lockOwnerBuilder_ == null) {
-          lockOwnerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          lockOwnerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerName.Builder, org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.ServerNameOrBuilder>(
-                  lockOwner_,
+                  getLockOwner(),
                   getParentForChildren(),
                   isClean());
           lockOwner_ = null;
@@ -9097,7 +9410,6 @@ public final class ZooKeeperProtos {
         return lockOwnerBuilder_;
       }
 
-      // optional int64 thread_id = 3;
       private long threadId_ ;
       /**
        * <code>optional int64 thread_id = 3;</code>
@@ -9130,7 +9442,6 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // optional bool is_shared = 4;
       private boolean isShared_ ;
       /**
        * <code>optional bool is_shared = 4;</code>
@@ -9163,7 +9474,6 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // optional string purpose = 5;
       private java.lang.Object purpose_ = "";
       /**
        * <code>optional string purpose = 5;</code>
@@ -9177,9 +9487,12 @@ public final class ZooKeeperProtos {
       public java.lang.String getPurpose() {
         java.lang.Object ref = purpose_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          purpose_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            purpose_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -9237,7 +9550,6 @@ public final class ZooKeeperProtos {
         return this;
       }
 
-      // optional int64 create_time = 6;
       private long createTime_ ;
       /**
        * <code>optional int64 create_time = 6;</code>
@@ -9269,22 +9581,59 @@ public final class ZooKeeperProtos {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:TableLock)
     }
 
+    // @@protoc_insertion_point(class_scope:TableLock)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock DEFAULT_INSTANCE;
     static {
-      defaultInstance = new TableLock(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock();
     }
 
-    // @@protoc_insertion_point(class_scope:TableLock)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<TableLock>
+        PARSER = new com.google.protobuf.AbstractParser<TableLock>() {
+      public TableLock parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new TableLock(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TableLock> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TableLock> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.TableLock getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface SwitchStateOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SwitchStateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SwitchState)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional bool enabled = 1;
     /**
      * <code>optional bool enabled = 1;</code>
      */
@@ -9295,43 +9644,35 @@ public final class ZooKeeperProtos {
     boolean getEnabled();
   }
   /**
-   * Protobuf type {@code SwitchState}
-   *
    * <pre>
    **
    * State of the switch.
    * </pre>
+   *
+   * Protobuf type {@code SwitchState}
    */
-  public static final class SwitchState extends
-      com.google.protobuf.GeneratedMessage
-      implements SwitchStateOrBuilder {
+  public  static final class SwitchState extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SwitchState)
+      SwitchStateOrBuilder {
     // Use SwitchState.newBuilder() to construct.
-    private SwitchState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private SwitchState(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private SwitchState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final SwitchState defaultInstance;
-    public static SwitchState getDefaultInstance() {
-      return defaultInstance;
+    private SwitchState() {
+      enabled_ = false;
     }
 
-    public SwitchState getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private SwitchState(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -9361,7 +9702,7 @@ public final class ZooKeeperProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -9372,30 +9713,14 @@ public final class ZooKeeperProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_SwitchState_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_SwitchState_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState.class, org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<SwitchState> PARSER =
-        new com.google.protobuf.AbstractParser<SwitchState>() {
-      public SwitchState parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SwitchState(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SwitchState> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // optional bool enabled = 1;
     public static final int ENABLED_FIELD_NUMBER = 1;
     private boolean enabled_;
     /**
@@ -9411,13 +9736,11 @@ public final class ZooKeeperProtos {
       return enabled_;
     }
 
-    private void initFields() {
-      enabled_ = false;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -9425,16 +9748,14 @@ public final class ZooKeeperProtos {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBool(1, enabled_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -9442,18 +9763,12 @@ public final class ZooKeeperProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, enabled_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -9470,12 +9785,10 @@ public final class ZooKeeperProtos {
         result = result && (getEnabled()
             == other.getEnabled());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
@@ -9485,9 +9798,10 @@ public final class ZooKeeperProtos {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasEnabled()) {
         hash = (37 * hash) + ENABLED_FIELD_NUMBER;
-        hash = (53 * hash) + hashBoolean(getEnabled());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getEnabled());
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9515,66 +9829,78 @@ public final class ZooKeeperProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code SwitchState}
-     *
      * <pre>
      **
      * State of the switch.
      * </pre>
+     *
+     * Protobuf type {@code SwitchState}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchStateOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SwitchState)
+        org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchStateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_SwitchState_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.internal_static_SwitchState_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -9587,27 +9913,20 @@ public final class ZooKeeperProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         enabled_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -9640,6 +9959,32 @@ public final class ZooKeeperProtos {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState)other);
@@ -9654,7 +9999,8 @@ public final class ZooKeeperProtos {
         if (other.hasEnabled()) {
           setEnabled(other.getEnabled());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
@@ -9671,7 +10017,7 @@ public final class ZooKeeperProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -9681,7 +10027,6 @@ public final class ZooKeeperProtos {
       }
       private int bitField0_;
 
-      // optional bool enabled = 1;
       private boolean enabled_ ;
       /**
        * <code>optional bool enabled = 1;</code>
@@ -9713,84 +10058,121 @@ public final class ZooKeeperProtos {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:SwitchState)
     }
 
+    // @@protoc_insertion_point(class_scope:SwitchState)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState DEFAULT_INSTANCE;
     static {
-      defaultInstance = new SwitchState(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState();
     }
 
-    // @@protoc_insertion_point(class_scope:SwitchState)
+    public static org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<SwitchState>
+        PARSER = new com.google.protobuf.AbstractParser<SwitchState>() {
+      public SwitchState parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SwitchState(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SwitchState> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SwitchState> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.protobuf.generated.ZooKeeperProtos.SwitchState getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_MetaRegionServer_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_MetaRegionServer_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Master_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Master_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ClusterUp_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ClusterUp_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_RegionTransition_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_RegionTransition_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SplitLogTask_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SplitLogTask_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Table_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Table_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ReplicationPeer_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ReplicationPeer_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ReplicationState_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ReplicationState_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ReplicationHLogPosition_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ReplicationHLogPosition_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ReplicationLock_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ReplicationLock_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TableLock_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_TableLock_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SwitchState_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SwitchState_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -9831,91 +10213,93 @@ public final class ZooKeeperProtos {
       "otosH\001\210\001\001\240\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_MetaRegionServer_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_MetaRegionServer_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_MetaRegionServer_descriptor,
-              new java.lang.String[] { "Server", "RpcVersion", "State", });
-          internal_static_Master_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_Master_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_Master_descriptor,
-              new java.lang.String[] { "Master", "RpcVersion", "InfoPort", });
-          internal_static_ClusterUp_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_ClusterUp_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ClusterUp_descriptor,
-              new java.lang.String[] { "StartDate", });
-          internal_static_RegionTransition_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_RegionTransition_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_RegionTransition_descriptor,
-              new java.lang.String[] { "EventTypeCode", "RegionName", "CreateTime", "ServerName", "Payload", });
-          internal_static_SplitLogTask_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-          internal_static_SplitLogTask_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_SplitLogTask_descriptor,
-              new java.lang.String[] { "State", "ServerName", "Mode", });
-          internal_static_Table_descriptor =
-            getDescriptor().getMessageTypes().get(5);
-          internal_static_Table_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_Table_descriptor,
-              new java.lang.String[] { "State", });
-          internal_static_ReplicationPeer_descriptor =
-            getDescriptor().getMessageTypes().get(6);
-          internal_static_ReplicationPeer_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ReplicationPeer_descriptor,
-              new java.lang.String[] { "Clusterkey", "ReplicationEndpointImpl", "Data", "Configuration", });
-          internal_static_ReplicationState_descriptor =
-            getDescriptor().getMessageTypes().get(7);
-          internal_static_ReplicationState_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ReplicationState_descriptor,
-              new java.lang.String[] { "State", });
-          internal_static_ReplicationHLogPosition_descriptor =
-            getDescriptor().getMessageTypes().get(8);
-          internal_static_ReplicationHLogPosition_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ReplicationHLogPosition_descriptor,
-              new java.lang.String[] { "Position", });
-          internal_static_ReplicationLock_descriptor =
-            getDescriptor().getMessageTypes().get(9);
-          internal_static_ReplicationLock_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ReplicationLock_descriptor,
-              new java.lang.String[] { "LockOwner", });
-          internal_static_TableLock_descriptor =
-            getDescriptor().getMessageTypes().get(10);
-          internal_static_TableLock_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_TableLock_descriptor,
-              new java.lang.String[] { "TableName", "LockOwner", "ThreadId", "IsShared", "Purpose", "CreateTime", });
-          internal_static_SwitchState_descriptor =
-            getDescriptor().getMessageTypes().get(11);
-          internal_static_SwitchState_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_SwitchState_descriptor,
-              new java.lang.String[] { "Enabled", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.getDescriptor(),
           org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.getDescriptor(),
         }, assigner);
+    internal_static_MetaRegionServer_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_MetaRegionServer_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_MetaRegionServer_descriptor,
+        new java.lang.String[] { "Server", "RpcVersion", "State", });
+    internal_static_Master_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_Master_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Master_descriptor,
+        new java.lang.String[] { "Master", "RpcVersion", "InfoPort", });
+    internal_static_ClusterUp_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_ClusterUp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ClusterUp_descriptor,
+        new java.lang.String[] { "StartDate", });
+    internal_static_RegionTransition_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_RegionTransition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RegionTransition_descriptor,
+        new java.lang.String[] { "EventTypeCode", "RegionName", "CreateTime", "ServerName", "Payload", });
+    internal_static_SplitLogTask_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_SplitLogTask_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SplitLogTask_descriptor,
+        new java.lang.String[] { "State", "ServerName", "Mode", });
+    internal_static_Table_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_Table_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Table_descriptor,
+        new java.lang.String[] { "State", });
+    internal_static_ReplicationPeer_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_ReplicationPeer_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ReplicationPeer_descriptor,
+        new java.lang.String[] { "Clusterkey", "ReplicationEndpointImpl", "Data", "Configuration", });
+    internal_static_ReplicationState_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_ReplicationState_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ReplicationState_descriptor,
+        new java.lang.String[] { "State", });
+    internal_static_ReplicationHLogPosition_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_ReplicationHLogPosition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ReplicationHLogPosition_descriptor,
+        new java.lang.String[] { "Position", });
+    internal_static_ReplicationLock_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_ReplicationLock_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ReplicationLock_descriptor,
+        new java.lang.String[] { "LockOwner", });
+    internal_static_TableLock_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_TableLock_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TableLock_descriptor,
+        new java.lang.String[] { "TableName", "LockOwner", "ThreadId", "IsShared", "Purpose", "CreateTime", });
+    internal_static_SwitchState_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_SwitchState_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SwitchState_descriptor,
+        new java.lang.String[] { "Enabled", });
+    org.apache.hadoop.hbase.protobuf.generated.HBaseProtos.getDescriptor();
+    org.apache.hadoop.hbase.protobuf.generated.ClusterStatusProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

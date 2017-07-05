@@ -6,62 +6,67 @@ package org.apache.hadoop.hbase.rest.protobuf.generated;
 public final class StorageClusterStatusMessage {
   private StorageClusterStatusMessage() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+      com.google.protobuf.ExtensionRegistryLite registry) {
   }
-  public interface StorageClusterStatusOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  public interface StorageClusterStatusOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus)
+      com.google.protobuf.MessageOrBuilder {
+
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     java.util.List<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node> 
         getLiveNodesList();
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node getLiveNodes(int index);
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     int getLiveNodesCount();
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     java.util.List<? extends org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder> 
         getLiveNodesOrBuilderList();
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder getLiveNodesOrBuilder(
         int index);
 
-    // repeated string deadNodes = 2;
     /**
      * <code>repeated string deadNodes = 2;</code>
      */
     java.util.List<java.lang.String>
-    getDeadNodesList();
+        getDeadNodesList();
     /**
      * <code>repeated string deadNodes = 2;</code>
      */
@@ -76,25 +81,23 @@ public final class StorageClusterStatusMessage {
     com.google.protobuf.ByteString
         getDeadNodesBytes(int index);
 
-    // optional int32 regions = 3;
     /**
-     * <code>optional int32 regions = 3;</code>
-     *
      * <pre>
      * summary statistics
      * </pre>
+     *
+     * <code>optional int32 regions = 3;</code>
      */
     boolean hasRegions();
     /**
-     * <code>optional int32 regions = 3;</code>
-     *
      * <pre>
      * summary statistics
      * </pre>
+     *
+     * <code>optional int32 regions = 3;</code>
      */
     int getRegions();
 
-    // optional int64 requests = 4;
     /**
      * <code>optional int64 requests = 4;</code>
      */
@@ -104,7 +107,6 @@ public final class StorageClusterStatusMessage {
      */
     long getRequests();
 
-    // optional double averageLoad = 5;
     /**
      * <code>optional double averageLoad = 5;</code>
      */
@@ -117,36 +119,32 @@ public final class StorageClusterStatusMessage {
   /**
    * Protobuf type {@code org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus}
    */
-  public static final class StorageClusterStatus extends
-      com.google.protobuf.GeneratedMessage
-      implements StorageClusterStatusOrBuilder {
+  public  static final class StorageClusterStatus extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus)
+      StorageClusterStatusOrBuilder {
     // Use StorageClusterStatus.newBuilder() to construct.
-    private StorageClusterStatus(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private StorageClusterStatus(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private StorageClusterStatus(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final StorageClusterStatus defaultInstance;
-    public static StorageClusterStatus getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public StorageClusterStatus getDefaultInstanceForType() {
-      return defaultInstance;
+    private StorageClusterStatus() {
+      liveNodes_ = java.util.Collections.emptyList();
+      deadNodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      regions_ = 0;
+      requests_ = 0L;
+      averageLoad_ = 0D;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private StorageClusterStatus(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -170,15 +168,17 @@ public final class StorageClusterStatusMessage {
                 liveNodes_ = new java.util.ArrayList<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              liveNodes_.add(input.readMessage(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.PARSER, extensionRegistry));
+              liveNodes_.add(
+                  input.readMessage(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.PARSER, extensionRegistry));
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                 deadNodes_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000002;
               }
-              deadNodes_.add(input.readBytes());
+              deadNodes_.add(bs);
               break;
             }
             case 24: {
@@ -202,13 +202,13 @@ public final class StorageClusterStatusMessage {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           liveNodes_ = java.util.Collections.unmodifiableList(liveNodes_);
         }
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          deadNodes_ = new com.google.protobuf.UnmodifiableLazyStringList(deadNodes_);
+          deadNodes_ = deadNodes_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -219,32 +219,17 @@ public final class StorageClusterStatusMessage {
       return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.class, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<StorageClusterStatus> PARSER =
-        new com.google.protobuf.AbstractParser<StorageClusterStatus>() {
-      public StorageClusterStatus parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StorageClusterStatus(input, extensionRegistry);
-      }
-    };
+    public interface RegionOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region)
+        com.google.protobuf.MessageOrBuilder {
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<StorageClusterStatus> getParserForType() {
-      return PARSER;
-    }
-
-    public interface RegionOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // required bytes name = 1;
       /**
        * <code>required bytes name = 1;</code>
        */
@@ -254,7 +239,6 @@ public final class StorageClusterStatusMessage {
        */
       com.google.protobuf.ByteString getName();
 
-      // optional int32 stores = 2;
       /**
        * <code>optional int32 stores = 2;</code>
        */
@@ -264,7 +248,6 @@ public final class StorageClusterStatusMessage {
        */
       int getStores();
 
-      // optional int32 storefiles = 3;
       /**
        * <code>optional int32 storefiles = 3;</code>
        */
@@ -274,7 +257,6 @@ public final class StorageClusterStatusMessage {
        */
       int getStorefiles();
 
-      // optional int32 storefileSizeMB = 4;
       /**
        * <code>optional int32 storefileSizeMB = 4;</code>
        */
@@ -284,7 +266,6 @@ public final class StorageClusterStatusMessage {
        */
       int getStorefileSizeMB();
 
-      // optional int32 memstoreSizeMB = 5;
       /**
        * <code>optional int32 memstoreSizeMB = 5;</code>
        */
@@ -294,7 +275,6 @@ public final class StorageClusterStatusMessage {
        */
       int getMemstoreSizeMB();
 
-      // optional int32 storefileIndexSizeMB = 6;
       /**
        * <code>optional int32 storefileIndexSizeMB = 6;</code>
        */
@@ -304,7 +284,6 @@ public final class StorageClusterStatusMessage {
        */
       int getStorefileIndexSizeMB();
 
-      // optional int64 readRequestsCount = 7;
       /**
        * <code>optional int64 readRequestsCount = 7;</code>
        */
@@ -314,7 +293,6 @@ public final class StorageClusterStatusMessage {
        */
       long getReadRequestsCount();
 
-      // optional int64 writeRequestsCount = 8;
       /**
        * <code>optional int64 writeRequestsCount = 8;</code>
        */
@@ -324,7 +302,6 @@ public final class StorageClusterStatusMessage {
        */
       long getWriteRequestsCount();
 
-      // optional int32 rootIndexSizeKB = 9;
       /**
        * <code>optional int32 rootIndexSizeKB = 9;</code>
        */
@@ -334,7 +311,6 @@ public final class StorageClusterStatusMessage {
        */
       int getRootIndexSizeKB();
 
-      // optional int32 totalStaticIndexSizeKB = 10;
       /**
        * <code>optional int32 totalStaticIndexSizeKB = 10;</code>
        */
@@ -344,7 +320,6 @@ public final class StorageClusterStatusMessage {
        */
       int getTotalStaticIndexSizeKB();
 
-      // optional int32 totalStaticBloomSizeKB = 11;
       /**
        * <code>optional int32 totalStaticBloomSizeKB = 11;</code>
        */
@@ -354,7 +329,6 @@ public final class StorageClusterStatusMessage {
        */
       int getTotalStaticBloomSizeKB();
 
-      // optional int64 totalCompactingKVs = 12;
       /**
        * <code>optional int64 totalCompactingKVs = 12;</code>
        */
@@ -364,7 +338,6 @@ public final class StorageClusterStatusMessage {
        */
       long getTotalCompactingKVs();
 
-      // optional int64 currentCompactedKVs = 13;
       /**
        * <code>optional int64 currentCompactedKVs = 13;</code>
        */
@@ -377,36 +350,40 @@ public final class StorageClusterStatusMessage {
     /**
      * Protobuf type {@code org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region}
      */
-    public static final class Region extends
-        com.google.protobuf.GeneratedMessage
-        implements RegionOrBuilder {
+    public  static final class Region extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region)
+        RegionOrBuilder {
       // Use Region.newBuilder() to construct.
-      private Region(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      private Region(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
-        this.unknownFields = builder.getUnknownFields();
       }
-      private Region(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final Region defaultInstance;
-      public static Region getDefaultInstance() {
-        return defaultInstance;
+      private Region() {
+        name_ = com.google.protobuf.ByteString.EMPTY;
+        stores_ = 0;
+        storefiles_ = 0;
+        storefileSizeMB_ = 0;
+        memstoreSizeMB_ = 0;
+        storefileIndexSizeMB_ = 0;
+        readRequestsCount_ = 0L;
+        writeRequestsCount_ = 0L;
+        rootIndexSizeKB_ = 0;
+        totalStaticIndexSizeKB_ = 0;
+        totalStaticBloomSizeKB_ = 0;
+        totalCompactingKVs_ = 0L;
+        currentCompactedKVs_ = 0L;
       }
 
-      public Region getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
+      getUnknownFields() {
         return this.unknownFields;
       }
       private Region(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
+        this();
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -496,7 +473,7 @@ public final class StorageClusterStatusMessage {
           throw e.setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
+              e).setUnfinishedMessage(this);
         } finally {
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
@@ -507,30 +484,14 @@ public final class StorageClusterStatusMessage {
         return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region.class, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<Region> PARSER =
-          new com.google.protobuf.AbstractParser<Region>() {
-        public Region parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Region(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Region> getParserForType() {
-        return PARSER;
-      }
-
       private int bitField0_;
-      // required bytes name = 1;
       public static final int NAME_FIELD_NUMBER = 1;
       private com.google.protobuf.ByteString name_;
       /**
@@ -546,7 +507,6 @@ public final class StorageClusterStatusMessage {
         return name_;
       }
 
-      // optional int32 stores = 2;
       public static final int STORES_FIELD_NUMBER = 2;
       private int stores_;
       /**
@@ -562,7 +522,6 @@ public final class StorageClusterStatusMessage {
         return stores_;
       }
 
-      // optional int32 storefiles = 3;
       public static final int STOREFILES_FIELD_NUMBER = 3;
       private int storefiles_;
       /**
@@ -578,7 +537,6 @@ public final class StorageClusterStatusMessage {
         return storefiles_;
       }
 
-      // optional int32 storefileSizeMB = 4;
       public static final int STOREFILESIZEMB_FIELD_NUMBER = 4;
       private int storefileSizeMB_;
       /**
@@ -594,7 +552,6 @@ public final class StorageClusterStatusMessage {
         return storefileSizeMB_;
       }
 
-      // optional int32 memstoreSizeMB = 5;
       public static final int MEMSTORESIZEMB_FIELD_NUMBER = 5;
       private int memstoreSizeMB_;
       /**
@@ -610,7 +567,6 @@ public final class StorageClusterStatusMessage {
         return memstoreSizeMB_;
       }
 
-      // optional int32 storefileIndexSizeMB = 6;
       public static final int STOREFILEINDEXSIZEMB_FIELD_NUMBER = 6;
       private int storefileIndexSizeMB_;
       /**
@@ -626,7 +582,6 @@ public final class StorageClusterStatusMessage {
         return storefileIndexSizeMB_;
       }
 
-      // optional int64 readRequestsCount = 7;
       public static final int READREQUESTSCOUNT_FIELD_NUMBER = 7;
       private long readRequestsCount_;
       /**
@@ -642,7 +597,6 @@ public final class StorageClusterStatusMessage {
         return readRequestsCount_;
       }
 
-      // optional int64 writeRequestsCount = 8;
       public static final int WRITEREQUESTSCOUNT_FIELD_NUMBER = 8;
       private long writeRequestsCount_;
       /**
@@ -658,7 +612,6 @@ public final class StorageClusterStatusMessage {
         return writeRequestsCount_;
       }
 
-      // optional int32 rootIndexSizeKB = 9;
       public static final int ROOTINDEXSIZEKB_FIELD_NUMBER = 9;
       private int rootIndexSizeKB_;
       /**
@@ -674,7 +627,6 @@ public final class StorageClusterStatusMessage {
         return rootIndexSizeKB_;
       }
 
-      // optional int32 totalStaticIndexSizeKB = 10;
       public static final int TOTALSTATICINDEXSIZEKB_FIELD_NUMBER = 10;
       private int totalStaticIndexSizeKB_;
       /**
@@ -690,7 +642,6 @@ public final class StorageClusterStatusMessage {
         return totalStaticIndexSizeKB_;
       }
 
-      // optional int32 totalStaticBloomSizeKB = 11;
       public static final int TOTALSTATICBLOOMSIZEKB_FIELD_NUMBER = 11;
       private int totalStaticBloomSizeKB_;
       /**
@@ -706,7 +657,6 @@ public final class StorageClusterStatusMessage {
         return totalStaticBloomSizeKB_;
       }
 
-      // optional int64 totalCompactingKVs = 12;
       public static final int TOTALCOMPACTINGKVS_FIELD_NUMBER = 12;
       private long totalCompactingKVs_;
       /**
@@ -722,7 +672,6 @@ public final class StorageClusterStatusMessage {
         return totalCompactingKVs_;
       }
 
-      // optional int64 currentCompactedKVs = 13;
       public static final int CURRENTCOMPACTEDKVS_FIELD_NUMBER = 13;
       private long currentCompactedKVs_;
       /**
@@ -738,25 +687,11 @@ public final class StorageClusterStatusMessage {
         return currentCompactedKVs_;
       }
 
-      private void initFields() {
-        name_ = com.google.protobuf.ByteString.EMPTY;
-        stores_ = 0;
-        storefiles_ = 0;
-        storefileSizeMB_ = 0;
-        memstoreSizeMB_ = 0;
-        storefileIndexSizeMB_ = 0;
-        readRequestsCount_ = 0L;
-        writeRequestsCount_ = 0L;
-        rootIndexSizeKB_ = 0;
-        totalStaticIndexSizeKB_ = 0;
-        totalStaticBloomSizeKB_ = 0;
-        totalCompactingKVs_ = 0L;
-        currentCompactedKVs_ = 0L;
-      }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
 
         if (!hasName()) {
           memoizedIsInitialized = 0;
@@ -768,7 +703,6 @@ public final class StorageClusterStatusMessage {
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           output.writeBytes(1, name_);
         }
@@ -808,12 +742,11 @@ public final class StorageClusterStatusMessage {
         if (((bitField0_ & 0x00001000) == 0x00001000)) {
           output.writeInt64(13, currentCompactedKVs_);
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
-      private int memoizedSerializedSize = -1;
       public int getSerializedSize() {
-        int size = memoizedSerializedSize;
+        int size = memoizedSize;
         if (size != -1) return size;
 
         size = 0;
@@ -869,16 +802,158 @@ public final class StorageClusterStatusMessage {
           size += com.google.protobuf.CodedOutputStream
             .computeInt64Size(13, currentCompactedKVs_);
         }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
         return size;
       }
 
       private static final long serialVersionUID = 0L;
       @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region)) {
+          return super.equals(obj);
+        }
+        org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region other = (org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region) obj;
+
+        boolean result = true;
+        result = result && (hasName() == other.hasName());
+        if (hasName()) {
+          result = result && getName()
+              .equals(other.getName());
+        }
+        result = result && (hasStores() == other.hasStores());
+        if (hasStores()) {
+          result = result && (getStores()
+              == other.getStores());
+        }
+        result = result && (hasStorefiles() == other.hasStorefiles());
+        if (hasStorefiles()) {
+          result = result && (getStorefiles()
+              == other.getStorefiles());
+        }
+        result = result && (hasStorefileSizeMB() == other.hasStorefileSizeMB());
+        if (hasStorefileSizeMB()) {
+          result = result && (getStorefileSizeMB()
+              == other.getStorefileSizeMB());
+        }
+        result = result && (hasMemstoreSizeMB() == other.hasMemstoreSizeMB());
+        if (hasMemstoreSizeMB()) {
+          result = result && (getMemstoreSizeMB()
+              == other.getMemstoreSizeMB());
+        }
+        result = result && (hasStorefileIndexSizeMB() == other.hasStorefileIndexSizeMB());
+        if (hasStorefileIndexSizeMB()) {
+          result = result && (getStorefileIndexSizeMB()
+              == other.getStorefileIndexSizeMB());
+        }
+        result = result && (hasReadRequestsCount() == other.hasReadRequestsCount());
+        if (hasReadRequestsCount()) {
+          result = result && (getReadRequestsCount()
+              == other.getReadRequestsCount());
+        }
+        result = result && (hasWriteRequestsCount() == other.hasWriteRequestsCount());
+        if (hasWriteRequestsCount()) {
+          result = result && (getWriteRequestsCount()
+              == other.getWriteRequestsCount());
+        }
+        result = result && (hasRootIndexSizeKB() == other.hasRootIndexSizeKB());
+        if (hasRootIndexSizeKB()) {
+          result = result && (getRootIndexSizeKB()
+              == other.getRootIndexSizeKB());
+        }
+        result = result && (hasTotalStaticIndexSizeKB() == other.hasTotalStaticIndexSizeKB());
+        if (hasTotalStaticIndexSizeKB()) {
+          result = result && (getTotalStaticIndexSizeKB()
+              == other.getTotalStaticIndexSizeKB());
+        }
+        result = result && (hasTotalStaticBloomSizeKB() == other.hasTotalStaticBloomSizeKB());
+        if (hasTotalStaticBloomSizeKB()) {
+          result = result && (getTotalStaticBloomSizeKB()
+              == other.getTotalStaticBloomSizeKB());
+        }
+        result = result && (hasTotalCompactingKVs() == other.hasTotalCompactingKVs());
+        if (hasTotalCompactingKVs()) {
+          result = result && (getTotalCompactingKVs()
+              == other.getTotalCompactingKVs());
+        }
+        result = result && (hasCurrentCompactedKVs() == other.hasCurrentCompactedKVs());
+        if (hasCurrentCompactedKVs()) {
+          result = result && (getCurrentCompactedKVs()
+              == other.getCurrentCompactedKVs());
+        }
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptorForType().hashCode();
+        if (hasName()) {
+          hash = (37 * hash) + NAME_FIELD_NUMBER;
+          hash = (53 * hash) + getName().hashCode();
+        }
+        if (hasStores()) {
+          hash = (37 * hash) + STORES_FIELD_NUMBER;
+          hash = (53 * hash) + getStores();
+        }
+        if (hasStorefiles()) {
+          hash = (37 * hash) + STOREFILES_FIELD_NUMBER;
+          hash = (53 * hash) + getStorefiles();
+        }
+        if (hasStorefileSizeMB()) {
+          hash = (37 * hash) + STOREFILESIZEMB_FIELD_NUMBER;
+          hash = (53 * hash) + getStorefileSizeMB();
+        }
+        if (hasMemstoreSizeMB()) {
+          hash = (37 * hash) + MEMSTORESIZEMB_FIELD_NUMBER;
+          hash = (53 * hash) + getMemstoreSizeMB();
+        }
+        if (hasStorefileIndexSizeMB()) {
+          hash = (37 * hash) + STOREFILEINDEXSIZEMB_FIELD_NUMBER;
+          hash = (53 * hash) + getStorefileIndexSizeMB();
+        }
+        if (hasReadRequestsCount()) {
+          hash = (37 * hash) + READREQUESTSCOUNT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getReadRequestsCount());
+        }
+        if (hasWriteRequestsCount()) {
+          hash = (37 * hash) + WRITEREQUESTSCOUNT_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getWriteRequestsCount());
+        }
+        if (hasRootIndexSizeKB()) {
+          hash = (37 * hash) + ROOTINDEXSIZEKB_FIELD_NUMBER;
+          hash = (53 * hash) + getRootIndexSizeKB();
+        }
+        if (hasTotalStaticIndexSizeKB()) {
+          hash = (37 * hash) + TOTALSTATICINDEXSIZEKB_FIELD_NUMBER;
+          hash = (53 * hash) + getTotalStaticIndexSizeKB();
+        }
+        if (hasTotalStaticBloomSizeKB()) {
+          hash = (37 * hash) + TOTALSTATICBLOOMSIZEKB_FIELD_NUMBER;
+          hash = (53 * hash) + getTotalStaticBloomSizeKB();
+        }
+        if (hasTotalCompactingKVs()) {
+          hash = (37 * hash) + TOTALCOMPACTINGKVS_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getTotalCompactingKVs());
+        }
+        if (hasCurrentCompactedKVs()) {
+          hash = (37 * hash) + CURRENTCOMPACTEDKVS_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getCurrentCompactedKVs());
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
       }
 
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region parseFrom(
@@ -904,46 +979,57 @@ public final class StorageClusterStatusMessage {
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region parseFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region prototype) {
-        return newBuilder().mergeFrom(prototype);
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
       }
-      public Builder toBuilder() { return newBuilder(this); }
+      public static Builder newBuilder(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
 
       @java.lang.Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -951,14 +1037,15 @@ public final class StorageClusterStatusMessage {
        * Protobuf type {@code org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.RegionOrBuilder {
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region)
+          org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.RegionOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
@@ -971,18 +1058,15 @@ public final class StorageClusterStatusMessage {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
           }
         }
-        private static Builder create() {
-          return new Builder();
-        }
-
         public Builder clear() {
           super.clear();
           name_ = com.google.protobuf.ByteString.EMPTY;
@@ -1012,10 +1096,6 @@ public final class StorageClusterStatusMessage {
           currentCompactedKVs_ = 0L;
           bitField0_ = (bitField0_ & ~0x00001000);
           return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
         }
 
         public com.google.protobuf.Descriptors.Descriptor
@@ -1096,6 +1176,32 @@ public final class StorageClusterStatusMessage {
           return result;
         }
 
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region) {
             return mergeFrom((org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region)other);
@@ -1146,13 +1252,13 @@ public final class StorageClusterStatusMessage {
           if (other.hasCurrentCompactedKVs()) {
             setCurrentCompactedKVs(other.getCurrentCompactedKVs());
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
           return this;
         }
 
         public final boolean isInitialized() {
           if (!hasName()) {
-            
             return false;
           }
           return true;
@@ -1167,7 +1273,7 @@ public final class StorageClusterStatusMessage {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
             parsedMessage = (org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region) e.getUnfinishedMessage();
-            throw e;
+            throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
               mergeFrom(parsedMessage);
@@ -1177,7 +1283,6 @@ public final class StorageClusterStatusMessage {
         }
         private int bitField0_;
 
-        // required bytes name = 1;
         private com.google.protobuf.ByteString name_ = com.google.protobuf.ByteString.EMPTY;
         /**
          * <code>required bytes name = 1;</code>
@@ -1213,7 +1318,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 stores = 2;
         private int stores_ ;
         /**
          * <code>optional int32 stores = 2;</code>
@@ -1246,7 +1350,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 storefiles = 3;
         private int storefiles_ ;
         /**
          * <code>optional int32 storefiles = 3;</code>
@@ -1279,7 +1382,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 storefileSizeMB = 4;
         private int storefileSizeMB_ ;
         /**
          * <code>optional int32 storefileSizeMB = 4;</code>
@@ -1312,7 +1414,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 memstoreSizeMB = 5;
         private int memstoreSizeMB_ ;
         /**
          * <code>optional int32 memstoreSizeMB = 5;</code>
@@ -1345,7 +1446,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 storefileIndexSizeMB = 6;
         private int storefileIndexSizeMB_ ;
         /**
          * <code>optional int32 storefileIndexSizeMB = 6;</code>
@@ -1378,7 +1478,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int64 readRequestsCount = 7;
         private long readRequestsCount_ ;
         /**
          * <code>optional int64 readRequestsCount = 7;</code>
@@ -1411,7 +1510,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int64 writeRequestsCount = 8;
         private long writeRequestsCount_ ;
         /**
          * <code>optional int64 writeRequestsCount = 8;</code>
@@ -1444,7 +1542,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 rootIndexSizeKB = 9;
         private int rootIndexSizeKB_ ;
         /**
          * <code>optional int32 rootIndexSizeKB = 9;</code>
@@ -1477,7 +1574,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 totalStaticIndexSizeKB = 10;
         private int totalStaticIndexSizeKB_ ;
         /**
          * <code>optional int32 totalStaticIndexSizeKB = 10;</code>
@@ -1510,7 +1606,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 totalStaticBloomSizeKB = 11;
         private int totalStaticBloomSizeKB_ ;
         /**
          * <code>optional int32 totalStaticBloomSizeKB = 11;</code>
@@ -1543,7 +1638,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int64 totalCompactingKVs = 12;
         private long totalCompactingKVs_ ;
         /**
          * <code>optional int64 totalCompactingKVs = 12;</code>
@@ -1576,7 +1670,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int64 currentCompactedKVs = 13;
         private long currentCompactedKVs_ ;
         /**
          * <code>optional int64 currentCompactedKVs = 13;</code>
@@ -1608,49 +1701,85 @@ public final class StorageClusterStatusMessage {
           onChanged();
           return this;
         }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
 
         // @@protoc_insertion_point(builder_scope:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region)
       }
 
+      // @@protoc_insertion_point(class_scope:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region)
+      private static final org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region DEFAULT_INSTANCE;
       static {
-        defaultInstance = new Region(true);
-        defaultInstance.initFields();
+        DEFAULT_INSTANCE = new org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region();
       }
 
-      // @@protoc_insertion_point(class_scope:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region)
+      public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Region>
+          PARSER = new com.google.protobuf.AbstractParser<Region>() {
+        public Region parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Region(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Region> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Region> getParserForType() {
+        return PARSER;
+      }
+
+      public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
-    public interface NodeOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
+    public interface NodeOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node)
+        com.google.protobuf.MessageOrBuilder {
 
-      // required string name = 1;
       /**
-       * <code>required string name = 1;</code>
-       *
        * <pre>
        * name:port
        * </pre>
+       *
+       * <code>required string name = 1;</code>
        */
       boolean hasName();
       /**
-       * <code>required string name = 1;</code>
-       *
        * <pre>
        * name:port
        * </pre>
+       *
+       * <code>required string name = 1;</code>
        */
       java.lang.String getName();
       /**
-       * <code>required string name = 1;</code>
-       *
        * <pre>
        * name:port
        * </pre>
+       *
+       * <code>required string name = 1;</code>
        */
       com.google.protobuf.ByteString
           getNameBytes();
 
-      // optional int64 startCode = 2;
       /**
        * <code>optional int64 startCode = 2;</code>
        */
@@ -1660,7 +1789,6 @@ public final class StorageClusterStatusMessage {
        */
       long getStartCode();
 
-      // optional int64 requests = 3;
       /**
        * <code>optional int64 requests = 3;</code>
        */
@@ -1670,7 +1798,6 @@ public final class StorageClusterStatusMessage {
        */
       long getRequests();
 
-      // optional int32 heapSizeMB = 4;
       /**
        * <code>optional int32 heapSizeMB = 4;</code>
        */
@@ -1680,7 +1807,6 @@ public final class StorageClusterStatusMessage {
        */
       int getHeapSizeMB();
 
-      // optional int32 maxHeapSizeMB = 5;
       /**
        * <code>optional int32 maxHeapSizeMB = 5;</code>
        */
@@ -1690,7 +1816,6 @@ public final class StorageClusterStatusMessage {
        */
       int getMaxHeapSizeMB();
 
-      // repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region regions = 6;
       /**
        * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region regions = 6;</code>
        */
@@ -1718,36 +1843,33 @@ public final class StorageClusterStatusMessage {
     /**
      * Protobuf type {@code org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node}
      */
-    public static final class Node extends
-        com.google.protobuf.GeneratedMessage
-        implements NodeOrBuilder {
+    public  static final class Node extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node)
+        NodeOrBuilder {
       // Use Node.newBuilder() to construct.
-      private Node(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      private Node(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
-        this.unknownFields = builder.getUnknownFields();
       }
-      private Node(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final Node defaultInstance;
-      public static Node getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public Node getDefaultInstanceForType() {
-        return defaultInstance;
+      private Node() {
+        name_ = "";
+        startCode_ = 0L;
+        requests_ = 0L;
+        heapSizeMB_ = 0;
+        maxHeapSizeMB_ = 0;
+        regions_ = java.util.Collections.emptyList();
       }
 
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
+      getUnknownFields() {
         return this.unknownFields;
       }
       private Node(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
+        this();
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1767,8 +1889,9 @@ public final class StorageClusterStatusMessage {
                 break;
               }
               case 10: {
+                com.google.protobuf.ByteString bs = input.readBytes();
                 bitField0_ |= 0x00000001;
-                name_ = input.readBytes();
+                name_ = bs;
                 break;
               }
               case 16: {
@@ -1796,7 +1919,8 @@ public final class StorageClusterStatusMessage {
                   regions_ = new java.util.ArrayList<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region>();
                   mutable_bitField0_ |= 0x00000020;
                 }
-                regions_.add(input.readMessage(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region.PARSER, extensionRegistry));
+                regions_.add(
+                    input.readMessage(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region.PARSER, extensionRegistry));
                 break;
               }
             }
@@ -1805,7 +1929,7 @@ public final class StorageClusterStatusMessage {
           throw e.setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
+              e).setUnfinishedMessage(this);
         } finally {
           if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
             regions_ = java.util.Collections.unmodifiableList(regions_);
@@ -1819,48 +1943,32 @@ public final class StorageClusterStatusMessage {
         return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.class, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<Node> PARSER =
-          new com.google.protobuf.AbstractParser<Node>() {
-        public Node parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Node(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<Node> getParserForType() {
-        return PARSER;
-      }
-
       private int bitField0_;
-      // required string name = 1;
       public static final int NAME_FIELD_NUMBER = 1;
-      private java.lang.Object name_;
+      private volatile java.lang.Object name_;
       /**
-       * <code>required string name = 1;</code>
-       *
        * <pre>
        * name:port
        * </pre>
+       *
+       * <code>required string name = 1;</code>
        */
       public boolean hasName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string name = 1;</code>
-       *
        * <pre>
        * name:port
        * </pre>
+       *
+       * <code>required string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -1877,11 +1985,11 @@ public final class StorageClusterStatusMessage {
         }
       }
       /**
-       * <code>required string name = 1;</code>
-       *
        * <pre>
        * name:port
        * </pre>
+       *
+       * <code>required string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -1897,7 +2005,6 @@ public final class StorageClusterStatusMessage {
         }
       }
 
-      // optional int64 startCode = 2;
       public static final int STARTCODE_FIELD_NUMBER = 2;
       private long startCode_;
       /**
@@ -1913,7 +2020,6 @@ public final class StorageClusterStatusMessage {
         return startCode_;
       }
 
-      // optional int64 requests = 3;
       public static final int REQUESTS_FIELD_NUMBER = 3;
       private long requests_;
       /**
@@ -1929,7 +2035,6 @@ public final class StorageClusterStatusMessage {
         return requests_;
       }
 
-      // optional int32 heapSizeMB = 4;
       public static final int HEAPSIZEMB_FIELD_NUMBER = 4;
       private int heapSizeMB_;
       /**
@@ -1945,7 +2050,6 @@ public final class StorageClusterStatusMessage {
         return heapSizeMB_;
       }
 
-      // optional int32 maxHeapSizeMB = 5;
       public static final int MAXHEAPSIZEMB_FIELD_NUMBER = 5;
       private int maxHeapSizeMB_;
       /**
@@ -1961,7 +2065,6 @@ public final class StorageClusterStatusMessage {
         return maxHeapSizeMB_;
       }
 
-      // repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region regions = 6;
       public static final int REGIONS_FIELD_NUMBER = 6;
       private java.util.List<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region> regions_;
       /**
@@ -1997,18 +2100,11 @@ public final class StorageClusterStatusMessage {
         return regions_.get(index);
       }
 
-      private void initFields() {
-        name_ = "";
-        startCode_ = 0L;
-        requests_ = 0L;
-        heapSizeMB_ = 0;
-        maxHeapSizeMB_ = 0;
-        regions_ = java.util.Collections.emptyList();
-      }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
 
         if (!hasName()) {
           memoizedIsInitialized = 0;
@@ -2026,9 +2122,8 @@ public final class StorageClusterStatusMessage {
 
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeBytes(1, getNameBytes());
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
           output.writeInt64(2, startCode_);
@@ -2045,18 +2140,16 @@ public final class StorageClusterStatusMessage {
         for (int i = 0; i < regions_.size(); i++) {
           output.writeMessage(6, regions_.get(i));
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
-      private int memoizedSerializedSize = -1;
       public int getSerializedSize() {
-        int size = memoizedSerializedSize;
+        int size = memoizedSize;
         if (size != -1) return size;
 
         size = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(1, getNameBytes());
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
           size += com.google.protobuf.CodedOutputStream
@@ -2078,16 +2171,90 @@ public final class StorageClusterStatusMessage {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(6, regions_.get(i));
         }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
         return size;
       }
 
       private static final long serialVersionUID = 0L;
       @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node)) {
+          return super.equals(obj);
+        }
+        org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node other = (org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node) obj;
+
+        boolean result = true;
+        result = result && (hasName() == other.hasName());
+        if (hasName()) {
+          result = result && getName()
+              .equals(other.getName());
+        }
+        result = result && (hasStartCode() == other.hasStartCode());
+        if (hasStartCode()) {
+          result = result && (getStartCode()
+              == other.getStartCode());
+        }
+        result = result && (hasRequests() == other.hasRequests());
+        if (hasRequests()) {
+          result = result && (getRequests()
+              == other.getRequests());
+        }
+        result = result && (hasHeapSizeMB() == other.hasHeapSizeMB());
+        if (hasHeapSizeMB()) {
+          result = result && (getHeapSizeMB()
+              == other.getHeapSizeMB());
+        }
+        result = result && (hasMaxHeapSizeMB() == other.hasMaxHeapSizeMB());
+        if (hasMaxHeapSizeMB()) {
+          result = result && (getMaxHeapSizeMB()
+              == other.getMaxHeapSizeMB());
+        }
+        result = result && getRegionsList()
+            .equals(other.getRegionsList());
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptorForType().hashCode();
+        if (hasName()) {
+          hash = (37 * hash) + NAME_FIELD_NUMBER;
+          hash = (53 * hash) + getName().hashCode();
+        }
+        if (hasStartCode()) {
+          hash = (37 * hash) + STARTCODE_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getStartCode());
+        }
+        if (hasRequests()) {
+          hash = (37 * hash) + REQUESTS_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getRequests());
+        }
+        if (hasHeapSizeMB()) {
+          hash = (37 * hash) + HEAPSIZEMB_FIELD_NUMBER;
+          hash = (53 * hash) + getHeapSizeMB();
+        }
+        if (hasMaxHeapSizeMB()) {
+          hash = (37 * hash) + MAXHEAPSIZEMB_FIELD_NUMBER;
+          hash = (53 * hash) + getMaxHeapSizeMB();
+        }
+        if (getRegionsCount() > 0) {
+          hash = (37 * hash) + REGIONS_FIELD_NUMBER;
+          hash = (53 * hash) + getRegionsList().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
       }
 
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node parseFrom(
@@ -2113,46 +2280,57 @@ public final class StorageClusterStatusMessage {
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node parseFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      public static Builder newBuilder() { return Builder.create(); }
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node prototype) {
-        return newBuilder().mergeFrom(prototype);
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
       }
-      public Builder toBuilder() { return newBuilder(this); }
+      public static Builder newBuilder(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
 
       @java.lang.Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -2160,14 +2338,15 @@ public final class StorageClusterStatusMessage {
        * Protobuf type {@code org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder {
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node)
+          org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
@@ -2180,19 +2359,16 @@ public final class StorageClusterStatusMessage {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
             getRegionsFieldBuilder();
           }
         }
-        private static Builder create() {
-          return new Builder();
-        }
-
         public Builder clear() {
           super.clear();
           name_ = "";
@@ -2212,10 +2388,6 @@ public final class StorageClusterStatusMessage {
             regionsBuilder_.clear();
           }
           return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
         }
 
         public com.google.protobuf.Descriptors.Descriptor
@@ -2273,6 +2445,32 @@ public final class StorageClusterStatusMessage {
           return result;
         }
 
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node) {
             return mergeFrom((org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node)other);
@@ -2320,25 +2518,24 @@ public final class StorageClusterStatusMessage {
                 regions_ = other.regions_;
                 bitField0_ = (bitField0_ & ~0x00000020);
                 regionsBuilder_ = 
-                  com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                      getRegionsFieldBuilder() : null;
               } else {
                 regionsBuilder_.addAllMessages(other.regions_);
               }
             }
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
           return this;
         }
 
         public final boolean isInitialized() {
           if (!hasName()) {
-            
             return false;
           }
           for (int i = 0; i < getRegionsCount(); i++) {
             if (!getRegions(i).isInitialized()) {
-              
               return false;
             }
           }
@@ -2354,7 +2551,7 @@ public final class StorageClusterStatusMessage {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
             parsedMessage = (org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node) e.getUnfinishedMessage();
-            throw e;
+            throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
               mergeFrom(parsedMessage);
@@ -2364,42 +2561,44 @@ public final class StorageClusterStatusMessage {
         }
         private int bitField0_;
 
-        // required string name = 1;
         private java.lang.Object name_ = "";
         /**
-         * <code>required string name = 1;</code>
-         *
          * <pre>
          * name:port
          * </pre>
+         *
+         * <code>required string name = 1;</code>
          */
         public boolean hasName() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
         /**
-         * <code>required string name = 1;</code>
-         *
          * <pre>
          * name:port
          * </pre>
+         *
+         * <code>required string name = 1;</code>
          */
         public java.lang.String getName() {
           java.lang.Object ref = name_;
           if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                .toStringUtf8();
-            name_ = s;
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              name_ = s;
+            }
             return s;
           } else {
             return (java.lang.String) ref;
           }
         }
         /**
-         * <code>required string name = 1;</code>
-         *
          * <pre>
          * name:port
          * </pre>
+         *
+         * <code>required string name = 1;</code>
          */
         public com.google.protobuf.ByteString
             getNameBytes() {
@@ -2415,11 +2614,11 @@ public final class StorageClusterStatusMessage {
           }
         }
         /**
-         * <code>required string name = 1;</code>
-         *
          * <pre>
          * name:port
          * </pre>
+         *
+         * <code>required string name = 1;</code>
          */
         public Builder setName(
             java.lang.String value) {
@@ -2432,11 +2631,11 @@ public final class StorageClusterStatusMessage {
           return this;
         }
         /**
-         * <code>required string name = 1;</code>
-         *
          * <pre>
          * name:port
          * </pre>
+         *
+         * <code>required string name = 1;</code>
          */
         public Builder clearName() {
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -2445,11 +2644,11 @@ public final class StorageClusterStatusMessage {
           return this;
         }
         /**
-         * <code>required string name = 1;</code>
-         *
          * <pre>
          * name:port
          * </pre>
+         *
+         * <code>required string name = 1;</code>
          */
         public Builder setNameBytes(
             com.google.protobuf.ByteString value) {
@@ -2462,7 +2661,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int64 startCode = 2;
         private long startCode_ ;
         /**
          * <code>optional int64 startCode = 2;</code>
@@ -2495,7 +2693,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int64 requests = 3;
         private long requests_ ;
         /**
          * <code>optional int64 requests = 3;</code>
@@ -2528,7 +2725,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 heapSizeMB = 4;
         private int heapSizeMB_ ;
         /**
          * <code>optional int32 heapSizeMB = 4;</code>
@@ -2561,7 +2757,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // optional int32 maxHeapSizeMB = 5;
         private int maxHeapSizeMB_ ;
         /**
          * <code>optional int32 maxHeapSizeMB = 5;</code>
@@ -2594,7 +2789,6 @@ public final class StorageClusterStatusMessage {
           return this;
         }
 
-        // repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Region regions = 6;
         private java.util.List<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region> regions_ =
           java.util.Collections.emptyList();
         private void ensureRegionsIsMutable() {
@@ -2604,7 +2798,7 @@ public final class StorageClusterStatusMessage {
            }
         }
 
-        private com.google.protobuf.RepeatedFieldBuilder<
+        private com.google.protobuf.RepeatedFieldBuilderV3<
             org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region.Builder, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.RegionOrBuilder> regionsBuilder_;
 
         /**
@@ -2736,7 +2930,8 @@ public final class StorageClusterStatusMessage {
             java.lang.Iterable<? extends org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region> values) {
           if (regionsBuilder_ == null) {
             ensureRegionsIsMutable();
-            super.addAll(values, regions_);
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, regions_);
             onChanged();
           } else {
             regionsBuilder_.addAllMessages(values);
@@ -2819,11 +3014,11 @@ public final class StorageClusterStatusMessage {
              getRegionsBuilderList() {
           return getRegionsFieldBuilder().getBuilderList();
         }
-        private com.google.protobuf.RepeatedFieldBuilder<
+        private com.google.protobuf.RepeatedFieldBuilderV3<
             org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region.Builder, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.RegionOrBuilder> 
             getRegionsFieldBuilder() {
           if (regionsBuilder_ == null) {
-            regionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            regionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
                 org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Region.Builder, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.RegionOrBuilder>(
                     regions_,
                     ((bitField0_ & 0x00000020) == 0x00000020),
@@ -2833,82 +3028,117 @@ public final class StorageClusterStatusMessage {
           }
           return regionsBuilder_;
         }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
 
         // @@protoc_insertion_point(builder_scope:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node)
       }
 
+      // @@protoc_insertion_point(class_scope:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node)
+      private static final org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node DEFAULT_INSTANCE;
       static {
-        defaultInstance = new Node(true);
-        defaultInstance.initFields();
+        DEFAULT_INSTANCE = new org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node();
       }
 
-      // @@protoc_insertion_point(class_scope:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node)
+      public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Node>
+          PARSER = new com.google.protobuf.AbstractParser<Node>() {
+        public Node parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Node(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Node> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Node> getParserForType() {
+        return PARSER;
+      }
+
+      public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     private int bitField0_;
-    // repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;
     public static final int LIVENODES_FIELD_NUMBER = 1;
     private java.util.List<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node> liveNodes_;
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     public java.util.List<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node> getLiveNodesList() {
       return liveNodes_;
     }
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     public java.util.List<? extends org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder> 
         getLiveNodesOrBuilderList() {
       return liveNodes_;
     }
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     public int getLiveNodesCount() {
       return liveNodes_.size();
     }
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node getLiveNodes(int index) {
       return liveNodes_.get(index);
     }
     /**
-     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-     *
      * <pre>
      * node status
      * </pre>
+     *
+     * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
      */
     public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder getLiveNodesOrBuilder(
         int index) {
       return liveNodes_.get(index);
     }
 
-    // repeated string deadNodes = 2;
     public static final int DEADNODES_FIELD_NUMBER = 2;
     private com.google.protobuf.LazyStringList deadNodes_;
     /**
      * <code>repeated string deadNodes = 2;</code>
      */
-    public java.util.List<java.lang.String>
+    public com.google.protobuf.ProtocolStringList
         getDeadNodesList() {
       return deadNodes_;
     }
@@ -2932,31 +3162,29 @@ public final class StorageClusterStatusMessage {
       return deadNodes_.getByteString(index);
     }
 
-    // optional int32 regions = 3;
     public static final int REGIONS_FIELD_NUMBER = 3;
     private int regions_;
     /**
-     * <code>optional int32 regions = 3;</code>
-     *
      * <pre>
      * summary statistics
      * </pre>
+     *
+     * <code>optional int32 regions = 3;</code>
      */
     public boolean hasRegions() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional int32 regions = 3;</code>
-     *
      * <pre>
      * summary statistics
      * </pre>
+     *
+     * <code>optional int32 regions = 3;</code>
      */
     public int getRegions() {
       return regions_;
     }
 
-    // optional int64 requests = 4;
     public static final int REQUESTS_FIELD_NUMBER = 4;
     private long requests_;
     /**
@@ -2972,7 +3200,6 @@ public final class StorageClusterStatusMessage {
       return requests_;
     }
 
-    // optional double averageLoad = 5;
     public static final int AVERAGELOAD_FIELD_NUMBER = 5;
     private double averageLoad_;
     /**
@@ -2988,17 +3215,11 @@ public final class StorageClusterStatusMessage {
       return averageLoad_;
     }
 
-    private void initFields() {
-      liveNodes_ = java.util.Collections.emptyList();
-      deadNodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      regions_ = 0;
-      requests_ = 0L;
-      averageLoad_ = 0D;
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getLiveNodesCount(); i++) {
         if (!getLiveNodes(i).isInitialized()) {
@@ -3012,12 +3233,11 @@ public final class StorageClusterStatusMessage {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < liveNodes_.size(); i++) {
         output.writeMessage(1, liveNodes_.get(i));
       }
       for (int i = 0; i < deadNodes_.size(); i++) {
-        output.writeBytes(2, deadNodes_.getByteString(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deadNodes_.getRaw(i));
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(3, regions_);
@@ -3028,12 +3248,11 @@ public final class StorageClusterStatusMessage {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeDouble(5, averageLoad_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -3044,8 +3263,7 @@ public final class StorageClusterStatusMessage {
       {
         int dataSize = 0;
         for (int i = 0; i < deadNodes_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(deadNodes_.getByteString(i));
+          dataSize += computeStringSizeNoTag(deadNodes_.getRaw(i));
         }
         size += dataSize;
         size += 1 * getDeadNodesList().size();
@@ -3062,16 +3280,80 @@ public final class StorageClusterStatusMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(5, averageLoad_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus)) {
+        return super.equals(obj);
+      }
+      org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus other = (org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus) obj;
+
+      boolean result = true;
+      result = result && getLiveNodesList()
+          .equals(other.getLiveNodesList());
+      result = result && getDeadNodesList()
+          .equals(other.getDeadNodesList());
+      result = result && (hasRegions() == other.hasRegions());
+      if (hasRegions()) {
+        result = result && (getRegions()
+            == other.getRegions());
+      }
+      result = result && (hasRequests() == other.hasRequests());
+      if (hasRequests()) {
+        result = result && (getRequests()
+            == other.getRequests());
+      }
+      result = result && (hasAverageLoad() == other.hasAverageLoad());
+      if (hasAverageLoad()) {
+        result = result && (
+            java.lang.Double.doubleToLongBits(getAverageLoad())
+            == java.lang.Double.doubleToLongBits(
+                other.getAverageLoad()));
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (getLiveNodesCount() > 0) {
+        hash = (37 * hash) + LIVENODES_FIELD_NUMBER;
+        hash = (53 * hash) + getLiveNodesList().hashCode();
+      }
+      if (getDeadNodesCount() > 0) {
+        hash = (37 * hash) + DEADNODES_FIELD_NUMBER;
+        hash = (53 * hash) + getDeadNodesList().hashCode();
+      }
+      if (hasRegions()) {
+        hash = (37 * hash) + REGIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getRegions();
+      }
+      if (hasRequests()) {
+        hash = (37 * hash) + REQUESTS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getRequests());
+      }
+      if (hasAverageLoad()) {
+        hash = (37 * hash) + AVERAGELOAD_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getAverageLoad()));
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
     }
 
     public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus parseFrom(
@@ -3097,46 +3379,57 @@ public final class StorageClusterStatusMessage {
     }
     public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3144,14 +3437,15 @@ public final class StorageClusterStatusMessage {
      * Protobuf type {@code org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatusOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus)
+        org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatusOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -3164,19 +3458,16 @@ public final class StorageClusterStatusMessage {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getLiveNodesFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (liveNodesBuilder_ == null) {
@@ -3194,10 +3485,6 @@ public final class StorageClusterStatusMessage {
         averageLoad_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000010);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -3231,8 +3518,7 @@ public final class StorageClusterStatusMessage {
           result.liveNodes_ = liveNodesBuilder_.build();
         }
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          deadNodes_ = new com.google.protobuf.UnmodifiableLazyStringList(
-              deadNodes_);
+          deadNodes_ = deadNodes_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.deadNodes_ = deadNodes_;
@@ -3253,6 +3539,32 @@ public final class StorageClusterStatusMessage {
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus) {
           return mergeFrom((org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus)other);
@@ -3283,7 +3595,7 @@ public final class StorageClusterStatusMessage {
               liveNodes_ = other.liveNodes_;
               bitField0_ = (bitField0_ & ~0x00000001);
               liveNodesBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getLiveNodesFieldBuilder() : null;
             } else {
               liveNodesBuilder_.addAllMessages(other.liveNodes_);
@@ -3309,14 +3621,14 @@ public final class StorageClusterStatusMessage {
         if (other.hasAverageLoad()) {
           setAverageLoad(other.getAverageLoad());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
         for (int i = 0; i < getLiveNodesCount(); i++) {
           if (!getLiveNodes(i).isInitialized()) {
-            
             return false;
           }
         }
@@ -3332,7 +3644,7 @@ public final class StorageClusterStatusMessage {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -3342,7 +3654,6 @@ public final class StorageClusterStatusMessage {
       }
       private int bitField0_;
 
-      // repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;
       private java.util.List<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node> liveNodes_ =
         java.util.Collections.emptyList();
       private void ensureLiveNodesIsMutable() {
@@ -3352,15 +3663,15 @@ public final class StorageClusterStatusMessage {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder> liveNodesBuilder_;
 
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public java.util.List<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node> getLiveNodesList() {
         if (liveNodesBuilder_ == null) {
@@ -3370,11 +3681,11 @@ public final class StorageClusterStatusMessage {
         }
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public int getLiveNodesCount() {
         if (liveNodesBuilder_ == null) {
@@ -3384,11 +3695,11 @@ public final class StorageClusterStatusMessage {
         }
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node getLiveNodes(int index) {
         if (liveNodesBuilder_ == null) {
@@ -3398,11 +3709,11 @@ public final class StorageClusterStatusMessage {
         }
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public Builder setLiveNodes(
           int index, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node value) {
@@ -3419,11 +3730,11 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public Builder setLiveNodes(
           int index, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder builderForValue) {
@@ -3437,11 +3748,11 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public Builder addLiveNodes(org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node value) {
         if (liveNodesBuilder_ == null) {
@@ -3457,11 +3768,11 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public Builder addLiveNodes(
           int index, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node value) {
@@ -3478,11 +3789,11 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public Builder addLiveNodes(
           org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder builderForValue) {
@@ -3496,11 +3807,11 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public Builder addLiveNodes(
           int index, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder builderForValue) {
@@ -3514,17 +3825,18 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public Builder addAllLiveNodes(
           java.lang.Iterable<? extends org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node> values) {
         if (liveNodesBuilder_ == null) {
           ensureLiveNodesIsMutable();
-          super.addAll(values, liveNodes_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, liveNodes_);
           onChanged();
         } else {
           liveNodesBuilder_.addAllMessages(values);
@@ -3532,11 +3844,11 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public Builder clearLiveNodes() {
         if (liveNodesBuilder_ == null) {
@@ -3549,11 +3861,11 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public Builder removeLiveNodes(int index) {
         if (liveNodesBuilder_ == null) {
@@ -3566,22 +3878,22 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder getLiveNodesBuilder(
           int index) {
         return getLiveNodesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder getLiveNodesOrBuilder(
           int index) {
@@ -3591,11 +3903,11 @@ public final class StorageClusterStatusMessage {
         }
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public java.util.List<? extends org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder> 
            getLiveNodesOrBuilderList() {
@@ -3606,22 +3918,22 @@ public final class StorageClusterStatusMessage {
         }
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder addLiveNodesBuilder() {
         return getLiveNodesFieldBuilder().addBuilder(
             org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.getDefaultInstance());
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder addLiveNodesBuilder(
           int index) {
@@ -3629,21 +3941,21 @@ public final class StorageClusterStatusMessage {
             index, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.getDefaultInstance());
       }
       /**
-       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
-       *
        * <pre>
        * node status
        * </pre>
+       *
+       * <code>repeated .org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus.Node liveNodes = 1;</code>
        */
       public java.util.List<org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder> 
            getLiveNodesBuilderList() {
         return getLiveNodesFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder> 
           getLiveNodesFieldBuilder() {
         if (liveNodesBuilder_ == null) {
-          liveNodesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          liveNodesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.Node.Builder, org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus.NodeOrBuilder>(
                   liveNodes_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -3654,7 +3966,6 @@ public final class StorageClusterStatusMessage {
         return liveNodesBuilder_;
       }
 
-      // repeated string deadNodes = 2;
       private com.google.protobuf.LazyStringList deadNodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureDeadNodesIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
@@ -3665,9 +3976,9 @@ public final class StorageClusterStatusMessage {
       /**
        * <code>repeated string deadNodes = 2;</code>
        */
-      public java.util.List<java.lang.String>
+      public com.google.protobuf.ProtocolStringList
           getDeadNodesList() {
-        return java.util.Collections.unmodifiableList(deadNodes_);
+        return deadNodes_.getUnmodifiableView();
       }
       /**
        * <code>repeated string deadNodes = 2;</code>
@@ -3720,7 +4031,8 @@ public final class StorageClusterStatusMessage {
       public Builder addAllDeadNodes(
           java.lang.Iterable<java.lang.String> values) {
         ensureDeadNodesIsMutable();
-        super.addAll(values, deadNodes_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, deadNodes_);
         onChanged();
         return this;
       }
@@ -3747,34 +4059,33 @@ public final class StorageClusterStatusMessage {
         return this;
       }
 
-      // optional int32 regions = 3;
       private int regions_ ;
       /**
-       * <code>optional int32 regions = 3;</code>
-       *
        * <pre>
        * summary statistics
        * </pre>
+       *
+       * <code>optional int32 regions = 3;</code>
        */
       public boolean hasRegions() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int32 regions = 3;</code>
-       *
        * <pre>
        * summary statistics
        * </pre>
+       *
+       * <code>optional int32 regions = 3;</code>
        */
       public int getRegions() {
         return regions_;
       }
       /**
-       * <code>optional int32 regions = 3;</code>
-       *
        * <pre>
        * summary statistics
        * </pre>
+       *
+       * <code>optional int32 regions = 3;</code>
        */
       public Builder setRegions(int value) {
         bitField0_ |= 0x00000004;
@@ -3783,11 +4094,11 @@ public final class StorageClusterStatusMessage {
         return this;
       }
       /**
-       * <code>optional int32 regions = 3;</code>
-       *
        * <pre>
        * summary statistics
        * </pre>
+       *
+       * <code>optional int32 regions = 3;</code>
        */
       public Builder clearRegions() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -3796,7 +4107,6 @@ public final class StorageClusterStatusMessage {
         return this;
       }
 
-      // optional int64 requests = 4;
       private long requests_ ;
       /**
        * <code>optional int64 requests = 4;</code>
@@ -3829,7 +4139,6 @@ public final class StorageClusterStatusMessage {
         return this;
       }
 
-      // optional double averageLoad = 5;
       private double averageLoad_ ;
       /**
        * <code>optional double averageLoad = 5;</code>
@@ -3861,39 +4170,76 @@ public final class StorageClusterStatusMessage {
         onChanged();
         return this;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus)
     }
 
+    // @@protoc_insertion_point(class_scope:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus)
+    private static final org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus DEFAULT_INSTANCE;
     static {
-      defaultInstance = new StorageClusterStatus(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus();
     }
 
-    // @@protoc_insertion_point(class_scope:org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatus)
+    public static org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<StorageClusterStatus>
+        PARSER = new com.google.protobuf.AbstractParser<StorageClusterStatus>() {
+      public StorageClusterStatus parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new StorageClusterStatus(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StorageClusterStatus> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StorageClusterStatus> getParserForType() {
+      return PARSER;
+    }
+
+    public org.apache.hadoop.hbase.rest.protobuf.generated.StorageClusterStatusMessage.StorageClusterStatus getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -3920,35 +4266,35 @@ public final class StorageClusterStatusMessage {
       "usterStatus.Region"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor,
-              new java.lang.String[] { "LiveNodes", "DeadNodes", "Regions", "Requests", "AverageLoad", });
-          internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_descriptor =
-            internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor.getNestedTypes().get(0);
-          internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_descriptor,
-              new java.lang.String[] { "Name", "Stores", "Storefiles", "StorefileSizeMB", "MemstoreSizeMB", "StorefileIndexSizeMB", "ReadRequestsCount", "WriteRequestsCount", "RootIndexSizeKB", "TotalStaticIndexSizeKB", "TotalStaticBloomSizeKB", "TotalCompactingKVs", "CurrentCompactedKVs", });
-          internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_descriptor =
-            internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor.getNestedTypes().get(1);
-          internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_descriptor,
-              new java.lang.String[] { "Name", "StartCode", "Requests", "HeapSizeMB", "MaxHeapSizeMB", "Regions", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor,
+        new java.lang.String[] { "LiveNodes", "DeadNodes", "Regions", "Requests", "AverageLoad", });
+    internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_descriptor =
+      internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor.getNestedTypes().get(0);
+    internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Region_descriptor,
+        new java.lang.String[] { "Name", "Stores", "Storefiles", "StorefileSizeMB", "MemstoreSizeMB", "StorefileIndexSizeMB", "ReadRequestsCount", "WriteRequestsCount", "RootIndexSizeKB", "TotalStaticIndexSizeKB", "TotalStaticBloomSizeKB", "TotalCompactingKVs", "CurrentCompactedKVs", });
+    internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_descriptor =
+      internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_descriptor.getNestedTypes().get(1);
+    internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_apache_hadoop_hbase_rest_protobuf_generated_StorageClusterStatus_Node_descriptor,
+        new java.lang.String[] { "Name", "StartCode", "Requests", "HeapSizeMB", "MaxHeapSizeMB", "Regions", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
