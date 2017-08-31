@@ -34,5 +34,4 @@ package object hbase {
   }
   //Do not use BinaryType.ordering
   implicit val order: Ordering[HBaseType] = ord
-
 }

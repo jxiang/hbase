@@ -19,6 +19,14 @@ package org.apache.hadoop.hbase.spark.datasources
 
 import org.apache.hadoop.hbase.spark.hbase._
 
+import org.apache.spark.Partition
+
+private[hbase] case class HBaseRegion(
+  override val index: Int,
+  val start: Option[HBaseType] = None,
+  val end: Option[HBaseType] = None,
+  val server: Option[String] = None) extends Partition
+
 /**
  * The Bound represent the boudary for the scan
  *
