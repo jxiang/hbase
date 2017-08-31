@@ -64,7 +64,6 @@ import org.apache.hadoop.hbase.wal.WAL;
 import org.apache.hadoop.hbase.wal.WALKey;
 
 import com.google.common.collect.Lists;
-import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.Service;
 
 /**
@@ -248,7 +247,7 @@ public class ReplicationSource extends Thread
     metrics.clear();
     if (replicationEndpoint.state() == Service.State.STARTING
         || replicationEndpoint.state() == Service.State.RUNNING) {
-      replicationEndpoint.stopAndWait();
+      replicationEndpoint.stopAsync().awaitTerminated();;
     }
   }
 
@@ -262,7 +261,8 @@ public class ReplicationSource extends Thread
 
     try {
       // start the endpoint, connect to the cluster
-      Service.State state = replicationEndpoint.start().get();
+      replicationEndpoint.startAsync().awaitRunning();
+      Service.State state = replicationEndpoint.state();
       if (state != Service.State.RUNNING) {
         LOG.warn("ReplicationEndpoint was not started. Exiting");
         uninitialize();
@@ -971,15 +971,14 @@ public class ReplicationSource extends Thread
     }
     this.running = false;
     this.interrupt();
-    ListenableFuture<Service.State> future = null;
     if (this.replicationEndpoint != null) {
-      future = this.replicationEndpoint.stop();
+      this.replicationEndpoint.stopAsync();
     }
     if (join) {
       Threads.shutdown(this, this.sleepForRetries);
-      if (future != null) {
+      if (this.replicationEndpoint != null) {
         try {
-          future.get();
+          this.replicationEndpoint.awaitTerminated();
         } catch (Exception e) {
           LOG.warn("Got exception:" + e);
         }
