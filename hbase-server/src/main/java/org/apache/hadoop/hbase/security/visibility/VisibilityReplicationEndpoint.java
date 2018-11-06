@@ -21,6 +21,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.Executor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -34,7 +37,7 @@ import org.apache.hadoop.hbase.replication.ReplicationEndpoint;
 import org.apache.hadoop.hbase.replication.WALEntryFilter;
 import org.apache.hadoop.hbase.wal.WAL.Entry;
 
-import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.Service;
 
 @InterfaceAudience.Private
 public class VisibilityReplicationEndpoint implements ReplicationEndpoint {
@@ -128,13 +131,39 @@ public class VisibilityReplicationEndpoint implements ReplicationEndpoint {
   }
 
   @Override
-  public ListenableFuture<State> start() {
-    return delegator.start();
+  public Service startAsync() {
+    return delegator.startAsync();
   }
 
   @Override
-  public State startAndWait() {
-    return delegator.startAndWait();
+  public void addListener(Listener arg0, Executor arg1) {
+    delegator.addListener(arg0, arg1);
+  }
+
+  @Override
+  public void awaitRunning() {
+    delegator.awaitRunning();
+  }
+
+  @Override
+  public void awaitRunning(long arg0, TimeUnit arg1) throws TimeoutException {
+    delegator.awaitRunning(arg0, arg1);
+  }
+
+  @Override
+  public void awaitTerminated() {
+    delegator.awaitTerminated();
+  }
+
+  @Override
+  public void awaitTerminated(long arg0, TimeUnit arg1)
+      throws TimeoutException {
+    delegator.awaitTerminated(arg0, arg1);
+  }
+
+  @Override
+  public Throwable failureCause() {
+    return delegator.failureCause();
   }
 
   @Override
@@ -143,13 +172,7 @@ public class VisibilityReplicationEndpoint implements ReplicationEndpoint {
   }
 
   @Override
-  public ListenableFuture<State> stop() {
-    return delegator.stop();
+  public Service stopAsync() {
+    return delegator.stopAsync();
   }
-
-  @Override
-  public State stopAndWait() {
-    return delegator.stopAndWait();
-  }
-
 }

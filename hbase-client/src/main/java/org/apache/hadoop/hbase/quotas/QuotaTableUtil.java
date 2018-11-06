@@ -55,11 +55,11 @@ import org.apache.hadoop.hbase.protobuf.generated.QuotaProtos.GetSpaceQuotaRegio
 import org.apache.hadoop.hbase.protobuf.generated.QuotaProtos.Quotas;
 import org.apache.hadoop.hbase.protobuf.generated.QuotaProtos.SpaceQuota;
 import org.apache.hadoop.hbase.ipc.RpcControllerFactory;
+import org.apache.hadoop.hbase.util.ByteStringer;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.hbase.util.Strings;
 
 import com.google.protobuf.ByteString;
-import com.google.protobuf.HBaseZeroCopyByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 /**
@@ -271,7 +271,7 @@ public class QuotaTableUtil {
       throw new IllegalArgumentException("Result did not contain the expected column "
           + QUOTA_POLICY_COLUMN + ", " + result.toString());
     }
-    ByteString buffer = HBaseZeroCopyByteString.wrap(
+    ByteString buffer = ByteStringer.wrap(
         c.getValueArray(), c.getValueOffset(), c.getValueLength());
     try {
       QuotaProtos.SpaceQuotaSnapshot snapshot = QuotaProtos.SpaceQuotaSnapshot.parseFrom(buffer);

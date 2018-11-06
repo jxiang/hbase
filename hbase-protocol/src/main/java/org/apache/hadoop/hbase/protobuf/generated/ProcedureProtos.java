@@ -6,7 +6,13 @@ package org.apache.hadoop.hbase.protobuf.generated;
 public final class ProcedureProtos {
   private ProcedureProtos() {}
   public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
    * Protobuf enum {@code hbase.pb.ProcedureState}
@@ -14,108 +20,118 @@ public final class ProcedureProtos {
   public enum ProcedureState
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>INITIALIZING = 1;</code>
-     *
      * <pre>
      * Procedure in construction, not yet added to the executor
      * </pre>
-     */
-    INITIALIZING(0, 1),
-    /**
-     * <code>RUNNABLE = 2;</code>
      *
+     * <code>INITIALIZING = 1;</code>
+     */
+    INITIALIZING(1),
+    /**
      * <pre>
      * Procedure added to the executor, and ready to be executed
      * </pre>
-     */
-    RUNNABLE(1, 2),
-    /**
-     * <code>WAITING = 3;</code>
      *
+     * <code>RUNNABLE = 2;</code>
+     */
+    RUNNABLE(2),
+    /**
      * <pre>
      * The procedure is waiting on children to be completed
      * </pre>
-     */
-    WAITING(2, 3),
-    /**
-     * <code>WAITING_TIMEOUT = 4;</code>
      *
+     * <code>WAITING = 3;</code>
+     */
+    WAITING(3),
+    /**
      * <pre>
      * The procedure is waiting a timout or an external event
      * </pre>
-     */
-    WAITING_TIMEOUT(3, 4),
-    /**
-     * <code>ROLLEDBACK = 5;</code>
      *
+     * <code>WAITING_TIMEOUT = 4;</code>
+     */
+    WAITING_TIMEOUT(4),
+    /**
      * <pre>
      * The procedure failed and was rolledback
      * </pre>
-     */
-    ROLLEDBACK(4, 5),
-    /**
-     * <code>FINISHED = 6;</code>
      *
+     * <code>ROLLEDBACK = 5;</code>
+     */
+    ROLLEDBACK(5),
+    /**
      * <pre>
      * The procedure execution is completed. may need a rollback if failed.
      * </pre>
+     *
+     * <code>FINISHED = 6;</code>
      */
-    FINISHED(5, 6),
+    FINISHED(6),
     ;
 
     /**
-     * <code>INITIALIZING = 1;</code>
-     *
      * <pre>
      * Procedure in construction, not yet added to the executor
      * </pre>
+     *
+     * <code>INITIALIZING = 1;</code>
      */
     public static final int INITIALIZING_VALUE = 1;
     /**
-     * <code>RUNNABLE = 2;</code>
-     *
      * <pre>
      * Procedure added to the executor, and ready to be executed
      * </pre>
+     *
+     * <code>RUNNABLE = 2;</code>
      */
     public static final int RUNNABLE_VALUE = 2;
     /**
-     * <code>WAITING = 3;</code>
-     *
      * <pre>
      * The procedure is waiting on children to be completed
      * </pre>
+     *
+     * <code>WAITING = 3;</code>
      */
     public static final int WAITING_VALUE = 3;
     /**
-     * <code>WAITING_TIMEOUT = 4;</code>
-     *
      * <pre>
      * The procedure is waiting a timout or an external event
      * </pre>
+     *
+     * <code>WAITING_TIMEOUT = 4;</code>
      */
     public static final int WAITING_TIMEOUT_VALUE = 4;
     /**
-     * <code>ROLLEDBACK = 5;</code>
-     *
      * <pre>
      * The procedure failed and was rolledback
      * </pre>
+     *
+     * <code>ROLLEDBACK = 5;</code>
      */
     public static final int ROLLEDBACK_VALUE = 5;
     /**
-     * <code>FINISHED = 6;</code>
-     *
      * <pre>
      * The procedure execution is completed. may need a rollback if failed.
      * </pre>
+     *
+     * <code>FINISHED = 6;</code>
      */
     public static final int FINISHED_VALUE = 6;
 
 
-    public final int getNumber() { return value; }
+    public final int getNumber() {
+      return value;
+    }
 
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
     public static ProcedureState valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static ProcedureState forNumber(int value) {
       switch (value) {
         case 1: return INITIALIZING;
         case 2: return RUNNABLE;
@@ -131,17 +147,17 @@ public final class ProcedureProtos {
         internalGetValueMap() {
       return internalValueMap;
     }
-    private static com.google.protobuf.Internal.EnumLiteMap<ProcedureState>
-        internalValueMap =
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ProcedureState> internalValueMap =
           new com.google.protobuf.Internal.EnumLiteMap<ProcedureState>() {
             public ProcedureState findValueByNumber(int number) {
-              return ProcedureState.valueOf(number);
+              return ProcedureState.forNumber(number);
             }
           };
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
-      return getDescriptor().getValues().get(index);
+      return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptorForType() {
@@ -163,66 +179,62 @@ public final class ProcedureProtos {
       return VALUES[desc.getIndex()];
     }
 
-    private final int index;
     private final int value;
 
-    private ProcedureState(int index, int value) {
-      this.index = index;
+    private ProcedureState(int value) {
       this.value = value;
     }
 
     // @@protoc_insertion_point(enum_scope:hbase.pb.ProcedureState)
   }
 
-  public interface ProcedureOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ProcedureOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hbase.pb.Procedure)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string class_name = 1;
     /**
-     * <code>required string class_name = 1;</code>
-     *
      * <pre>
      * internal "static" state
      * </pre>
+     *
+     * <code>required string class_name = 1;</code>
      */
     boolean hasClassName();
     /**
-     * <code>required string class_name = 1;</code>
-     *
      * <pre>
      * internal "static" state
      * </pre>
+     *
+     * <code>required string class_name = 1;</code>
      */
     java.lang.String getClassName();
     /**
-     * <code>required string class_name = 1;</code>
-     *
      * <pre>
      * internal "static" state
      * </pre>
+     *
+     * <code>required string class_name = 1;</code>
      */
     com.google.protobuf.ByteString
         getClassNameBytes();
 
-    // optional uint64 parent_id = 2;
     /**
-     * <code>optional uint64 parent_id = 2;</code>
-     *
      * <pre>
      * parent if not a root-procedure otherwise not set
      * </pre>
+     *
+     * <code>optional uint64 parent_id = 2;</code>
      */
     boolean hasParentId();
     /**
-     * <code>optional uint64 parent_id = 2;</code>
-     *
      * <pre>
      * parent if not a root-procedure otherwise not set
      * </pre>
+     *
+     * <code>optional uint64 parent_id = 2;</code>
      */
     long getParentId();
 
-    // required uint64 proc_id = 3;
     /**
      * <code>required uint64 proc_id = 3;</code>
      */
@@ -232,7 +244,6 @@ public final class ProcedureProtos {
      */
     long getProcId();
 
-    // required uint64 start_time = 4;
     /**
      * <code>required uint64 start_time = 4;</code>
      */
@@ -242,7 +253,6 @@ public final class ProcedureProtos {
      */
     long getStartTime();
 
-    // optional string owner = 5;
     /**
      * <code>optional string owner = 5;</code>
      */
@@ -257,51 +267,48 @@ public final class ProcedureProtos {
     com.google.protobuf.ByteString
         getOwnerBytes();
 
-    // required .hbase.pb.ProcedureState state = 6;
     /**
-     * <code>required .hbase.pb.ProcedureState state = 6;</code>
-     *
      * <pre>
      * internal "runtime" state
      * </pre>
+     *
+     * <code>required .hbase.pb.ProcedureState state = 6;</code>
      */
     boolean hasState();
     /**
-     * <code>required .hbase.pb.ProcedureState state = 6;</code>
-     *
      * <pre>
      * internal "runtime" state
      * </pre>
+     *
+     * <code>required .hbase.pb.ProcedureState state = 6;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState getState();
 
-    // repeated uint32 stack_id = 7;
     /**
-     * <code>repeated uint32 stack_id = 7;</code>
-     *
      * <pre>
      * stack indices in case the procedure was running
      * </pre>
+     *
+     * <code>repeated uint32 stack_id = 7;</code>
      */
     java.util.List<java.lang.Integer> getStackIdList();
     /**
-     * <code>repeated uint32 stack_id = 7;</code>
-     *
      * <pre>
      * stack indices in case the procedure was running
      * </pre>
+     *
+     * <code>repeated uint32 stack_id = 7;</code>
      */
     int getStackIdCount();
     /**
-     * <code>repeated uint32 stack_id = 7;</code>
-     *
      * <pre>
      * stack indices in case the procedure was running
      * </pre>
+     *
+     * <code>repeated uint32 stack_id = 7;</code>
      */
     int getStackId(int index);
 
-    // required uint64 last_update = 8;
     /**
      * <code>required uint64 last_update = 8;</code>
      */
@@ -311,7 +318,6 @@ public final class ProcedureProtos {
      */
     long getLastUpdate();
 
-    // optional uint32 timeout = 9;
     /**
      * <code>optional uint32 timeout = 9;</code>
      */
@@ -321,87 +327,82 @@ public final class ProcedureProtos {
      */
     int getTimeout();
 
-    // optional .hbase.pb.ForeignExceptionMessage exception = 10;
     /**
-     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-     *
      * <pre>
      * user state/results
      * </pre>
+     *
+     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
      */
     boolean hasException();
     /**
-     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-     *
      * <pre>
      * user state/results
      * </pre>
+     *
+     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage getException();
     /**
-     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-     *
      * <pre>
      * user state/results
      * </pre>
+     *
+     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
      */
     org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessageOrBuilder getExceptionOrBuilder();
 
-    // optional bytes result = 11;
     /**
-     * <code>optional bytes result = 11;</code>
-     *
      * <pre>
      * opaque (user) result structure
      * </pre>
+     *
+     * <code>optional bytes result = 11;</code>
      */
     boolean hasResult();
     /**
-     * <code>optional bytes result = 11;</code>
-     *
      * <pre>
      * opaque (user) result structure
      * </pre>
+     *
+     * <code>optional bytes result = 11;</code>
      */
     com.google.protobuf.ByteString getResult();
 
-    // optional bytes state_data = 12;
     /**
-     * <code>optional bytes state_data = 12;</code>
-     *
      * <pre>
      * opaque (user) procedure internal-state
      * </pre>
+     *
+     * <code>optional bytes state_data = 12;</code>
      */
     boolean hasStateData();
     /**
-     * <code>optional bytes state_data = 12;</code>
-     *
      * <pre>
      * opaque (user) procedure internal-state
      * </pre>
+     *
+     * <code>optional bytes state_data = 12;</code>
      */
     com.google.protobuf.ByteString getStateData();
 
-    // optional uint64 nonce_group = 13 [default = 0];
     /**
-     * <code>optional uint64 nonce_group = 13 [default = 0];</code>
-     *
      * <pre>
      * Nonce to prevent same procedure submit by multiple times
      * </pre>
+     *
+     * <code>optional uint64 nonce_group = 13 [default = 0];</code>
      */
     boolean hasNonceGroup();
     /**
-     * <code>optional uint64 nonce_group = 13 [default = 0];</code>
-     *
      * <pre>
      * Nonce to prevent same procedure submit by multiple times
      * </pre>
+     *
+     * <code>optional uint64 nonce_group = 13 [default = 0];</code>
      */
     long getNonceGroup();
 
-    // optional uint64 nonce = 14 [default = 0];
     /**
      * <code>optional uint64 nonce = 14 [default = 0];</code>
      */
@@ -412,43 +413,51 @@ public final class ProcedureProtos {
     long getNonce();
   }
   /**
-   * Protobuf type {@code hbase.pb.Procedure}
-   *
    * <pre>
    **
    * Procedure metadata, serialized by the ProcedureStore to be able to recover the old state.
    * </pre>
+   *
+   * Protobuf type {@code hbase.pb.Procedure}
    */
-  public static final class Procedure extends
-      com.google.protobuf.GeneratedMessage
-      implements ProcedureOrBuilder {
+  public  static final class Procedure extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:hbase.pb.Procedure)
+      ProcedureOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Procedure.newBuilder() to construct.
-    private Procedure(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private Procedure(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private Procedure(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Procedure defaultInstance;
-    public static Procedure getDefaultInstance() {
-      return defaultInstance;
+    private Procedure() {
+      className_ = "";
+      parentId_ = 0L;
+      procId_ = 0L;
+      startTime_ = 0L;
+      owner_ = "";
+      state_ = 1;
+      stackId_ = java.util.Collections.emptyList();
+      lastUpdate_ = 0L;
+      timeout_ = 0;
+      result_ = com.google.protobuf.ByteString.EMPTY;
+      stateData_ = com.google.protobuf.ByteString.EMPTY;
+      nonceGroup_ = 0L;
+      nonce_ = 0L;
     }
 
-    public Procedure getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private Procedure(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -460,16 +469,10 @@ public final class ProcedureProtos {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              className_ = input.readBytes();
+              className_ = bs;
               break;
             }
             case 16: {
@@ -488,18 +491,20 @@ public final class ProcedureProtos {
               break;
             }
             case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              owner_ = input.readBytes();
+              owner_ = bs;
               break;
             }
             case 48: {
               int rawValue = input.readEnum();
+                @SuppressWarnings("deprecation")
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState value = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(6, rawValue);
               } else {
                 bitField0_ |= 0x00000020;
-                state_ = value;
+                state_ = rawValue;
               }
               break;
             }
@@ -567,13 +572,20 @@ public final class ProcedureProtos {
               nonce_ = input.readUInt64();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           stackId_ = java.util.Collections.unmodifiableList(stackId_);
@@ -587,48 +599,33 @@ public final class ProcedureProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_Procedure_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_Procedure_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure.class, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<Procedure> PARSER =
-        new com.google.protobuf.AbstractParser<Procedure>() {
-      public Procedure parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Procedure(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Procedure> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required string class_name = 1;
     public static final int CLASS_NAME_FIELD_NUMBER = 1;
-    private java.lang.Object className_;
+    private volatile java.lang.Object className_;
     /**
-     * <code>required string class_name = 1;</code>
-     *
      * <pre>
      * internal "static" state
      * </pre>
+     *
+     * <code>required string class_name = 1;</code>
      */
     public boolean hasClassName() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string class_name = 1;</code>
-     *
      * <pre>
      * internal "static" state
      * </pre>
+     *
+     * <code>required string class_name = 1;</code>
      */
     public java.lang.String getClassName() {
       java.lang.Object ref = className_;
@@ -645,11 +642,11 @@ public final class ProcedureProtos {
       }
     }
     /**
-     * <code>required string class_name = 1;</code>
-     *
      * <pre>
      * internal "static" state
      * </pre>
+     *
+     * <code>required string class_name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getClassNameBytes() {
@@ -665,31 +662,29 @@ public final class ProcedureProtos {
       }
     }
 
-    // optional uint64 parent_id = 2;
     public static final int PARENT_ID_FIELD_NUMBER = 2;
     private long parentId_;
     /**
-     * <code>optional uint64 parent_id = 2;</code>
-     *
      * <pre>
      * parent if not a root-procedure otherwise not set
      * </pre>
+     *
+     * <code>optional uint64 parent_id = 2;</code>
      */
     public boolean hasParentId() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional uint64 parent_id = 2;</code>
-     *
      * <pre>
      * parent if not a root-procedure otherwise not set
      * </pre>
+     *
+     * <code>optional uint64 parent_id = 2;</code>
      */
     public long getParentId() {
       return parentId_;
     }
 
-    // required uint64 proc_id = 3;
     public static final int PROC_ID_FIELD_NUMBER = 3;
     private long procId_;
     /**
@@ -705,7 +700,6 @@ public final class ProcedureProtos {
       return procId_;
     }
 
-    // required uint64 start_time = 4;
     public static final int START_TIME_FIELD_NUMBER = 4;
     private long startTime_;
     /**
@@ -721,9 +715,8 @@ public final class ProcedureProtos {
       return startTime_;
     }
 
-    // optional string owner = 5;
     public static final int OWNER_FIELD_NUMBER = 5;
-    private java.lang.Object owner_;
+    private volatile java.lang.Object owner_;
     /**
      * <code>optional string owner = 5;</code>
      */
@@ -764,66 +757,65 @@ public final class ProcedureProtos {
       }
     }
 
-    // required .hbase.pb.ProcedureState state = 6;
     public static final int STATE_FIELD_NUMBER = 6;
-    private org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState state_;
+    private int state_;
     /**
-     * <code>required .hbase.pb.ProcedureState state = 6;</code>
-     *
      * <pre>
      * internal "runtime" state
      * </pre>
+     *
+     * <code>required .hbase.pb.ProcedureState state = 6;</code>
      */
     public boolean hasState() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>required .hbase.pb.ProcedureState state = 6;</code>
-     *
      * <pre>
      * internal "runtime" state
      * </pre>
+     *
+     * <code>required .hbase.pb.ProcedureState state = 6;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState getState() {
-      return state_;
+      @SuppressWarnings("deprecation")
+      org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState result = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState.valueOf(state_);
+      return result == null ? org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState.INITIALIZING : result;
     }
 
-    // repeated uint32 stack_id = 7;
     public static final int STACK_ID_FIELD_NUMBER = 7;
     private java.util.List<java.lang.Integer> stackId_;
     /**
-     * <code>repeated uint32 stack_id = 7;</code>
-     *
      * <pre>
      * stack indices in case the procedure was running
      * </pre>
+     *
+     * <code>repeated uint32 stack_id = 7;</code>
      */
     public java.util.List<java.lang.Integer>
         getStackIdList() {
       return stackId_;
     }
     /**
-     * <code>repeated uint32 stack_id = 7;</code>
-     *
      * <pre>
      * stack indices in case the procedure was running
      * </pre>
+     *
+     * <code>repeated uint32 stack_id = 7;</code>
      */
     public int getStackIdCount() {
       return stackId_.size();
     }
     /**
-     * <code>repeated uint32 stack_id = 7;</code>
-     *
      * <pre>
      * stack indices in case the procedure was running
      * </pre>
+     *
+     * <code>repeated uint32 stack_id = 7;</code>
      */
     public int getStackId(int index) {
       return stackId_.get(index);
     }
 
-    // required uint64 last_update = 8;
     public static final int LAST_UPDATE_FIELD_NUMBER = 8;
     private long lastUpdate_;
     /**
@@ -839,7 +831,6 @@ public final class ProcedureProtos {
       return lastUpdate_;
     }
 
-    // optional uint32 timeout = 9;
     public static final int TIMEOUT_FIELD_NUMBER = 9;
     private int timeout_;
     /**
@@ -855,113 +846,108 @@ public final class ProcedureProtos {
       return timeout_;
     }
 
-    // optional .hbase.pb.ForeignExceptionMessage exception = 10;
     public static final int EXCEPTION_FIELD_NUMBER = 10;
     private org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage exception_;
     /**
-     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-     *
      * <pre>
      * user state/results
      * </pre>
+     *
+     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
      */
     public boolean hasException() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-     *
      * <pre>
      * user state/results
      * </pre>
+     *
+     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage getException() {
-      return exception_;
+      return exception_ == null ? org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.getDefaultInstance() : exception_;
     }
     /**
-     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-     *
      * <pre>
      * user state/results
      * </pre>
+     *
+     * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessageOrBuilder getExceptionOrBuilder() {
-      return exception_;
+      return exception_ == null ? org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.getDefaultInstance() : exception_;
     }
 
-    // optional bytes result = 11;
     public static final int RESULT_FIELD_NUMBER = 11;
     private com.google.protobuf.ByteString result_;
     /**
-     * <code>optional bytes result = 11;</code>
-     *
      * <pre>
      * opaque (user) result structure
      * </pre>
+     *
+     * <code>optional bytes result = 11;</code>
      */
     public boolean hasResult() {
       return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional bytes result = 11;</code>
-     *
      * <pre>
      * opaque (user) result structure
      * </pre>
+     *
+     * <code>optional bytes result = 11;</code>
      */
     public com.google.protobuf.ByteString getResult() {
       return result_;
     }
 
-    // optional bytes state_data = 12;
     public static final int STATE_DATA_FIELD_NUMBER = 12;
     private com.google.protobuf.ByteString stateData_;
     /**
-     * <code>optional bytes state_data = 12;</code>
-     *
      * <pre>
      * opaque (user) procedure internal-state
      * </pre>
+     *
+     * <code>optional bytes state_data = 12;</code>
      */
     public boolean hasStateData() {
       return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional bytes state_data = 12;</code>
-     *
      * <pre>
      * opaque (user) procedure internal-state
      * </pre>
+     *
+     * <code>optional bytes state_data = 12;</code>
      */
     public com.google.protobuf.ByteString getStateData() {
       return stateData_;
     }
 
-    // optional uint64 nonce_group = 13 [default = 0];
     public static final int NONCE_GROUP_FIELD_NUMBER = 13;
     private long nonceGroup_;
     /**
-     * <code>optional uint64 nonce_group = 13 [default = 0];</code>
-     *
      * <pre>
      * Nonce to prevent same procedure submit by multiple times
      * </pre>
+     *
+     * <code>optional uint64 nonce_group = 13 [default = 0];</code>
      */
     public boolean hasNonceGroup() {
       return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional uint64 nonce_group = 13 [default = 0];</code>
-     *
      * <pre>
      * Nonce to prevent same procedure submit by multiple times
      * </pre>
+     *
+     * <code>optional uint64 nonce_group = 13 [default = 0];</code>
      */
     public long getNonceGroup() {
       return nonceGroup_;
     }
 
-    // optional uint64 nonce = 14 [default = 0];
     public static final int NONCE_FIELD_NUMBER = 14;
     private long nonce_;
     /**
@@ -977,26 +963,12 @@ public final class ProcedureProtos {
       return nonce_;
     }
 
-    private void initFields() {
-      className_ = "";
-      parentId_ = 0L;
-      procId_ = 0L;
-      startTime_ = 0L;
-      owner_ = "";
-      state_ = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState.INITIALIZING;
-      stackId_ = java.util.Collections.emptyList();
-      lastUpdate_ = 0L;
-      timeout_ = 0;
-      exception_ = org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.getDefaultInstance();
-      result_ = com.google.protobuf.ByteString.EMPTY;
-      stateData_ = com.google.protobuf.ByteString.EMPTY;
-      nonceGroup_ = 0L;
-      nonce_ = 0L;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasClassName()) {
         memoizedIsInitialized = 0;
@@ -1022,11 +994,11 @@ public final class ProcedureProtos {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getClassNameBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, className_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt64(2, parentId_);
@@ -1038,10 +1010,10 @@ public final class ProcedureProtos {
         output.writeUInt64(4, startTime_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, getOwnerBytes());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, owner_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeEnum(6, state_.getNumber());
+        output.writeEnum(6, state_);
       }
       for (int i = 0; i < stackId_.size(); i++) {
         output.writeUInt32(7, stackId_.get(i));
@@ -1053,7 +1025,7 @@ public final class ProcedureProtos {
         output.writeUInt32(9, timeout_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeMessage(10, exception_);
+        output.writeMessage(10, getException());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeBytes(11, result_);
@@ -1067,18 +1039,17 @@ public final class ProcedureProtos {
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         output.writeUInt64(14, nonce_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getClassNameBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, className_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1093,12 +1064,11 @@ public final class ProcedureProtos {
           .computeUInt64Size(4, startTime_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getOwnerBytes());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, owner_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(6, state_.getNumber());
+          .computeEnumSize(6, state_);
       }
       {
         int dataSize = 0;
@@ -1119,7 +1089,7 @@ public final class ProcedureProtos {
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, exception_);
+          .computeMessageSize(10, getException());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1137,16 +1107,9 @@ public final class ProcedureProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(14, nonce_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
     }
 
     @java.lang.Override
@@ -1187,8 +1150,7 @@ public final class ProcedureProtos {
       }
       result = result && (hasState() == other.hasState());
       if (hasState()) {
-        result = result &&
-            (getState() == other.getState());
+        result = result && state_ == other.state_;
       }
       result = result && getStackIdList()
           .equals(other.getStackIdList());
@@ -1227,34 +1189,35 @@ public final class ProcedureProtos {
         result = result && (getNonce()
             == other.getNonce());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasClassName()) {
         hash = (37 * hash) + CLASS_NAME_FIELD_NUMBER;
         hash = (53 * hash) + getClassName().hashCode();
       }
       if (hasParentId()) {
         hash = (37 * hash) + PARENT_ID_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getParentId());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getParentId());
       }
       if (hasProcId()) {
         hash = (37 * hash) + PROC_ID_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getProcId());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getProcId());
       }
       if (hasStartTime()) {
         hash = (37 * hash) + START_TIME_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getStartTime());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getStartTime());
       }
       if (hasOwner()) {
         hash = (37 * hash) + OWNER_FIELD_NUMBER;
@@ -1262,7 +1225,7 @@ public final class ProcedureProtos {
       }
       if (hasState()) {
         hash = (37 * hash) + STATE_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getState());
+        hash = (53 * hash) + state_;
       }
       if (getStackIdCount() > 0) {
         hash = (37 * hash) + STACK_ID_FIELD_NUMBER;
@@ -1270,7 +1233,8 @@ public final class ProcedureProtos {
       }
       if (hasLastUpdate()) {
         hash = (37 * hash) + LAST_UPDATE_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getLastUpdate());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastUpdate());
       }
       if (hasTimeout()) {
         hash = (37 * hash) + TIMEOUT_FIELD_NUMBER;
@@ -1290,17 +1254,30 @@ public final class ProcedureProtos {
       }
       if (hasNonceGroup()) {
         hash = (37 * hash) + NONCE_GROUP_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getNonceGroup());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getNonceGroup());
       }
       if (hasNonce()) {
         hash = (37 * hash) + NONCE_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getNonce());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getNonce());
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1324,66 +1301,81 @@ public final class ProcedureProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code hbase.pb.Procedure}
-     *
      * <pre>
      **
      * Procedure metadata, serialized by the ProcedureStore to be able to recover the old state.
      * </pre>
+     *
+     * Protobuf type {@code hbase.pb.Procedure}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hbase.pb.Procedure)
+        org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_Procedure_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_Procedure_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1396,19 +1388,17 @@ public final class ProcedureProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getExceptionFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         className_ = "";
@@ -1421,7 +1411,7 @@ public final class ProcedureProtos {
         bitField0_ = (bitField0_ & ~0x00000008);
         owner_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState.INITIALIZING;
+        state_ = 1;
         bitField0_ = (bitField0_ & ~0x00000020);
         stackId_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -1430,7 +1420,7 @@ public final class ProcedureProtos {
         timeout_ = 0;
         bitField0_ = (bitField0_ & ~0x00000100);
         if (exceptionBuilder_ == null) {
-          exception_ = org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.getDefaultInstance();
+          exception_ = null;
         } else {
           exceptionBuilder_.clear();
         }
@@ -1446,19 +1436,18 @@ public final class ProcedureProtos {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_Procedure_descriptor;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure getDefaultInstanceForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure build() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure result = buildPartial();
         if (!result.isInitialized()) {
@@ -1467,6 +1456,7 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure buildPartial() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure result = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure(this);
         int from_bitField0_ = bitField0_;
@@ -1537,6 +1527,39 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure)other);
@@ -1601,34 +1624,32 @@ public final class ProcedureProtos {
         if (other.hasNonce()) {
           setNonce(other.getNonce());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasClassName()) {
-          
           return false;
         }
         if (!hasProcId()) {
-          
           return false;
         }
         if (!hasStartTime()) {
-          
           return false;
         }
         if (!hasState()) {
-          
           return false;
         }
         if (!hasLastUpdate()) {
-          
           return false;
         }
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1638,7 +1659,7 @@ public final class ProcedureProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -1648,42 +1669,44 @@ public final class ProcedureProtos {
       }
       private int bitField0_;
 
-      // required string class_name = 1;
       private java.lang.Object className_ = "";
       /**
-       * <code>required string class_name = 1;</code>
-       *
        * <pre>
        * internal "static" state
        * </pre>
+       *
+       * <code>required string class_name = 1;</code>
        */
       public boolean hasClassName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string class_name = 1;</code>
-       *
        * <pre>
        * internal "static" state
        * </pre>
+       *
+       * <code>required string class_name = 1;</code>
        */
       public java.lang.String getClassName() {
         java.lang.Object ref = className_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          className_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            className_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>required string class_name = 1;</code>
-       *
        * <pre>
        * internal "static" state
        * </pre>
+       *
+       * <code>required string class_name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getClassNameBytes() {
@@ -1699,11 +1722,11 @@ public final class ProcedureProtos {
         }
       }
       /**
-       * <code>required string class_name = 1;</code>
-       *
        * <pre>
        * internal "static" state
        * </pre>
+       *
+       * <code>required string class_name = 1;</code>
        */
       public Builder setClassName(
           java.lang.String value) {
@@ -1716,11 +1739,11 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>required string class_name = 1;</code>
-       *
        * <pre>
        * internal "static" state
        * </pre>
+       *
+       * <code>required string class_name = 1;</code>
        */
       public Builder clearClassName() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -1729,11 +1752,11 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>required string class_name = 1;</code>
-       *
        * <pre>
        * internal "static" state
        * </pre>
+       *
+       * <code>required string class_name = 1;</code>
        */
       public Builder setClassNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1746,34 +1769,33 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // optional uint64 parent_id = 2;
       private long parentId_ ;
       /**
-       * <code>optional uint64 parent_id = 2;</code>
-       *
        * <pre>
        * parent if not a root-procedure otherwise not set
        * </pre>
+       *
+       * <code>optional uint64 parent_id = 2;</code>
        */
       public boolean hasParentId() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional uint64 parent_id = 2;</code>
-       *
        * <pre>
        * parent if not a root-procedure otherwise not set
        * </pre>
+       *
+       * <code>optional uint64 parent_id = 2;</code>
        */
       public long getParentId() {
         return parentId_;
       }
       /**
-       * <code>optional uint64 parent_id = 2;</code>
-       *
        * <pre>
        * parent if not a root-procedure otherwise not set
        * </pre>
+       *
+       * <code>optional uint64 parent_id = 2;</code>
        */
       public Builder setParentId(long value) {
         bitField0_ |= 0x00000002;
@@ -1782,11 +1804,11 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>optional uint64 parent_id = 2;</code>
-       *
        * <pre>
        * parent if not a root-procedure otherwise not set
        * </pre>
+       *
+       * <code>optional uint64 parent_id = 2;</code>
        */
       public Builder clearParentId() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -1795,7 +1817,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // required uint64 proc_id = 3;
       private long procId_ ;
       /**
        * <code>required uint64 proc_id = 3;</code>
@@ -1828,7 +1849,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // required uint64 start_time = 4;
       private long startTime_ ;
       /**
        * <code>required uint64 start_time = 4;</code>
@@ -1861,7 +1881,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // optional string owner = 5;
       private java.lang.Object owner_ = "";
       /**
        * <code>optional string owner = 5;</code>
@@ -1875,9 +1894,12 @@ public final class ProcedureProtos {
       public java.lang.String getOwner() {
         java.lang.Object ref = owner_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          owner_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            owner_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1935,59 +1957,59 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // required .hbase.pb.ProcedureState state = 6;
-      private org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState state_ = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState.INITIALIZING;
+      private int state_ = 1;
       /**
-       * <code>required .hbase.pb.ProcedureState state = 6;</code>
-       *
        * <pre>
        * internal "runtime" state
        * </pre>
+       *
+       * <code>required .hbase.pb.ProcedureState state = 6;</code>
        */
       public boolean hasState() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>required .hbase.pb.ProcedureState state = 6;</code>
-       *
        * <pre>
        * internal "runtime" state
        * </pre>
+       *
+       * <code>required .hbase.pb.ProcedureState state = 6;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState getState() {
-        return state_;
+        @SuppressWarnings("deprecation")
+        org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState result = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState.valueOf(state_);
+        return result == null ? org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState.INITIALIZING : result;
       }
       /**
-       * <code>required .hbase.pb.ProcedureState state = 6;</code>
-       *
        * <pre>
        * internal "runtime" state
        * </pre>
+       *
+       * <code>required .hbase.pb.ProcedureState state = 6;</code>
        */
       public Builder setState(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState value) {
         if (value == null) {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000020;
-        state_ = value;
+        state_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>required .hbase.pb.ProcedureState state = 6;</code>
-       *
        * <pre>
        * internal "runtime" state
        * </pre>
+       *
+       * <code>required .hbase.pb.ProcedureState state = 6;</code>
        */
       public Builder clearState() {
         bitField0_ = (bitField0_ & ~0x00000020);
-        state_ = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureState.INITIALIZING;
+        state_ = 1;
         onChanged();
         return this;
       }
 
-      // repeated uint32 stack_id = 7;
       private java.util.List<java.lang.Integer> stackId_ = java.util.Collections.emptyList();
       private void ensureStackIdIsMutable() {
         if (!((bitField0_ & 0x00000040) == 0x00000040)) {
@@ -1996,42 +2018,42 @@ public final class ProcedureProtos {
          }
       }
       /**
-       * <code>repeated uint32 stack_id = 7;</code>
-       *
        * <pre>
        * stack indices in case the procedure was running
        * </pre>
+       *
+       * <code>repeated uint32 stack_id = 7;</code>
        */
       public java.util.List<java.lang.Integer>
           getStackIdList() {
         return java.util.Collections.unmodifiableList(stackId_);
       }
       /**
-       * <code>repeated uint32 stack_id = 7;</code>
-       *
        * <pre>
        * stack indices in case the procedure was running
        * </pre>
+       *
+       * <code>repeated uint32 stack_id = 7;</code>
        */
       public int getStackIdCount() {
         return stackId_.size();
       }
       /**
-       * <code>repeated uint32 stack_id = 7;</code>
-       *
        * <pre>
        * stack indices in case the procedure was running
        * </pre>
+       *
+       * <code>repeated uint32 stack_id = 7;</code>
        */
       public int getStackId(int index) {
         return stackId_.get(index);
       }
       /**
-       * <code>repeated uint32 stack_id = 7;</code>
-       *
        * <pre>
        * stack indices in case the procedure was running
        * </pre>
+       *
+       * <code>repeated uint32 stack_id = 7;</code>
        */
       public Builder setStackId(
           int index, int value) {
@@ -2041,11 +2063,11 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>repeated uint32 stack_id = 7;</code>
-       *
        * <pre>
        * stack indices in case the procedure was running
        * </pre>
+       *
+       * <code>repeated uint32 stack_id = 7;</code>
        */
       public Builder addStackId(int value) {
         ensureStackIdIsMutable();
@@ -2054,25 +2076,26 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>repeated uint32 stack_id = 7;</code>
-       *
        * <pre>
        * stack indices in case the procedure was running
        * </pre>
+       *
+       * <code>repeated uint32 stack_id = 7;</code>
        */
       public Builder addAllStackId(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureStackIdIsMutable();
-        super.addAll(values, stackId_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, stackId_);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 stack_id = 7;</code>
-       *
        * <pre>
        * stack indices in case the procedure was running
        * </pre>
+       *
+       * <code>repeated uint32 stack_id = 7;</code>
        */
       public Builder clearStackId() {
         stackId_ = java.util.Collections.emptyList();
@@ -2081,7 +2104,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // required uint64 last_update = 8;
       private long lastUpdate_ ;
       /**
        * <code>required uint64 last_update = 8;</code>
@@ -2114,7 +2136,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // optional uint32 timeout = 9;
       private int timeout_ ;
       /**
        * <code>optional uint32 timeout = 9;</code>
@@ -2147,40 +2168,39 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // optional .hbase.pb.ForeignExceptionMessage exception = 10;
-      private org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage exception_ = org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage exception_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage, org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.Builder, org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessageOrBuilder> exceptionBuilder_;
       /**
-       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-       *
        * <pre>
        * user state/results
        * </pre>
+       *
+       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
        */
       public boolean hasException() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-       *
        * <pre>
        * user state/results
        * </pre>
+       *
+       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage getException() {
         if (exceptionBuilder_ == null) {
-          return exception_;
+          return exception_ == null ? org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.getDefaultInstance() : exception_;
         } else {
           return exceptionBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-       *
        * <pre>
        * user state/results
        * </pre>
+       *
+       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
        */
       public Builder setException(org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage value) {
         if (exceptionBuilder_ == null) {
@@ -2196,11 +2216,11 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-       *
        * <pre>
        * user state/results
        * </pre>
+       *
+       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
        */
       public Builder setException(
           org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.Builder builderForValue) {
@@ -2214,15 +2234,16 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-       *
        * <pre>
        * user state/results
        * </pre>
+       *
+       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
        */
       public Builder mergeException(org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage value) {
         if (exceptionBuilder_ == null) {
           if (((bitField0_ & 0x00000200) == 0x00000200) &&
+              exception_ != null &&
               exception_ != org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.getDefaultInstance()) {
             exception_ =
               org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.newBuilder(exception_).mergeFrom(value).buildPartial();
@@ -2237,15 +2258,15 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-       *
        * <pre>
        * user state/results
        * </pre>
+       *
+       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
        */
       public Builder clearException() {
         if (exceptionBuilder_ == null) {
-          exception_ = org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.getDefaultInstance();
+          exception_ = null;
           onChanged();
         } else {
           exceptionBuilder_.clear();
@@ -2254,11 +2275,11 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-       *
        * <pre>
        * user state/results
        * </pre>
+       *
+       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.Builder getExceptionBuilder() {
         bitField0_ |= 0x00000200;
@@ -2266,33 +2287,34 @@ public final class ProcedureProtos {
         return getExceptionFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-       *
        * <pre>
        * user state/results
        * </pre>
+       *
+       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessageOrBuilder getExceptionOrBuilder() {
         if (exceptionBuilder_ != null) {
           return exceptionBuilder_.getMessageOrBuilder();
         } else {
-          return exception_;
+          return exception_ == null ?
+              org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.getDefaultInstance() : exception_;
         }
       }
       /**
-       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
-       *
        * <pre>
        * user state/results
        * </pre>
+       *
+       * <code>optional .hbase.pb.ForeignExceptionMessage exception = 10;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage, org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.Builder, org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessageOrBuilder> 
           getExceptionFieldBuilder() {
         if (exceptionBuilder_ == null) {
-          exceptionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          exceptionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage, org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessage.Builder, org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.ForeignExceptionMessageOrBuilder>(
-                  exception_,
+                  getException(),
                   getParentForChildren(),
                   isClean());
           exception_ = null;
@@ -2300,34 +2322,33 @@ public final class ProcedureProtos {
         return exceptionBuilder_;
       }
 
-      // optional bytes result = 11;
       private com.google.protobuf.ByteString result_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes result = 11;</code>
-       *
        * <pre>
        * opaque (user) result structure
        * </pre>
+       *
+       * <code>optional bytes result = 11;</code>
        */
       public boolean hasResult() {
         return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional bytes result = 11;</code>
-       *
        * <pre>
        * opaque (user) result structure
        * </pre>
+       *
+       * <code>optional bytes result = 11;</code>
        */
       public com.google.protobuf.ByteString getResult() {
         return result_;
       }
       /**
-       * <code>optional bytes result = 11;</code>
-       *
        * <pre>
        * opaque (user) result structure
        * </pre>
+       *
+       * <code>optional bytes result = 11;</code>
        */
       public Builder setResult(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -2339,11 +2360,11 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>optional bytes result = 11;</code>
-       *
        * <pre>
        * opaque (user) result structure
        * </pre>
+       *
+       * <code>optional bytes result = 11;</code>
        */
       public Builder clearResult() {
         bitField0_ = (bitField0_ & ~0x00000400);
@@ -2352,34 +2373,33 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // optional bytes state_data = 12;
       private com.google.protobuf.ByteString stateData_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>optional bytes state_data = 12;</code>
-       *
        * <pre>
        * opaque (user) procedure internal-state
        * </pre>
+       *
+       * <code>optional bytes state_data = 12;</code>
        */
       public boolean hasStateData() {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional bytes state_data = 12;</code>
-       *
        * <pre>
        * opaque (user) procedure internal-state
        * </pre>
+       *
+       * <code>optional bytes state_data = 12;</code>
        */
       public com.google.protobuf.ByteString getStateData() {
         return stateData_;
       }
       /**
-       * <code>optional bytes state_data = 12;</code>
-       *
        * <pre>
        * opaque (user) procedure internal-state
        * </pre>
+       *
+       * <code>optional bytes state_data = 12;</code>
        */
       public Builder setStateData(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -2391,11 +2411,11 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>optional bytes state_data = 12;</code>
-       *
        * <pre>
        * opaque (user) procedure internal-state
        * </pre>
+       *
+       * <code>optional bytes state_data = 12;</code>
        */
       public Builder clearStateData() {
         bitField0_ = (bitField0_ & ~0x00000800);
@@ -2404,34 +2424,33 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // optional uint64 nonce_group = 13 [default = 0];
       private long nonceGroup_ ;
       /**
-       * <code>optional uint64 nonce_group = 13 [default = 0];</code>
-       *
        * <pre>
        * Nonce to prevent same procedure submit by multiple times
        * </pre>
+       *
+       * <code>optional uint64 nonce_group = 13 [default = 0];</code>
        */
       public boolean hasNonceGroup() {
         return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
-       * <code>optional uint64 nonce_group = 13 [default = 0];</code>
-       *
        * <pre>
        * Nonce to prevent same procedure submit by multiple times
        * </pre>
+       *
+       * <code>optional uint64 nonce_group = 13 [default = 0];</code>
        */
       public long getNonceGroup() {
         return nonceGroup_;
       }
       /**
-       * <code>optional uint64 nonce_group = 13 [default = 0];</code>
-       *
        * <pre>
        * Nonce to prevent same procedure submit by multiple times
        * </pre>
+       *
+       * <code>optional uint64 nonce_group = 13 [default = 0];</code>
        */
       public Builder setNonceGroup(long value) {
         bitField0_ |= 0x00001000;
@@ -2440,11 +2459,11 @@ public final class ProcedureProtos {
         return this;
       }
       /**
-       * <code>optional uint64 nonce_group = 13 [default = 0];</code>
-       *
        * <pre>
        * Nonce to prevent same procedure submit by multiple times
        * </pre>
+       *
+       * <code>optional uint64 nonce_group = 13 [default = 0];</code>
        */
       public Builder clearNonceGroup() {
         bitField0_ = (bitField0_ & ~0x00001000);
@@ -2453,7 +2472,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // optional uint64 nonce = 14 [default = 0];
       private long nonce_ ;
       /**
        * <code>optional uint64 nonce = 14 [default = 0];</code>
@@ -2485,22 +2503,63 @@ public final class ProcedureProtos {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:hbase.pb.Procedure)
     }
 
+    // @@protoc_insertion_point(class_scope:hbase.pb.Procedure)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure DEFAULT_INSTANCE;
     static {
-      defaultInstance = new Procedure(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure();
     }
 
-    // @@protoc_insertion_point(class_scope:hbase.pb.Procedure)
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Procedure>
+        PARSER = new com.google.protobuf.AbstractParser<Procedure>() {
+      @java.lang.Override
+      public Procedure parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Procedure(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Procedure> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Procedure> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface SequentialProcedureDataOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SequentialProcedureDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hbase.pb.SequentialProcedureData)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required bool executed = 1;
     /**
      * <code>required bool executed = 1;</code>
      */
@@ -2511,43 +2570,39 @@ public final class ProcedureProtos {
     boolean getExecuted();
   }
   /**
-   * Protobuf type {@code hbase.pb.SequentialProcedureData}
-   *
    * <pre>
    **
    * SequentialProcedure data
    * </pre>
+   *
+   * Protobuf type {@code hbase.pb.SequentialProcedureData}
    */
-  public static final class SequentialProcedureData extends
-      com.google.protobuf.GeneratedMessage
-      implements SequentialProcedureDataOrBuilder {
+  public  static final class SequentialProcedureData extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:hbase.pb.SequentialProcedureData)
+      SequentialProcedureDataOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use SequentialProcedureData.newBuilder() to construct.
-    private SequentialProcedureData(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private SequentialProcedureData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private SequentialProcedureData(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final SequentialProcedureData defaultInstance;
-    public static SequentialProcedureData getDefaultInstance() {
-      return defaultInstance;
+    private SequentialProcedureData() {
+      executed_ = false;
     }
 
-    public SequentialProcedureData getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private SequentialProcedureData(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2559,16 +2614,16 @@ public final class ProcedureProtos {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               executed_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -2577,7 +2632,7 @@ public final class ProcedureProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2588,30 +2643,15 @@ public final class ProcedureProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_SequentialProcedureData_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_SequentialProcedureData_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData.class, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<SequentialProcedureData> PARSER =
-        new com.google.protobuf.AbstractParser<SequentialProcedureData>() {
-      public SequentialProcedureData parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SequentialProcedureData(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SequentialProcedureData> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required bool executed = 1;
     public static final int EXECUTED_FIELD_NUMBER = 1;
     private boolean executed_;
     /**
@@ -2627,13 +2667,12 @@ public final class ProcedureProtos {
       return executed_;
     }
 
-    private void initFields() {
-      executed_ = false;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasExecuted()) {
         memoizedIsInitialized = 0;
@@ -2643,18 +2682,18 @@ public final class ProcedureProtos {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBool(1, executed_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -2662,16 +2701,9 @@ public final class ProcedureProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, executed_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
     }
 
     @java.lang.Override
@@ -2690,28 +2722,38 @@ public final class ProcedureProtos {
         result = result && (getExecuted()
             == other.getExecuted());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasExecuted()) {
         hash = (37 * hash) + EXECUTED_FIELD_NUMBER;
-        hash = (53 * hash) + hashBoolean(getExecuted());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getExecuted());
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2735,66 +2777,81 @@ public final class ProcedureProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code hbase.pb.SequentialProcedureData}
-     *
      * <pre>
      **
      * SequentialProcedure data
      * </pre>
+     *
+     * Protobuf type {@code hbase.pb.SequentialProcedureData}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureDataOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hbase.pb.SequentialProcedureData)
+        org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_SequentialProcedureData_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_SequentialProcedureData_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2807,18 +2864,16 @@ public final class ProcedureProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         executed_ = false;
@@ -2826,19 +2881,18 @@ public final class ProcedureProtos {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_SequentialProcedureData_descriptor;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData getDefaultInstanceForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData build() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData result = buildPartial();
         if (!result.isInitialized()) {
@@ -2847,6 +2901,7 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData buildPartial() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData result = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData(this);
         int from_bitField0_ = bitField0_;
@@ -2860,6 +2915,39 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData)other);
@@ -2874,18 +2962,20 @@ public final class ProcedureProtos {
         if (other.hasExecuted()) {
           setExecuted(other.getExecuted());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasExecuted()) {
-          
           return false;
         }
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2895,7 +2985,7 @@ public final class ProcedureProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -2905,7 +2995,6 @@ public final class ProcedureProtos {
       }
       private int bitField0_;
 
-      // required bool executed = 1;
       private boolean executed_ ;
       /**
        * <code>required bool executed = 1;</code>
@@ -2937,22 +3026,63 @@ public final class ProcedureProtos {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:hbase.pb.SequentialProcedureData)
     }
 
+    // @@protoc_insertion_point(class_scope:hbase.pb.SequentialProcedureData)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData DEFAULT_INSTANCE;
     static {
-      defaultInstance = new SequentialProcedureData(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData();
     }
 
-    // @@protoc_insertion_point(class_scope:hbase.pb.SequentialProcedureData)
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<SequentialProcedureData>
+        PARSER = new com.google.protobuf.AbstractParser<SequentialProcedureData>() {
+      @java.lang.Override
+      public SequentialProcedureData parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SequentialProcedureData(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SequentialProcedureData> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SequentialProcedureData> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.SequentialProcedureData getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface StateMachineProcedureDataOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface StateMachineProcedureDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hbase.pb.StateMachineProcedureData)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated uint32 state = 1;
     /**
      * <code>repeated uint32 state = 1;</code>
      */
@@ -2967,43 +3097,39 @@ public final class ProcedureProtos {
     int getState(int index);
   }
   /**
-   * Protobuf type {@code hbase.pb.StateMachineProcedureData}
-   *
    * <pre>
    **
    * StateMachineProcedure data
    * </pre>
+   *
+   * Protobuf type {@code hbase.pb.StateMachineProcedureData}
    */
-  public static final class StateMachineProcedureData extends
-      com.google.protobuf.GeneratedMessage
-      implements StateMachineProcedureDataOrBuilder {
+  public  static final class StateMachineProcedureData extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:hbase.pb.StateMachineProcedureData)
+      StateMachineProcedureDataOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use StateMachineProcedureData.newBuilder() to construct.
-    private StateMachineProcedureData(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private StateMachineProcedureData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private StateMachineProcedureData(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final StateMachineProcedureData defaultInstance;
-    public static StateMachineProcedureData getDefaultInstance() {
-      return defaultInstance;
+    private StateMachineProcedureData() {
+      state_ = java.util.Collections.emptyList();
     }
 
-    public StateMachineProcedureData getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private StateMachineProcedureData(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3015,13 +3141,6 @@ public final class ProcedureProtos {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 state_ = new java.util.ArrayList<java.lang.Integer>();
@@ -3043,13 +3162,20 @@ public final class ProcedureProtos {
               input.popLimit(limit);
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           state_ = java.util.Collections.unmodifiableList(state_);
@@ -3063,29 +3189,14 @@ public final class ProcedureProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_StateMachineProcedureData_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_StateMachineProcedureData_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData.class, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<StateMachineProcedureData> PARSER =
-        new com.google.protobuf.AbstractParser<StateMachineProcedureData>() {
-      public StateMachineProcedureData parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StateMachineProcedureData(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<StateMachineProcedureData> getParserForType() {
-      return PARSER;
-    }
-
-    // repeated uint32 state = 1;
     public static final int STATE_FIELD_NUMBER = 1;
     private java.util.List<java.lang.Integer> state_;
     /**
@@ -3108,30 +3219,29 @@ public final class ProcedureProtos {
       return state_.get(index);
     }
 
-    private void initFields() {
-      state_ = java.util.Collections.emptyList();
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < state_.size(); i++) {
         output.writeUInt32(1, state_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -3144,16 +3254,9 @@ public final class ProcedureProtos {
         size += dataSize;
         size += 1 * getStateList().size();
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
     }
 
     @java.lang.Override
@@ -3169,28 +3272,37 @@ public final class ProcedureProtos {
       boolean result = true;
       result = result && getStateList()
           .equals(other.getStateList());
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getStateCount() > 0) {
         hash = (37 * hash) + STATE_FIELD_NUMBER;
         hash = (53 * hash) + getStateList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3214,66 +3326,81 @@ public final class ProcedureProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code hbase.pb.StateMachineProcedureData}
-     *
      * <pre>
      **
      * StateMachineProcedure data
      * </pre>
+     *
+     * Protobuf type {@code hbase.pb.StateMachineProcedureData}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureDataOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hbase.pb.StateMachineProcedureData)
+        org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_StateMachineProcedureData_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_StateMachineProcedureData_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -3286,18 +3413,16 @@ public final class ProcedureProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         state_ = java.util.Collections.emptyList();
@@ -3305,19 +3430,18 @@ public final class ProcedureProtos {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_StateMachineProcedureData_descriptor;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData getDefaultInstanceForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData build() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData result = buildPartial();
         if (!result.isInitialized()) {
@@ -3326,6 +3450,7 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData buildPartial() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData result = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData(this);
         int from_bitField0_ = bitField0_;
@@ -3338,6 +3463,39 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData)other);
@@ -3359,14 +3517,17 @@ public final class ProcedureProtos {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3376,7 +3537,7 @@ public final class ProcedureProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -3386,7 +3547,6 @@ public final class ProcedureProtos {
       }
       private int bitField0_;
 
-      // repeated uint32 state = 1;
       private java.util.List<java.lang.Integer> state_ = java.util.Collections.emptyList();
       private void ensureStateIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3438,7 +3598,8 @@ public final class ProcedureProtos {
       public Builder addAllState(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureStateIsMutable();
-        super.addAll(values, state_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, state_);
         onChanged();
         return this;
       }
@@ -3451,22 +3612,63 @@ public final class ProcedureProtos {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:hbase.pb.StateMachineProcedureData)
     }
 
+    // @@protoc_insertion_point(class_scope:hbase.pb.StateMachineProcedureData)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData DEFAULT_INSTANCE;
     static {
-      defaultInstance = new StateMachineProcedureData(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData();
     }
 
-    // @@protoc_insertion_point(class_scope:hbase.pb.StateMachineProcedureData)
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<StateMachineProcedureData>
+        PARSER = new com.google.protobuf.AbstractParser<StateMachineProcedureData>() {
+      @java.lang.Override
+      public StateMachineProcedureData parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new StateMachineProcedureData(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StateMachineProcedureData> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StateMachineProcedureData> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.StateMachineProcedureData getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface ProcedureWALHeaderOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ProcedureWALHeaderOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hbase.pb.ProcedureWALHeader)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required uint32 version = 1;
     /**
      * <code>required uint32 version = 1;</code>
      */
@@ -3476,7 +3678,6 @@ public final class ProcedureProtos {
      */
     int getVersion();
 
-    // required uint32 type = 2;
     /**
      * <code>required uint32 type = 2;</code>
      */
@@ -3486,7 +3687,6 @@ public final class ProcedureProtos {
      */
     int getType();
 
-    // required uint64 log_id = 3;
     /**
      * <code>required uint64 log_id = 3;</code>
      */
@@ -3496,7 +3696,6 @@ public final class ProcedureProtos {
      */
     long getLogId();
 
-    // required uint64 min_proc_id = 4;
     /**
      * <code>required uint64 min_proc_id = 4;</code>
      */
@@ -3507,43 +3706,42 @@ public final class ProcedureProtos {
     long getMinProcId();
   }
   /**
-   * Protobuf type {@code hbase.pb.ProcedureWALHeader}
-   *
    * <pre>
    **
    * Procedure WAL header
    * </pre>
+   *
+   * Protobuf type {@code hbase.pb.ProcedureWALHeader}
    */
-  public static final class ProcedureWALHeader extends
-      com.google.protobuf.GeneratedMessage
-      implements ProcedureWALHeaderOrBuilder {
+  public  static final class ProcedureWALHeader extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:hbase.pb.ProcedureWALHeader)
+      ProcedureWALHeaderOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ProcedureWALHeader.newBuilder() to construct.
-    private ProcedureWALHeader(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ProcedureWALHeader(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ProcedureWALHeader(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final ProcedureWALHeader defaultInstance;
-    public static ProcedureWALHeader getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public ProcedureWALHeader getDefaultInstanceForType() {
-      return defaultInstance;
+    private ProcedureWALHeader() {
+      version_ = 0;
+      type_ = 0;
+      logId_ = 0L;
+      minProcId_ = 0L;
     }
 
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private ProcedureWALHeader(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3555,13 +3753,6 @@ public final class ProcedureProtos {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               version_ = input.readUInt32();
@@ -3582,13 +3773,20 @@ public final class ProcedureProtos {
               minProcId_ = input.readUInt64();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3599,30 +3797,15 @@ public final class ProcedureProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALHeader_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALHeader_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader.class, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ProcedureWALHeader> PARSER =
-        new com.google.protobuf.AbstractParser<ProcedureWALHeader>() {
-      public ProcedureWALHeader parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProcedureWALHeader(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ProcedureWALHeader> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required uint32 version = 1;
     public static final int VERSION_FIELD_NUMBER = 1;
     private int version_;
     /**
@@ -3638,7 +3821,6 @@ public final class ProcedureProtos {
       return version_;
     }
 
-    // required uint32 type = 2;
     public static final int TYPE_FIELD_NUMBER = 2;
     private int type_;
     /**
@@ -3654,7 +3836,6 @@ public final class ProcedureProtos {
       return type_;
     }
 
-    // required uint64 log_id = 3;
     public static final int LOG_ID_FIELD_NUMBER = 3;
     private long logId_;
     /**
@@ -3670,7 +3851,6 @@ public final class ProcedureProtos {
       return logId_;
     }
 
-    // required uint64 min_proc_id = 4;
     public static final int MIN_PROC_ID_FIELD_NUMBER = 4;
     private long minProcId_;
     /**
@@ -3686,16 +3866,12 @@ public final class ProcedureProtos {
       return minProcId_;
     }
 
-    private void initFields() {
-      version_ = 0;
-      type_ = 0;
-      logId_ = 0L;
-      minProcId_ = 0L;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasVersion()) {
         memoizedIsInitialized = 0;
@@ -3717,9 +3893,9 @@ public final class ProcedureProtos {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeUInt32(1, version_);
       }
@@ -3732,12 +3908,12 @@ public final class ProcedureProtos {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeUInt64(4, minProcId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -3757,16 +3933,9 @@ public final class ProcedureProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(4, minProcId_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
     }
 
     @java.lang.Override
@@ -3800,19 +3969,17 @@ public final class ProcedureProtos {
         result = result && (getMinProcId()
             == other.getMinProcId());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasVersion()) {
         hash = (37 * hash) + VERSION_FIELD_NUMBER;
         hash = (53 * hash) + getVersion();
@@ -3823,17 +3990,30 @@ public final class ProcedureProtos {
       }
       if (hasLogId()) {
         hash = (37 * hash) + LOG_ID_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getLogId());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLogId());
       }
       if (hasMinProcId()) {
         hash = (37 * hash) + MIN_PROC_ID_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getMinProcId());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getMinProcId());
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3857,66 +4037,81 @@ public final class ProcedureProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code hbase.pb.ProcedureWALHeader}
-     *
      * <pre>
      **
      * Procedure WAL header
      * </pre>
+     *
+     * Protobuf type {@code hbase.pb.ProcedureWALHeader}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeaderOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hbase.pb.ProcedureWALHeader)
+        org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeaderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALHeader_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALHeader_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -3929,18 +4124,16 @@ public final class ProcedureProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         version_ = 0;
@@ -3954,19 +4147,18 @@ public final class ProcedureProtos {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALHeader_descriptor;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader getDefaultInstanceForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader build() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader result = buildPartial();
         if (!result.isInitialized()) {
@@ -3975,6 +4167,7 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader buildPartial() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader result = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader(this);
         int from_bitField0_ = bitField0_;
@@ -4000,6 +4193,39 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader)other);
@@ -4023,30 +4249,29 @@ public final class ProcedureProtos {
         if (other.hasMinProcId()) {
           setMinProcId(other.getMinProcId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasVersion()) {
-          
           return false;
         }
         if (!hasType()) {
-          
           return false;
         }
         if (!hasLogId()) {
-          
           return false;
         }
         if (!hasMinProcId()) {
-          
           return false;
         }
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4056,7 +4281,7 @@ public final class ProcedureProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -4066,7 +4291,6 @@ public final class ProcedureProtos {
       }
       private int bitField0_;
 
-      // required uint32 version = 1;
       private int version_ ;
       /**
        * <code>required uint32 version = 1;</code>
@@ -4099,7 +4323,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // required uint32 type = 2;
       private int type_ ;
       /**
        * <code>required uint32 type = 2;</code>
@@ -4132,7 +4355,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // required uint64 log_id = 3;
       private long logId_ ;
       /**
        * <code>required uint64 log_id = 3;</code>
@@ -4165,7 +4387,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // required uint64 min_proc_id = 4;
       private long minProcId_ ;
       /**
        * <code>required uint64 min_proc_id = 4;</code>
@@ -4197,22 +4418,63 @@ public final class ProcedureProtos {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:hbase.pb.ProcedureWALHeader)
     }
 
+    // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureWALHeader)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader DEFAULT_INSTANCE;
     static {
-      defaultInstance = new ProcedureWALHeader(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader();
     }
 
-    // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureWALHeader)
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ProcedureWALHeader>
+        PARSER = new com.google.protobuf.AbstractParser<ProcedureWALHeader>() {
+      @java.lang.Override
+      public ProcedureWALHeader parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ProcedureWALHeader(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProcedureWALHeader> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProcedureWALHeader> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALHeader getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface ProcedureWALTrailerOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ProcedureWALTrailerOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hbase.pb.ProcedureWALTrailer)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required uint32 version = 1;
     /**
      * <code>required uint32 version = 1;</code>
      */
@@ -4222,7 +4484,6 @@ public final class ProcedureProtos {
      */
     int getVersion();
 
-    // required uint64 tracker_pos = 2;
     /**
      * <code>required uint64 tracker_pos = 2;</code>
      */
@@ -4233,43 +4494,40 @@ public final class ProcedureProtos {
     long getTrackerPos();
   }
   /**
-   * Protobuf type {@code hbase.pb.ProcedureWALTrailer}
-   *
    * <pre>
    **
    * Procedure WAL trailer
    * </pre>
+   *
+   * Protobuf type {@code hbase.pb.ProcedureWALTrailer}
    */
-  public static final class ProcedureWALTrailer extends
-      com.google.protobuf.GeneratedMessage
-      implements ProcedureWALTrailerOrBuilder {
+  public  static final class ProcedureWALTrailer extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:hbase.pb.ProcedureWALTrailer)
+      ProcedureWALTrailerOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ProcedureWALTrailer.newBuilder() to construct.
-    private ProcedureWALTrailer(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ProcedureWALTrailer(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ProcedureWALTrailer(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final ProcedureWALTrailer defaultInstance;
-    public static ProcedureWALTrailer getDefaultInstance() {
-      return defaultInstance;
+    private ProcedureWALTrailer() {
+      version_ = 0;
+      trackerPos_ = 0L;
     }
 
-    public ProcedureWALTrailer getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private ProcedureWALTrailer(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -4281,13 +4539,6 @@ public final class ProcedureProtos {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               version_ = input.readUInt32();
@@ -4298,13 +4549,20 @@ public final class ProcedureProtos {
               trackerPos_ = input.readUInt64();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -4315,30 +4573,15 @@ public final class ProcedureProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALTrailer_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALTrailer_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer.class, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ProcedureWALTrailer> PARSER =
-        new com.google.protobuf.AbstractParser<ProcedureWALTrailer>() {
-      public ProcedureWALTrailer parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProcedureWALTrailer(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ProcedureWALTrailer> getParserForType() {
-      return PARSER;
-    }
-
     private int bitField0_;
-    // required uint32 version = 1;
     public static final int VERSION_FIELD_NUMBER = 1;
     private int version_;
     /**
@@ -4354,7 +4597,6 @@ public final class ProcedureProtos {
       return version_;
     }
 
-    // required uint64 tracker_pos = 2;
     public static final int TRACKER_POS_FIELD_NUMBER = 2;
     private long trackerPos_;
     /**
@@ -4370,14 +4612,12 @@ public final class ProcedureProtos {
       return trackerPos_;
     }
 
-    private void initFields() {
-      version_ = 0;
-      trackerPos_ = 0L;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasVersion()) {
         memoizedIsInitialized = 0;
@@ -4391,21 +4631,21 @@ public final class ProcedureProtos {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeUInt32(1, version_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt64(2, trackerPos_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -4417,16 +4657,9 @@ public final class ProcedureProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(2, trackerPos_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
     }
 
     @java.lang.Override
@@ -4450,32 +4683,42 @@ public final class ProcedureProtos {
         result = result && (getTrackerPos()
             == other.getTrackerPos());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasVersion()) {
         hash = (37 * hash) + VERSION_FIELD_NUMBER;
         hash = (53 * hash) + getVersion();
       }
       if (hasTrackerPos()) {
         hash = (37 * hash) + TRACKER_POS_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getTrackerPos());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getTrackerPos());
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4499,66 +4742,81 @@ public final class ProcedureProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * Protobuf type {@code hbase.pb.ProcedureWALTrailer}
-     *
      * <pre>
      **
      * Procedure WAL trailer
      * </pre>
+     *
+     * Protobuf type {@code hbase.pb.ProcedureWALTrailer}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailerOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hbase.pb.ProcedureWALTrailer)
+        org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailerOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALTrailer_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALTrailer_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -4571,18 +4829,16 @@ public final class ProcedureProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         version_ = 0;
@@ -4592,19 +4848,18 @@ public final class ProcedureProtos {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALTrailer_descriptor;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer getDefaultInstanceForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer build() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer result = buildPartial();
         if (!result.isInitialized()) {
@@ -4613,6 +4868,7 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer buildPartial() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer result = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer(this);
         int from_bitField0_ = bitField0_;
@@ -4630,6 +4886,39 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer)other);
@@ -4647,22 +4936,23 @@ public final class ProcedureProtos {
         if (other.hasTrackerPos()) {
           setTrackerPos(other.getTrackerPos());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasVersion()) {
-          
           return false;
         }
         if (!hasTrackerPos()) {
-          
           return false;
         }
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4672,7 +4962,7 @@ public final class ProcedureProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -4682,7 +4972,6 @@ public final class ProcedureProtos {
       }
       private int bitField0_;
 
-      // required uint32 version = 1;
       private int version_ ;
       /**
        * <code>required uint32 version = 1;</code>
@@ -4715,7 +5004,6 @@ public final class ProcedureProtos {
         return this;
       }
 
-      // required uint64 tracker_pos = 2;
       private long trackerPos_ ;
       /**
        * <code>required uint64 tracker_pos = 2;</code>
@@ -4747,22 +5035,63 @@ public final class ProcedureProtos {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:hbase.pb.ProcedureWALTrailer)
     }
 
+    // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureWALTrailer)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer DEFAULT_INSTANCE;
     static {
-      defaultInstance = new ProcedureWALTrailer(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer();
     }
 
-    // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureWALTrailer)
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ProcedureWALTrailer>
+        PARSER = new com.google.protobuf.AbstractParser<ProcedureWALTrailer>() {
+      @java.lang.Override
+      public ProcedureWALTrailer parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ProcedureWALTrailer(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProcedureWALTrailer> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProcedureWALTrailer> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALTrailer getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface ProcedureStoreTrackerOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ProcedureStoreTrackerOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hbase.pb.ProcedureStoreTracker)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .hbase.pb.ProcedureStoreTracker.TrackerNode node = 1;
     /**
      * <code>repeated .hbase.pb.ProcedureStoreTracker.TrackerNode node = 1;</code>
      */
@@ -4790,36 +5119,32 @@ public final class ProcedureProtos {
   /**
    * Protobuf type {@code hbase.pb.ProcedureStoreTracker}
    */
-  public static final class ProcedureStoreTracker extends
-      com.google.protobuf.GeneratedMessage
-      implements ProcedureStoreTrackerOrBuilder {
+  public  static final class ProcedureStoreTracker extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:hbase.pb.ProcedureStoreTracker)
+      ProcedureStoreTrackerOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ProcedureStoreTracker.newBuilder() to construct.
-    private ProcedureStoreTracker(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ProcedureStoreTracker(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ProcedureStoreTracker(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final ProcedureStoreTracker defaultInstance;
-    public static ProcedureStoreTracker getDefaultInstance() {
-      return defaultInstance;
+    private ProcedureStoreTracker() {
+      node_ = java.util.Collections.emptyList();
     }
 
-    public ProcedureStoreTracker getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private ProcedureStoreTracker(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -4831,19 +5156,20 @@ public final class ProcedureProtos {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 node_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              node_.add(input.readMessage(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode.PARSER, extensionRegistry));
+              node_.add(
+                  input.readMessage(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -4852,7 +5178,7 @@ public final class ProcedureProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           node_ = java.util.Collections.unmodifiableList(node_);
@@ -4866,32 +5192,18 @@ public final class ProcedureProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.class, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ProcedureStoreTracker> PARSER =
-        new com.google.protobuf.AbstractParser<ProcedureStoreTracker>() {
-      public ProcedureStoreTracker parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProcedureStoreTracker(input, extensionRegistry);
-      }
-    };
+    public interface TrackerNodeOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:hbase.pb.ProcedureStoreTracker.TrackerNode)
+        com.google.protobuf.MessageOrBuilder {
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<ProcedureStoreTracker> getParserForType() {
-      return PARSER;
-    }
-
-    public interface TrackerNodeOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // required uint64 start_id = 1;
       /**
        * <code>required uint64 start_id = 1;</code>
        */
@@ -4901,7 +5213,6 @@ public final class ProcedureProtos {
        */
       long getStartId();
 
-      // repeated uint64 updated = 2;
       /**
        * <code>repeated uint64 updated = 2;</code>
        */
@@ -4915,7 +5226,6 @@ public final class ProcedureProtos {
        */
       long getUpdated(int index);
 
-      // repeated uint64 deleted = 3;
       /**
        * <code>repeated uint64 deleted = 3;</code>
        */
@@ -4932,36 +5242,34 @@ public final class ProcedureProtos {
     /**
      * Protobuf type {@code hbase.pb.ProcedureStoreTracker.TrackerNode}
      */
-    public static final class TrackerNode extends
-        com.google.protobuf.GeneratedMessage
-        implements TrackerNodeOrBuilder {
+    public  static final class TrackerNode extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:hbase.pb.ProcedureStoreTracker.TrackerNode)
+        TrackerNodeOrBuilder {
+    private static final long serialVersionUID = 0L;
       // Use TrackerNode.newBuilder() to construct.
-      private TrackerNode(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      private TrackerNode(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
-        this.unknownFields = builder.getUnknownFields();
       }
-      private TrackerNode(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final TrackerNode defaultInstance;
-      public static TrackerNode getDefaultInstance() {
-        return defaultInstance;
+      private TrackerNode() {
+        startId_ = 0L;
+        updated_ = java.util.Collections.emptyList();
+        deleted_ = java.util.Collections.emptyList();
       }
 
-      public TrackerNode getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
+      getUnknownFields() {
         return this.unknownFields;
       }
       private TrackerNode(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         int mutable_bitField0_ = 0;
         com.google.protobuf.UnknownFieldSet.Builder unknownFields =
             com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -4973,13 +5281,6 @@ public final class ProcedureProtos {
               case 0:
                 done = true;
                 break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
               case 8: {
                 bitField0_ |= 0x00000001;
                 startId_ = input.readUInt64();
@@ -5027,13 +5328,20 @@ public final class ProcedureProtos {
                 input.popLimit(limit);
                 break;
               }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
             }
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           throw e.setUnfinishedMessage(this);
         } catch (java.io.IOException e) {
           throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
+              e).setUnfinishedMessage(this);
         } finally {
           if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
             updated_ = java.util.Collections.unmodifiableList(updated_);
@@ -5050,30 +5358,15 @@ public final class ProcedureProtos {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode.class, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode.Builder.class);
       }
 
-      public static com.google.protobuf.Parser<TrackerNode> PARSER =
-          new com.google.protobuf.AbstractParser<TrackerNode>() {
-        public TrackerNode parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TrackerNode(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<TrackerNode> getParserForType() {
-        return PARSER;
-      }
-
       private int bitField0_;
-      // required uint64 start_id = 1;
       public static final int START_ID_FIELD_NUMBER = 1;
       private long startId_;
       /**
@@ -5089,7 +5382,6 @@ public final class ProcedureProtos {
         return startId_;
       }
 
-      // repeated uint64 updated = 2;
       public static final int UPDATED_FIELD_NUMBER = 2;
       private java.util.List<java.lang.Long> updated_;
       /**
@@ -5112,7 +5404,6 @@ public final class ProcedureProtos {
         return updated_.get(index);
       }
 
-      // repeated uint64 deleted = 3;
       public static final int DELETED_FIELD_NUMBER = 3;
       private java.util.List<java.lang.Long> deleted_;
       /**
@@ -5135,15 +5426,12 @@ public final class ProcedureProtos {
         return deleted_.get(index);
       }
 
-      private void initFields() {
-        startId_ = 0L;
-        updated_ = java.util.Collections.emptyList();
-        deleted_ = java.util.Collections.emptyList();
-      }
       private byte memoizedIsInitialized = -1;
+      @java.lang.Override
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
 
         if (!hasStartId()) {
           memoizedIsInitialized = 0;
@@ -5153,9 +5441,9 @@ public final class ProcedureProtos {
         return true;
       }
 
+      @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        getSerializedSize();
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           output.writeUInt64(1, startId_);
         }
@@ -5165,12 +5453,12 @@ public final class ProcedureProtos {
         for (int i = 0; i < deleted_.size(); i++) {
           output.writeUInt64(3, deleted_.get(i));
         }
-        getUnknownFields().writeTo(output);
+        unknownFields.writeTo(output);
       }
 
-      private int memoizedSerializedSize = -1;
+      @java.lang.Override
       public int getSerializedSize() {
-        int size = memoizedSerializedSize;
+        int size = memoizedSize;
         if (size != -1) return size;
 
         size = 0;
@@ -5196,16 +5484,9 @@ public final class ProcedureProtos {
           size += dataSize;
           size += 1 * getDeletedList().size();
         }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
         return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
       }
 
       @java.lang.Override
@@ -5228,22 +5509,21 @@ public final class ProcedureProtos {
             .equals(other.getUpdatedList());
         result = result && getDeletedList()
             .equals(other.getDeletedList());
-        result = result &&
-            getUnknownFields().equals(other.getUnknownFields());
+        result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
 
-      private int memoizedHashCode = 0;
       @java.lang.Override
       public int hashCode() {
         if (memoizedHashCode != 0) {
           return memoizedHashCode;
         }
         int hash = 41;
-        hash = (19 * hash) + getDescriptorForType().hashCode();
+        hash = (19 * hash) + getDescriptor().hashCode();
         if (hasStartId()) {
           hash = (37 * hash) + START_ID_FIELD_NUMBER;
-          hash = (53 * hash) + hashLong(getStartId());
+          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getStartId());
         }
         if (getUpdatedCount() > 0) {
           hash = (37 * hash) + UPDATED_FIELD_NUMBER;
@@ -5253,11 +5533,22 @@ public final class ProcedureProtos {
           hash = (37 * hash) + DELETED_FIELD_NUMBER;
           hash = (53 * hash) + getDeletedList().hashCode();
         }
-        hash = (29 * hash) + getUnknownFields().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
       }
 
+      public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
       public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode parseFrom(
           com.google.protobuf.ByteString data)
           throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5281,46 +5572,59 @@ public final class ProcedureProtos {
       }
       public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode parseFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
       public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
       }
       public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode parseDelimitedFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
       }
       public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode parseFrom(
           com.google.protobuf.CodedInputStream input)
           throws java.io.IOException {
-        return PARSER.parseFrom(input);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
       }
       public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode parseFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
-      public static Builder newBuilder() { return Builder.create(); }
+      @java.lang.Override
       public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode prototype) {
-        return newBuilder().mergeFrom(prototype);
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
       }
-      public Builder toBuilder() { return newBuilder(this); }
+      public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
 
       @java.lang.Override
       protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         Builder builder = new Builder(parent);
         return builder;
       }
@@ -5328,14 +5632,16 @@ public final class ProcedureProtos {
        * Protobuf type {@code hbase.pb.ProcedureStoreTracker.TrackerNode}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNodeOrBuilder {
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:hbase.pb.ProcedureStoreTracker.TrackerNode)
+          org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNodeOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
@@ -5348,18 +5654,16 @@ public final class ProcedureProtos {
         }
 
         private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
           }
         }
-        private static Builder create() {
-          return new Builder();
-        }
-
+        @java.lang.Override
         public Builder clear() {
           super.clear();
           startId_ = 0L;
@@ -5371,19 +5675,18 @@ public final class ProcedureProtos {
           return this;
         }
 
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
+        @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
           return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_descriptor;
         }
 
+        @java.lang.Override
         public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode getDefaultInstanceForType() {
           return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode.getDefaultInstance();
         }
 
+        @java.lang.Override
         public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode build() {
           org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode result = buildPartial();
           if (!result.isInitialized()) {
@@ -5392,6 +5695,7 @@ public final class ProcedureProtos {
           return result;
         }
 
+        @java.lang.Override
         public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode buildPartial() {
           org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode result = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode(this);
           int from_bitField0_ = bitField0_;
@@ -5415,6 +5719,39 @@ public final class ProcedureProtos {
           return result;
         }
 
+        @java.lang.Override
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode) {
             return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode)other);
@@ -5449,18 +5786,20 @@ public final class ProcedureProtos {
             }
             onChanged();
           }
-          this.mergeUnknownFields(other.getUnknownFields());
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
           return this;
         }
 
+        @java.lang.Override
         public final boolean isInitialized() {
           if (!hasStartId()) {
-            
             return false;
           }
           return true;
         }
 
+        @java.lang.Override
         public Builder mergeFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5470,7 +5809,7 @@ public final class ProcedureProtos {
             parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
             parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode) e.getUnfinishedMessage();
-            throw e;
+            throw e.unwrapIOException();
           } finally {
             if (parsedMessage != null) {
               mergeFrom(parsedMessage);
@@ -5480,7 +5819,6 @@ public final class ProcedureProtos {
         }
         private int bitField0_;
 
-        // required uint64 start_id = 1;
         private long startId_ ;
         /**
          * <code>required uint64 start_id = 1;</code>
@@ -5513,7 +5851,6 @@ public final class ProcedureProtos {
           return this;
         }
 
-        // repeated uint64 updated = 2;
         private java.util.List<java.lang.Long> updated_ = java.util.Collections.emptyList();
         private void ensureUpdatedIsMutable() {
           if (!((bitField0_ & 0x00000002) == 0x00000002)) {
@@ -5565,7 +5902,8 @@ public final class ProcedureProtos {
         public Builder addAllUpdated(
             java.lang.Iterable<? extends java.lang.Long> values) {
           ensureUpdatedIsMutable();
-          super.addAll(values, updated_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, updated_);
           onChanged();
           return this;
         }
@@ -5579,7 +5917,6 @@ public final class ProcedureProtos {
           return this;
         }
 
-        // repeated uint64 deleted = 3;
         private java.util.List<java.lang.Long> deleted_ = java.util.Collections.emptyList();
         private void ensureDeletedIsMutable() {
           if (!((bitField0_ & 0x00000004) == 0x00000004)) {
@@ -5631,7 +5968,8 @@ public final class ProcedureProtos {
         public Builder addAllDeleted(
             java.lang.Iterable<? extends java.lang.Long> values) {
           ensureDeletedIsMutable();
-          super.addAll(values, deleted_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, deleted_);
           onChanged();
           return this;
         }
@@ -5644,19 +5982,59 @@ public final class ProcedureProtos {
           onChanged();
           return this;
         }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
 
         // @@protoc_insertion_point(builder_scope:hbase.pb.ProcedureStoreTracker.TrackerNode)
       }
 
+      // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureStoreTracker.TrackerNode)
+      private static final org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode DEFAULT_INSTANCE;
       static {
-        defaultInstance = new TrackerNode(true);
-        defaultInstance.initFields();
+        DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode();
       }
 
-      // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureStoreTracker.TrackerNode)
+      public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<TrackerNode>
+          PARSER = new com.google.protobuf.AbstractParser<TrackerNode>() {
+        @java.lang.Override
+        public TrackerNode parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new TrackerNode(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<TrackerNode> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<TrackerNode> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
-    // repeated .hbase.pb.ProcedureStoreTracker.TrackerNode node = 1;
     public static final int NODE_FIELD_NUMBER = 1;
     private java.util.List<org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode> node_;
     /**
@@ -5692,13 +6070,12 @@ public final class ProcedureProtos {
       return node_.get(index);
     }
 
-    private void initFields() {
-      node_ = java.util.Collections.emptyList();
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getNodeCount(); i++) {
         if (!getNode(i).isInitialized()) {
@@ -5710,18 +6087,18 @@ public final class ProcedureProtos {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       for (int i = 0; i < node_.size(); i++) {
         output.writeMessage(1, node_.get(i));
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
@@ -5729,16 +6106,9 @@ public final class ProcedureProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, node_.get(i));
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
     }
 
     @java.lang.Override
@@ -5754,28 +6124,37 @@ public final class ProcedureProtos {
       boolean result = true;
       result = result && getNodeList()
           .equals(other.getNodeList());
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getNodeCount() > 0) {
         hash = (37 * hash) + NODE_FIELD_NUMBER;
         hash = (53 * hash) + getNodeList().hashCode();
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -5799,46 +6178,59 @@ public final class ProcedureProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -5846,14 +6238,16 @@ public final class ProcedureProtos {
      * Protobuf type {@code hbase.pb.ProcedureStoreTracker}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTrackerOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hbase.pb.ProcedureStoreTracker)
+        org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTrackerOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -5866,19 +6260,17 @@ public final class ProcedureProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getNodeFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (nodeBuilder_ == null) {
@@ -5890,19 +6282,18 @@ public final class ProcedureProtos {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureStoreTracker_descriptor;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker getDefaultInstanceForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker build() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker result = buildPartial();
         if (!result.isInitialized()) {
@@ -5911,6 +6302,7 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker buildPartial() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker result = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker(this);
         int from_bitField0_ = bitField0_;
@@ -5927,6 +6319,39 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker)other);
@@ -5957,27 +6382,29 @@ public final class ProcedureProtos {
               node_ = other.node_;
               bitField0_ = (bitField0_ & ~0x00000001);
               nodeBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getNodeFieldBuilder() : null;
             } else {
               nodeBuilder_.addAllMessages(other.node_);
             }
           }
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         for (int i = 0; i < getNodeCount(); i++) {
           if (!getNode(i).isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5987,7 +6414,7 @@ public final class ProcedureProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -5997,7 +6424,6 @@ public final class ProcedureProtos {
       }
       private int bitField0_;
 
-      // repeated .hbase.pb.ProcedureStoreTracker.TrackerNode node = 1;
       private java.util.List<org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode> node_ =
         java.util.Collections.emptyList();
       private void ensureNodeIsMutable() {
@@ -6007,7 +6433,7 @@ public final class ProcedureProtos {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode.Builder, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNodeOrBuilder> nodeBuilder_;
 
       /**
@@ -6139,7 +6565,8 @@ public final class ProcedureProtos {
           java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode> values) {
         if (nodeBuilder_ == null) {
           ensureNodeIsMutable();
-          super.addAll(values, node_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, node_);
           onChanged();
         } else {
           nodeBuilder_.addAllMessages(values);
@@ -6222,11 +6649,11 @@ public final class ProcedureProtos {
            getNodeBuilderList() {
         return getNodeFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode.Builder, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNodeOrBuilder> 
           getNodeFieldBuilder() {
         if (nodeBuilder_ == null) {
-          nodeBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          nodeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNode.Builder, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker.TrackerNodeOrBuilder>(
                   node_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
@@ -6236,22 +6663,63 @@ public final class ProcedureProtos {
         }
         return nodeBuilder_;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:hbase.pb.ProcedureStoreTracker)
     }
 
+    // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureStoreTracker)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker DEFAULT_INSTANCE;
     static {
-      defaultInstance = new ProcedureStoreTracker(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker();
     }
 
-    // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureStoreTracker)
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ProcedureStoreTracker>
+        PARSER = new com.google.protobuf.AbstractParser<ProcedureStoreTracker>() {
+      @java.lang.Override
+      public ProcedureStoreTracker parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ProcedureStoreTracker(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProcedureStoreTracker> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProcedureStoreTracker> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureStoreTracker getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  public interface ProcedureWALEntryOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ProcedureWALEntryOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:hbase.pb.ProcedureWALEntry)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .hbase.pb.ProcedureWALEntry.Type type = 1;
     /**
      * <code>required .hbase.pb.ProcedureWALEntry.Type type = 1;</code>
      */
@@ -6261,7 +6729,6 @@ public final class ProcedureProtos {
      */
     org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type getType();
 
-    // repeated .hbase.pb.Procedure procedure = 2;
     /**
      * <code>repeated .hbase.pb.Procedure procedure = 2;</code>
      */
@@ -6286,7 +6753,6 @@ public final class ProcedureProtos {
     org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureOrBuilder getProcedureOrBuilder(
         int index);
 
-    // optional uint64 proc_id = 3;
     /**
      * <code>optional uint64 proc_id = 3;</code>
      */
@@ -6299,36 +6765,34 @@ public final class ProcedureProtos {
   /**
    * Protobuf type {@code hbase.pb.ProcedureWALEntry}
    */
-  public static final class ProcedureWALEntry extends
-      com.google.protobuf.GeneratedMessage
-      implements ProcedureWALEntryOrBuilder {
+  public  static final class ProcedureWALEntry extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:hbase.pb.ProcedureWALEntry)
+      ProcedureWALEntryOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ProcedureWALEntry.newBuilder() to construct.
-    private ProcedureWALEntry(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private ProcedureWALEntry(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private ProcedureWALEntry(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final ProcedureWALEntry defaultInstance;
-    public static ProcedureWALEntry getDefaultInstance() {
-      return defaultInstance;
+    private ProcedureWALEntry() {
+      type_ = 1;
+      procedure_ = java.util.Collections.emptyList();
+      procId_ = 0L;
     }
 
-    public ProcedureWALEntry getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
+    getUnknownFields() {
       return this.unknownFields;
     }
     private ProcedureWALEntry(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -6340,21 +6804,15 @@ public final class ProcedureProtos {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               int rawValue = input.readEnum();
+                @SuppressWarnings("deprecation")
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type value = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
                 bitField0_ |= 0x00000001;
-                type_ = value;
+                type_ = rawValue;
               }
               break;
             }
@@ -6363,12 +6821,20 @@ public final class ProcedureProtos {
                 procedure_ = new java.util.ArrayList<org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              procedure_.add(input.readMessage(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure.PARSER, extensionRegistry));
+              procedure_.add(
+                  input.readMessage(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure.PARSER, extensionRegistry));
               break;
             }
             case 24: {
               bitField0_ |= 0x00000002;
               procId_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -6377,7 +6843,7 @@ public final class ProcedureProtos {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           procedure_ = java.util.Collections.unmodifiableList(procedure_);
@@ -6391,26 +6857,12 @@ public final class ProcedureProtos {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALEntry_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALEntry_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.class, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<ProcedureWALEntry> PARSER =
-        new com.google.protobuf.AbstractParser<ProcedureWALEntry>() {
-      public ProcedureWALEntry parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProcedureWALEntry(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ProcedureWALEntry> getParserForType() {
-      return PARSER;
     }
 
     /**
@@ -6421,27 +6873,27 @@ public final class ProcedureProtos {
       /**
        * <code>PROCEDURE_WAL_EOF = 1;</code>
        */
-      PROCEDURE_WAL_EOF(0, 1),
+      PROCEDURE_WAL_EOF(1),
       /**
        * <code>PROCEDURE_WAL_INIT = 2;</code>
        */
-      PROCEDURE_WAL_INIT(1, 2),
+      PROCEDURE_WAL_INIT(2),
       /**
        * <code>PROCEDURE_WAL_INSERT = 3;</code>
        */
-      PROCEDURE_WAL_INSERT(2, 3),
+      PROCEDURE_WAL_INSERT(3),
       /**
        * <code>PROCEDURE_WAL_UPDATE = 4;</code>
        */
-      PROCEDURE_WAL_UPDATE(3, 4),
+      PROCEDURE_WAL_UPDATE(4),
       /**
        * <code>PROCEDURE_WAL_DELETE = 5;</code>
        */
-      PROCEDURE_WAL_DELETE(4, 5),
+      PROCEDURE_WAL_DELETE(5),
       /**
        * <code>PROCEDURE_WAL_COMPACT = 6;</code>
        */
-      PROCEDURE_WAL_COMPACT(5, 6),
+      PROCEDURE_WAL_COMPACT(6),
       ;
 
       /**
@@ -6470,9 +6922,19 @@ public final class ProcedureProtos {
       public static final int PROCEDURE_WAL_COMPACT_VALUE = 6;
 
 
-      public final int getNumber() { return value; }
+      public final int getNumber() {
+        return value;
+      }
 
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
       public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static Type forNumber(int value) {
         switch (value) {
           case 1: return PROCEDURE_WAL_EOF;
           case 2: return PROCEDURE_WAL_INIT;
@@ -6488,17 +6950,17 @@ public final class ProcedureProtos {
           internalGetValueMap() {
         return internalValueMap;
       }
-      private static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalValueMap =
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
             new com.google.protobuf.Internal.EnumLiteMap<Type>() {
               public Type findValueByNumber(int number) {
-                return Type.valueOf(number);
+                return Type.forNumber(number);
               }
             };
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
+        return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
           getDescriptorForType() {
@@ -6520,11 +6982,9 @@ public final class ProcedureProtos {
         return VALUES[desc.getIndex()];
       }
 
-      private final int index;
       private final int value;
 
-      private Type(int index, int value) {
-        this.index = index;
+      private Type(int value) {
         this.value = value;
       }
 
@@ -6532,9 +6992,8 @@ public final class ProcedureProtos {
     }
 
     private int bitField0_;
-    // required .hbase.pb.ProcedureWALEntry.Type type = 1;
     public static final int TYPE_FIELD_NUMBER = 1;
-    private org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type type_;
+    private int type_;
     /**
      * <code>required .hbase.pb.ProcedureWALEntry.Type type = 1;</code>
      */
@@ -6545,10 +7004,11 @@ public final class ProcedureProtos {
      * <code>required .hbase.pb.ProcedureWALEntry.Type type = 1;</code>
      */
     public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type getType() {
-      return type_;
+      @SuppressWarnings("deprecation")
+      org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type result = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type.valueOf(type_);
+      return result == null ? org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type.PROCEDURE_WAL_EOF : result;
     }
 
-    // repeated .hbase.pb.Procedure procedure = 2;
     public static final int PROCEDURE_FIELD_NUMBER = 2;
     private java.util.List<org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure> procedure_;
     /**
@@ -6584,7 +7044,6 @@ public final class ProcedureProtos {
       return procedure_.get(index);
     }
 
-    // optional uint64 proc_id = 3;
     public static final int PROC_ID_FIELD_NUMBER = 3;
     private long procId_;
     /**
@@ -6600,15 +7059,12 @@ public final class ProcedureProtos {
       return procId_;
     }
 
-    private void initFields() {
-      type_ = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type.PROCEDURE_WAL_EOF;
-      procedure_ = java.util.Collections.emptyList();
-      procId_ = 0L;
-    }
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasType()) {
         memoizedIsInitialized = 0;
@@ -6624,11 +7080,11 @@ public final class ProcedureProtos {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, type_.getNumber());
+        output.writeEnum(1, type_);
       }
       for (int i = 0; i < procedure_.size(); i++) {
         output.writeMessage(2, procedure_.get(i));
@@ -6636,18 +7092,18 @@ public final class ProcedureProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeUInt64(3, procId_);
       }
-      getUnknownFields().writeTo(output);
+      unknownFields.writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
+    @java.lang.Override
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, type_.getNumber());
+          .computeEnumSize(1, type_);
       }
       for (int i = 0; i < procedure_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -6657,16 +7113,9 @@ public final class ProcedureProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, procId_);
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
       return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
     }
 
     @java.lang.Override
@@ -6682,8 +7131,7 @@ public final class ProcedureProtos {
       boolean result = true;
       result = result && (hasType() == other.hasType());
       if (hasType()) {
-        result = result &&
-            (getType() == other.getType());
+        result = result && type_ == other.type_;
       }
       result = result && getProcedureList()
           .equals(other.getProcedureList());
@@ -6692,22 +7140,20 @@ public final class ProcedureProtos {
         result = result && (getProcId()
             == other.getProcId());
       }
-      result = result &&
-          getUnknownFields().equals(other.getUnknownFields());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    private int memoizedHashCode = 0;
     @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasType()) {
         hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + hashEnum(getType());
+        hash = (53 * hash) + type_;
       }
       if (getProcedureCount() > 0) {
         hash = (37 * hash) + PROCEDURE_FIELD_NUMBER;
@@ -6715,13 +7161,25 @@ public final class ProcedureProtos {
       }
       if (hasProcId()) {
         hash = (37 * hash) + PROC_ID_FIELD_NUMBER;
-        hash = (53 * hash) + hashLong(getProcId());
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getProcId());
       }
-      hash = (29 * hash) + getUnknownFields().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6745,46 +7203,59 @@ public final class ProcedureProtos {
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6792,14 +7263,16 @@ public final class ProcedureProtos {
      * Protobuf type {@code hbase.pb.ProcedureWALEntry}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntryOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:hbase.pb.ProcedureWALEntry)
+        org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALEntry_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALEntry_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -6812,22 +7285,20 @@ public final class ProcedureProtos {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
           getProcedureFieldBuilder();
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
+      @java.lang.Override
       public Builder clear() {
         super.clear();
-        type_ = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type.PROCEDURE_WAL_EOF;
+        type_ = 1;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (procedureBuilder_ == null) {
           procedure_ = java.util.Collections.emptyList();
@@ -6840,19 +7311,18 @@ public final class ProcedureProtos {
         return this;
       }
 
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.internal_static_hbase_pb_ProcedureWALEntry_descriptor;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry getDefaultInstanceForType() {
         return org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry build() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry result = buildPartial();
         if (!result.isInitialized()) {
@@ -6861,6 +7331,7 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry buildPartial() {
         org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry result = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry(this);
         int from_bitField0_ = bitField0_;
@@ -6887,6 +7358,39 @@ public final class ProcedureProtos {
         return result;
       }
 
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry) {
           return mergeFrom((org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry)other);
@@ -6920,7 +7424,7 @@ public final class ProcedureProtos {
               procedure_ = other.procedure_;
               bitField0_ = (bitField0_ & ~0x00000002);
               procedureBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getProcedureFieldBuilder() : null;
             } else {
               procedureBuilder_.addAllMessages(other.procedure_);
@@ -6930,24 +7434,25 @@ public final class ProcedureProtos {
         if (other.hasProcId()) {
           setProcId(other.getProcId());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasType()) {
-          
           return false;
         }
         for (int i = 0; i < getProcedureCount(); i++) {
           if (!getProcedure(i).isInitialized()) {
-            
             return false;
           }
         }
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6957,7 +7462,7 @@ public final class ProcedureProtos {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -6967,8 +7472,7 @@ public final class ProcedureProtos {
       }
       private int bitField0_;
 
-      // required .hbase.pb.ProcedureWALEntry.Type type = 1;
-      private org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type type_ = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type.PROCEDURE_WAL_EOF;
+      private int type_ = 1;
       /**
        * <code>required .hbase.pb.ProcedureWALEntry.Type type = 1;</code>
        */
@@ -6979,7 +7483,9 @@ public final class ProcedureProtos {
        * <code>required .hbase.pb.ProcedureWALEntry.Type type = 1;</code>
        */
       public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type getType() {
-        return type_;
+        @SuppressWarnings("deprecation")
+        org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type result = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type.valueOf(type_);
+        return result == null ? org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type.PROCEDURE_WAL_EOF : result;
       }
       /**
        * <code>required .hbase.pb.ProcedureWALEntry.Type type = 1;</code>
@@ -6989,7 +7495,7 @@ public final class ProcedureProtos {
           throw new NullPointerException();
         }
         bitField0_ |= 0x00000001;
-        type_ = value;
+        type_ = value.getNumber();
         onChanged();
         return this;
       }
@@ -6998,12 +7504,11 @@ public final class ProcedureProtos {
        */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry.Type.PROCEDURE_WAL_EOF;
+        type_ = 1;
         onChanged();
         return this;
       }
 
-      // repeated .hbase.pb.Procedure procedure = 2;
       private java.util.List<org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure> procedure_ =
         java.util.Collections.emptyList();
       private void ensureProcedureIsMutable() {
@@ -7013,7 +7518,7 @@ public final class ProcedureProtos {
          }
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure.Builder, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureOrBuilder> procedureBuilder_;
 
       /**
@@ -7145,7 +7650,8 @@ public final class ProcedureProtos {
           java.lang.Iterable<? extends org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure> values) {
         if (procedureBuilder_ == null) {
           ensureProcedureIsMutable();
-          super.addAll(values, procedure_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, procedure_);
           onChanged();
         } else {
           procedureBuilder_.addAllMessages(values);
@@ -7228,11 +7734,11 @@ public final class ProcedureProtos {
            getProcedureBuilderList() {
         return getProcedureFieldBuilder().getBuilderList();
       }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure.Builder, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureOrBuilder> 
           getProcedureFieldBuilder() {
         if (procedureBuilder_ == null) {
-          procedureBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          procedureBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.Procedure.Builder, org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureOrBuilder>(
                   procedure_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
@@ -7243,7 +7749,6 @@ public final class ProcedureProtos {
         return procedureBuilder_;
       }
 
-      // optional uint64 proc_id = 3;
       private long procId_ ;
       /**
        * <code>optional uint64 proc_id = 3;</code>
@@ -7275,64 +7780,105 @@ public final class ProcedureProtos {
         onChanged();
         return this;
       }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
 
       // @@protoc_insertion_point(builder_scope:hbase.pb.ProcedureWALEntry)
     }
 
+    // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureWALEntry)
+    private static final org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry DEFAULT_INSTANCE;
     static {
-      defaultInstance = new ProcedureWALEntry(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry();
     }
 
-    // @@protoc_insertion_point(class_scope:hbase.pb.ProcedureWALEntry)
+    public static org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ProcedureWALEntry>
+        PARSER = new com.google.protobuf.AbstractParser<ProcedureWALEntry>() {
+      @java.lang.Override
+      public ProcedureWALEntry parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ProcedureWALEntry(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProcedureWALEntry> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProcedureWALEntry> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.apache.hadoop.hbase.protobuf.generated.ProcedureProtos.ProcedureWALEntry getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hbase_pb_Procedure_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hbase_pb_Procedure_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hbase_pb_SequentialProcedureData_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hbase_pb_SequentialProcedureData_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hbase_pb_StateMachineProcedureData_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hbase_pb_StateMachineProcedureData_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hbase_pb_ProcedureWALHeader_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hbase_pb_ProcedureWALHeader_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hbase_pb_ProcedureWALTrailer_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hbase_pb_ProcedureWALTrailer_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hbase_pb_ProcedureStoreTracker_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hbase_pb_ProcedureStoreTracker_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hbase_pb_ProcedureWALEntry_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hbase_pb_ProcedureWALEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -7345,7 +7891,7 @@ public final class ProcedureProtos {
       "eout\030\t \001(\r\0224\n\texception\030\n \001(\0132!.hbase.pb" +
       ".ForeignExceptionMessage\022\016\n\006result\030\013 \001(\014" +
       "\022\022\n\nstate_data\030\014 \001(\014\022\026\n\013nonce_group\030\r \001(" +
-      "\004:\0010\022\020\n\005nonce\030\016 \001(\004:\0010\"+\n\027SequentialProc",
+      "\004:\0010\022\020\n\005nonce\030\016 \001(\004:\0010\"+\n\027SequentialProc" +
       "edureData\022\020\n\010executed\030\001 \002(\010\"*\n\031StateMach" +
       "ineProcedureData\022\r\n\005state\030\001 \003(\r\"X\n\022Proce" +
       "dureWALHeader\022\017\n\007version\030\001 \002(\r\022\014\n\004type\030\002" +
@@ -7355,7 +7901,7 @@ public final class ProcedureProtos {
       "eTracker\0229\n\004node\030\001 \003(\0132+.hbase.pb.Proced" +
       "ureStoreTracker.TrackerNode\032A\n\013TrackerNo" +
       "de\022\020\n\010start_id\030\001 \002(\004\022\017\n\007updated\030\002 \003(\004\022\017\n" +
-      "\007deleted\030\003 \003(\004\"\235\002\n\021ProcedureWALEntry\022.\n\004",
+      "\007deleted\030\003 \003(\004\"\235\002\n\021ProcedureWALEntry\022.\n\004" +
       "type\030\001 \002(\0162 .hbase.pb.ProcedureWALEntry." +
       "Type\022&\n\tprocedure\030\002 \003(\0132\023.hbase.pb.Proce" +
       "dure\022\017\n\007proc_id\030\003 \001(\004\"\236\001\n\004Type\022\025\n\021PROCED" +
@@ -7365,71 +7911,72 @@ public final class ProcedureProtos {
       "ROCEDURE_WAL_COMPACT\020\006*p\n\016ProcedureState" +
       "\022\020\n\014INITIALIZING\020\001\022\014\n\010RUNNABLE\020\002\022\013\n\007WAIT" +
       "ING\020\003\022\023\n\017WAITING_TIMEOUT\020\004\022\016\n\nROLLEDBACK" +
-      "\020\005\022\014\n\010FINISHED\020\006BE\n*org.apache.hadoop.hb",
+      "\020\005\022\014\n\010FINISHED\020\006BE\n*org.apache.hadoop.hb" +
       "ase.protobuf.generatedB\017ProcedureProtosH" +
       "\001\210\001\001\240\001\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_hbase_pb_Procedure_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_hbase_pb_Procedure_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_hbase_pb_Procedure_descriptor,
-              new java.lang.String[] { "ClassName", "ParentId", "ProcId", "StartTime", "Owner", "State", "StackId", "LastUpdate", "Timeout", "Exception", "Result", "StateData", "NonceGroup", "Nonce", });
-          internal_static_hbase_pb_SequentialProcedureData_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_hbase_pb_SequentialProcedureData_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_hbase_pb_SequentialProcedureData_descriptor,
-              new java.lang.String[] { "Executed", });
-          internal_static_hbase_pb_StateMachineProcedureData_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_hbase_pb_StateMachineProcedureData_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_hbase_pb_StateMachineProcedureData_descriptor,
-              new java.lang.String[] { "State", });
-          internal_static_hbase_pb_ProcedureWALHeader_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_hbase_pb_ProcedureWALHeader_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_hbase_pb_ProcedureWALHeader_descriptor,
-              new java.lang.String[] { "Version", "Type", "LogId", "MinProcId", });
-          internal_static_hbase_pb_ProcedureWALTrailer_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-          internal_static_hbase_pb_ProcedureWALTrailer_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_hbase_pb_ProcedureWALTrailer_descriptor,
-              new java.lang.String[] { "Version", "TrackerPos", });
-          internal_static_hbase_pb_ProcedureStoreTracker_descriptor =
-            getDescriptor().getMessageTypes().get(5);
-          internal_static_hbase_pb_ProcedureStoreTracker_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_hbase_pb_ProcedureStoreTracker_descriptor,
-              new java.lang.String[] { "Node", });
-          internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_descriptor =
-            internal_static_hbase_pb_ProcedureStoreTracker_descriptor.getNestedTypes().get(0);
-          internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_descriptor,
-              new java.lang.String[] { "StartId", "Updated", "Deleted", });
-          internal_static_hbase_pb_ProcedureWALEntry_descriptor =
-            getDescriptor().getMessageTypes().get(6);
-          internal_static_hbase_pb_ProcedureWALEntry_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_hbase_pb_ProcedureWALEntry_descriptor,
-              new java.lang.String[] { "Type", "Procedure", "ProcId", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.getDescriptor(),
         }, assigner);
+    internal_static_hbase_pb_Procedure_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_hbase_pb_Procedure_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hbase_pb_Procedure_descriptor,
+        new java.lang.String[] { "ClassName", "ParentId", "ProcId", "StartTime", "Owner", "State", "StackId", "LastUpdate", "Timeout", "Exception", "Result", "StateData", "NonceGroup", "Nonce", });
+    internal_static_hbase_pb_SequentialProcedureData_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_hbase_pb_SequentialProcedureData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hbase_pb_SequentialProcedureData_descriptor,
+        new java.lang.String[] { "Executed", });
+    internal_static_hbase_pb_StateMachineProcedureData_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_hbase_pb_StateMachineProcedureData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hbase_pb_StateMachineProcedureData_descriptor,
+        new java.lang.String[] { "State", });
+    internal_static_hbase_pb_ProcedureWALHeader_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_hbase_pb_ProcedureWALHeader_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hbase_pb_ProcedureWALHeader_descriptor,
+        new java.lang.String[] { "Version", "Type", "LogId", "MinProcId", });
+    internal_static_hbase_pb_ProcedureWALTrailer_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_hbase_pb_ProcedureWALTrailer_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hbase_pb_ProcedureWALTrailer_descriptor,
+        new java.lang.String[] { "Version", "TrackerPos", });
+    internal_static_hbase_pb_ProcedureStoreTracker_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_hbase_pb_ProcedureStoreTracker_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hbase_pb_ProcedureStoreTracker_descriptor,
+        new java.lang.String[] { "Node", });
+    internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_descriptor =
+      internal_static_hbase_pb_ProcedureStoreTracker_descriptor.getNestedTypes().get(0);
+    internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hbase_pb_ProcedureStoreTracker_TrackerNode_descriptor,
+        new java.lang.String[] { "StartId", "Updated", "Deleted", });
+    internal_static_hbase_pb_ProcedureWALEntry_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_hbase_pb_ProcedureWALEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hbase_pb_ProcedureWALEntry_descriptor,
+        new java.lang.String[] { "Type", "Procedure", "ProcId", });
+    org.apache.hadoop.hbase.protobuf.generated.ErrorHandlingProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
