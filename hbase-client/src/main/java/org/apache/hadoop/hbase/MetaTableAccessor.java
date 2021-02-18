@@ -158,6 +158,8 @@ public class MetaTableAccessor {
 
   private static final byte SEPARATED_BYTE = 0x00;
 
+  private static Boolean isVersion1 = null;
+
   @InterfaceAudience.Private
   public enum QueryType {
     ALL(HConstants.TABLE_FAMILY, HConstants.CATALOG_FAMILY),
@@ -1109,13 +1111,24 @@ public class MetaTableAccessor {
   @Nullable
   public static TableState getTableState(Connection conn, TableName tableName)
       throws IOException {
-    if (tableName.equals(TableName.META_TABLE_NAME)) {
+    if (tableName.equals(TableName.META_TABLE_NAME) || isVersion1(conn, null)) {
       return new TableState(tableName, TableState.State.ENABLED);
     }
     Table metaHTable = getMetaHTable(conn);
     Get get = new Get(tableName.getName()).addColumn(getTableFamily(), getTableStateColumn());
     Result result = metaHTable.get(get);
     return getTableState(result);
+  }
+
+  public static boolean isVersion1(Connection conn, Configuration conf) throws IOException {
+    if (isVersion1 == null) {
+      if (conn == null) {
+        conn = ConnectionFactory.createConnection(conf);
+      }
+      ClusterMetrics clusterMetrics = conn.getAdmin().getClusterMetrics();
+      isVersion1 = Boolean.valueOf(clusterMetrics.getHBaseVersion().startsWith("1."));
+    }
+    return isVersion1.booleanValue();
   }
 
   /**

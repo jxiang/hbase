@@ -37,6 +37,7 @@ import org.apache.hadoop.hbase.MetaTableAccessor.QueryType;
 import org.apache.hadoop.hbase.MetaTableAccessor.Visitor;
 import org.apache.hadoop.hbase.client.AdvancedScanResultConsumer;
 import org.apache.hadoop.hbase.client.AsyncTable;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.Consistency;
 import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.RegionInfo;
@@ -85,7 +86,15 @@ public class AsyncMetaTableAccessor {
       get.setTimeRange(0, time);
       addListener(metaTable.get(get), (result, error) -> {
         if (error != null) {
-          future.completeExceptionally(error);
+          try {
+            if (MetaTableAccessor.isVersion1(null, metaTable.getConfiguration())) {
+              future.complete(Optional.of(new TableState(tableName, TableState.State.ENABLED)));
+            } else {
+              future.completeExceptionally(error);
+            }
+          } catch (IOException e) {
+            future.completeExceptionally(e);
+          }
           return;
         }
         try {
