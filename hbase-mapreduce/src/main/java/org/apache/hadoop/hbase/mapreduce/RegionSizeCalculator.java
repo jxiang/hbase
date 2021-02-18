@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.ClusterMetrics;
 import org.apache.hadoop.hbase.HRegionLocation;
 import org.apache.hadoop.hbase.RegionMetrics;
 import org.apache.hadoop.hbase.ServerName;
@@ -70,6 +71,12 @@ public class RegionSizeCalculator {
 
     if (regionLocator.getName().isSystemTable()) {
       LOG.info("Region size calculation disabled for system tables.");
+      return;
+    }
+
+    ClusterMetrics clusterMetrics = admin.getClusterMetrics();
+    if (clusterMetrics.getHBaseVersion().startsWith("1.")) {
+      LOG.info("Region size calculation disabled for 1.x.");
       return;
     }
 

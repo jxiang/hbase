@@ -90,6 +90,7 @@
     <module>hbase-metrics</module>
     <module>hbase-zookeeper</module>
     <module>hbase-hbtop</module>
+    <module>hbase-spark</module>
   </modules>
   <scm>
     <connection>scm:git:git://gitbox.apache.org/repos/asf/hbase.git</connection>
@@ -1628,6 +1629,11 @@
         <version>${project.version}</version>
         <type>test-jar</type>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <artifactId>hbase-spark</artifactId>
+        <groupId>org.apache.hbase</groupId>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <artifactId>hbase-mapreduce</artifactId>
